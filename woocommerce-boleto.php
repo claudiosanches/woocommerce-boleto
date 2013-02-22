@@ -191,8 +191,10 @@ function wcboleto_gateway_load() {
          * @return void
          */
         function thankyou_page() {
-            if ( $description = $this->get_description() )
+            if ( $description = $this->get_description() ) {
+                // TODO: MENSAGEM DE IMPRIMIR O BOLETO AQUI!
                 echo wpautop( wptexturize( $description ) );
+            }
         }
 
 
