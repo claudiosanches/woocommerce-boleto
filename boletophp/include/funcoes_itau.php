@@ -26,7 +26,7 @@
 // | Desenvolvimento Boleto Ita?: Glauber Portella		                  |
 // +----------------------------------------------------------------------+
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+// if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 $codigobanco = "341";
 $codigo_banco_com_dv = geraCodigoBanco($codigobanco);

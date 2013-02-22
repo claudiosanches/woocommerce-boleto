@@ -69,10 +69,10 @@ function wcboleto_gateway_load() {
         public function __construct() {
             global $woocommerce;
 
-            $this->id                  = 'boleto';
-            $this->icon                = plugins_url( 'images/boleto.png', __FILE__ );
-            $this->has_fields          = false;
-            $this->method_title        = __( 'Boleto', 'wcboleto' );
+            $this->id           = 'boleto';
+            $this->icon         = plugins_url( 'images/boleto.png', __FILE__ );
+            $this->has_fields   = false;
+            $this->method_title = __( 'Boleto', 'wcboleto' );
 
             // Load the form fields.
             $this->init_form_fields();
@@ -80,9 +80,13 @@ function wcboleto_gateway_load() {
             // Load the settings.
             $this->init_settings();
 
-            // Define user setting variables.
-            $this->title          = $this->settings['title'];
-            $this->description    = $this->settings['description'];
+            // Define user settings variables.
+            $this->title         = $this->settings['title'];
+            $this->description   = $this->settings['description'];
+            $this->bank          = $this->settings['bank'];
+            $this->agency        = $this->settings['agency'];
+            $this->account       = $this->settings['account'];
+            $this->account_digit = $this->settings['account_digit'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -153,7 +157,35 @@ function wcboleto_gateway_load() {
                     'type' => 'textarea',
                     'description' => __( 'This controls the description which the user sees during checkout.', 'wcboleto' ),
                     'default' => __( 'Pay with Boleto', 'wcboleto' )
-                )
+                ),
+                'details' => array(
+                    'title' => __( 'Boleto Details', 'wcboleto' ),
+                    'type' => 'title'
+                ),
+                'bank' => array(
+                    'title' => __( 'Bank', 'wcboleto' ),
+                    'type' => 'select',
+                    'description' => __( 'Choose the bank for Boleto.', 'wcboleto' ),
+                    'default' => __( 'Pay with Boleto', 'wcboleto' ),
+                    'options' => array(
+                        'itau' => __( 'Itau', 'wcboleto' ),
+                    )
+                ),
+                'agency' => array(
+                    'title' => __( 'Agency', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Agency number.', 'wcboleto' ),
+                ),
+                'account' => array(
+                    'title' => __( 'Account', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Account number.', 'wcboleto' ),
+                ),
+                'account_digit' => array(
+                    'title' => __( 'Account Digit', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Account Digit.', 'wcboleto' ),
+                ),
             );
         }
 

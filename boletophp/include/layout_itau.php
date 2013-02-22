@@ -26,7 +26,7 @@
 // | Desenvolvimento Boleto Ita?: Glauber Portella		                    |
 // +----------------------------------------------------------------------+
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
+// if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 ?>
 
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
