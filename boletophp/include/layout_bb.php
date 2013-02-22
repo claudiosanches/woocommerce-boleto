@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - Vers?o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo est? dispon?vel sob a Licen?a GPL dispon?vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | Voc? deve ter recebido uma c?pia da GNU Public License junto com     |
+// | esse pacote; se n?o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,18 +13,20 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colabora??es de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// | PHPBoleto de Jo?o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +---------------------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>              |
+// | Equipe Coordena??o Projeto BoletoPhp: <boletophp@boletophp.com.br>              |
 // | Desenvolvimento Boleto Banco do Brasil: Daniel William Schultz / Leandro Maniezo|
 // +---------------------------------------------------------------------------------+
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -32,8 +34,8 @@
 <head>
 <title><?php echo $dadosboleto["identificacao"]; ?></title>
 <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
-	
+<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licen?a GPL" />
+
 <style type="text/css">
 <!--
 .ti {font: 9px Arial, Helvetica, sans-serif}
@@ -150,7 +152,7 @@ table.header {
 	margin-top: 20px;
 	margin-bottom: 10px;
 	border-bottom: 2px navy solid;
-	
+
 }
 
 
@@ -170,7 +172,7 @@ table.header div.field_cod_banco {
 table.header td.linha_digitavel {
 	width: 464px;
 	text-align: right;
-	font: bold 15px Arial; 
+	font: bold 15px Arial;
 	color: navy
 }
 
@@ -501,37 +503,37 @@ div.barcode {
 
 	<div id="">
 <!--
-  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruções
+  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instru??es
   <div id="instructions">
  -->
-		
+
 		<div id="instr_content">
 			<p>
-				O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado 
+				O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado
 				nos terminais de Auto-Atendimento BB.
 			</p>
-			
+
 			<h2>Instru&ccedil;&otilde;es</h2>
 			<ol>
 			<li>
-				Imprima em impressora jato de tinta (ink jet) ou laser, em 
-				qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico. 
+				Imprima em impressora jato de tinta (ink jet) ou laser, em
+				qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico.
 				<p class="notice">Por favor, configure margens esquerda e direita
 				para 17mm.</p>
 			</li>
 			<li>
 				Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens
-				m&iacute;nimas &agrave; esquerda e &agrave; direita do 
+				m&iacute;nimas &agrave; esquerda e &agrave; direita do
 				formul&aacute;rio.
 			</li>
 			<li>
-				Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre 
+				Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre
 				a regi&atilde;o onde se encontra o c&oacute;digo de barras
 			</li>
 			</ol>
 		</div>	<!-- id="instr_content" -->
 	</div>	<!-- id="instructions" -->
-	
+
 	<div id="boleto">
 		<div class="cut">
 			<p>Corte na linha pontilhada</p>
@@ -608,7 +610,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 		</tbody>
 		</table>
 
-      
+
 		<table class="line" cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr class="titulos">
@@ -619,13 +621,13 @@ do Sacado</b></div></TD></tr></tbody></table>
 		</tr>
 		</tbody>
 		</table>
-		
+
 		<div class="footer">
 			<p>Autentica&ccedil;&atilde;o mec&acirc;nica</p>
 		</div>
 
-		
-		
+
+
 		<div class="cut">
 			<p>Corte na linha pontilhada</p>
 		</div>
@@ -655,7 +657,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 		</tr>
 		</tbody>
 		</table>
-		
+
 		<table class="line" cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr class="titulos">
@@ -695,7 +697,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 		<tr class="titulos">
 			<td class="reservado">Uso do  banco</td>
 			<td class="carteira">Carteira</td>
-			<td class="especie2">Espécie</td>
+			<td class="especie2">Esp?cie</td>
 			<td class="qtd2">Quantidade</td>
 			<td class="xvalor">x Valor</td>
 			<td class="valor_doc2">(=) Valor documento</td>
@@ -710,8 +712,8 @@ do Sacado</b></div></TD></tr></tbody></table>
 		</tr>
 		</tbody>
 		</table>
-		
-		
+
+
 		<table class="line" cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr><td class="last_line" rowspan="6">
@@ -724,7 +726,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 			</tr>
 			<tr class="campos">
 				<td class="instrucoes" rowspan="5">
-					<p><?php echo $dadosboleto["demonstrativo1"]; ?></p>		
+					<p><?php echo $dadosboleto["demonstrativo1"]; ?></p>
 					<p><?php echo $dadosboleto["demonstrativo2"]; ?></p>
 					<p><?php echo $dadosboleto["demonstrativo3"]; ?></p>
 					<p><?php echo $dadosboleto["instrucoes1"]; ?></p>
@@ -736,7 +738,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 			</tbody>
 			</table>
 		</td></tr>
-		
+
 		<tr><td>
 			<table class="line" cellspacing="0" cellpadding="0">
 			<tbody>
@@ -749,7 +751,7 @@ do Sacado</b></div></TD></tr></tbody></table>
 			</tbody>
 			</table>
 		</td></tr>
-		
+
 		<tr><td>
 			<table class="line" cellspacing="0" cellpadding="0">
 			<tbody>
@@ -803,8 +805,8 @@ do Sacado</b></div></TD></tr></tbody></table>
 		</td></tr>
 		</tbody>
 		</table>
-		
-		
+
+
 		<table class="line" cellspacing="0" cellPadding="0">
 		<tbody>
 		<tr class="titulos">
@@ -818,8 +820,8 @@ do Sacado</b></div></TD></tr></tbody></table>
 			</td>
 		</tr>
 		</tbody>
-		</table>		
-		
+		</table>
+
 		<table class="line" cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr class="titulos">
@@ -830,8 +832,8 @@ do Sacado</b></div></TD></tr></tbody></table>
 			<td class="cod_baixa">C&oacute;d. baixa</td>
 		</tr>
 		</tbody>
-		</table>		
-    <table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD width=666 align=right ><font style="font-size: 10px;">Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensação</font></TD></tr></tbody></table>
+		</table>
+    <table cellspacing=0 cellpadding=0 width=666 border=0><TBODY><TR><TD width=666 align=right ><font style="font-size: 10px;">Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa??o</font></TD></tr></tbody></table>
 		<div class="barcode">
 			<p><?php fbarcode($dadosboleto["codigo_barras"]); ?></p>
 		</div>
