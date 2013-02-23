@@ -304,8 +304,8 @@ function wcboleto_gateway_load() {
 
                 // Client data.
                 $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
-                $data['endereco1'] = isset( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
-                $data['endereco2'] = $order->billing_city . ' - ' . $order->billing_state . ' - CEP: ' . $order->billing_postcode;
+                $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
+                $data['endereco2'] = sprintf( __( '%s - %s - CEP: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
 
                 // Client info.
                 $data['demonstrativo1'] = sprintf( __( 'Pagamento de Compra em %s', 'wcboleto' ), $shop_name );
@@ -330,6 +330,8 @@ function wcboleto_gateway_load() {
                 $data['cedente']       = $this->shop_corporate_name;
 
                 update_post_meta( $order->id, 'wc_boleto_data', $data );
+
+                echo '<pre>' . print_r( $data, true ) . '</pre>';
             }
         }
 
