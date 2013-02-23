@@ -88,6 +88,7 @@ function wcboleto_gateway_load() {
             $this->bank                = $this->get_option( 'bank' );
             $this->bank_agency         = $this->get_option( 'bank_agency' );
             $this->bank_account        = $this->get_option( 'bank_account' );
+            $this->bank_account_digit  = $this->get_option( 'bank_account_digit' );
             $this->bank_wallet_code    = $this->get_option( 'bank_wallet_code' );
             $this->shop_cpf_cnpj       = $this->get_option( 'shop_cpf_cnpj' );
             $this->shop_address        = $this->get_option( 'shop_address' );
@@ -272,10 +273,63 @@ function wcboleto_gateway_load() {
          * @access public
          * @return void
          */
-        function thankyou_page() {
-            if ( $description = $this->get_description() ) {
-                // TODO: MENSAGEM DE IMPRIMIR O BOLETO AQUI!
-                echo wpautop( wptexturize( $description ) );
+        public function thankyou_page() {
+            if ( $this->get_description() ) {
+
+                // Generates boleto data.
+                $this->generate_boleto_data( $_GET['order'] );
+
+                // echo wpautop( wptexturize( $this->get_description() ) );
+
+                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'key', $_GET['key'], get_permalink( woocommerce_get_page_id( 'thanks' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+            }
+        }
+
+        public function generate_boleto_data( $order_id ) {
+            $id = (int) $order_id;
+            $order = new WC_Order( $id );
+
+            if ( $order->id ) {
+
+                $shop_name = get_bloginfo( 'name' );
+                $rate = str_replace( ',', '.', $this->boleto_rate );
+
+                // Boleto data.
+                $data['nosso_numero']       = $order->id; // max 8 digits
+                $data['numero_documento']   = $order->id;
+                $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
+                $data['data_documento']     = date( 'd/m/Y' );
+                $data['data_processamento'] = date( 'd/m/Y' );
+                $data['valor_boleto']       = number_format( $order->order_total + $rate, 2, ',', '' );
+
+                // Client data.
+                $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
+                $data['endereco1'] = isset( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
+                $data['endereco2'] = $order->billing_city . ' - ' . $order->billing_state . ' - CEP: ' . $order->billing_postcode;
+
+                // Client info.
+                $data['demonstrativo1'] = sprintf( __( 'Pagamento de Compra em %s', 'wcboleto' ), $shop_name );
+                $data['demonstrativo2'] = sprintf( __( 'Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s', 'wcboleto' ), $order->id, '<br />', number_format( $rate, 2, ',', '' ) );
+                $data['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
+                $data['instrucoes1']    = __( '- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento', 'wcboleto' );
+                $data['instrucoes2']    = __( '- Receber at&eacute; 10 dias ap&oacute;s o vencimento', 'wcboleto' );
+                $data['instrucoes3']    = sprintf( __( '- Em caso de d&uacute;vidas entre em contato conosco: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
+                $data['instrucoes4']    = '';
+
+                // Bank data.
+                $data['agencia']  = $this->bank_agency;
+                $data['conta']    = $this->bank_account;
+                $data['conta_dv'] = $this->bank_account_digit;
+                $data['carteira'] = $this->bank_wallet_code;
+
+                // Shop data.
+                $data['identificacao'] = $shop_name;
+                $data['cpf_cnpj']      = $this->shop_cpf_cnpj;
+                $data['endereco']      = $this->shop_address;
+                $data['cidade_uf']     = $this->shop_city_state;
+                $data['cedente']       = $this->shop_corporate_name;
+
+                update_post_meta( $order->id, 'wc_boleto_data', $data );
             }
         }
 
