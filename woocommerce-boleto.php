@@ -337,7 +337,6 @@ function wcboleto_gateway_load() {
 
             if ( $order->id ) {
 
-                $shop_name = get_bloginfo( 'name' );
                 $rate = str_replace( ',', '.', $this->boleto_rate );
 
                 // Boleto data.
@@ -352,28 +351,6 @@ function wcboleto_gateway_load() {
                 $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
                 $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
                 $data['endereco2'] = sprintf( __( '%s - %s - CEP: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
-
-                // Client info.
-                $data['demonstrativo1'] = sprintf( __( 'Pagamento de Compra em %s', 'wcboleto' ), $shop_name );
-                $data['demonstrativo2'] = sprintf( __( 'Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s', 'wcboleto' ), $order->id, '<br />', number_format( $rate, 2, ',', '' ) );
-                $data['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
-                $data['instrucoes1']    = __( '- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento', 'wcboleto' );
-                $data['instrucoes2']    = __( '- Receber at&eacute; 10 dias ap&oacute;s o vencimento', 'wcboleto' );
-                $data['instrucoes3']    = sprintf( __( '- Em caso de d&uacute;vidas entre em contato conosco: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
-                $data['instrucoes4']    = '';
-
-                // Bank data.
-                $data['agencia']  = $this->bank_agency;
-                $data['conta']    = $this->bank_account;
-                $data['conta_dv'] = $this->bank_account_digit;
-                $data['carteira'] = $this->bank_wallet_code;
-
-                // Shop data.
-                $data['identificacao'] = $shop_name;
-                $data['cpf_cnpj']      = $this->shop_cpf_cnpj;
-                $data['endereco']      = $this->shop_address;
-                $data['cidade_uf']     = $this->shop_city_state;
-                $data['cedente']       = $this->shop_corporate_name;
 
                 update_post_meta( $order->id, 'wc_boleto_data', $data );
             }

@@ -22,12 +22,36 @@ if ( isset( $_GET['ref'] ) ) {
         // Gets current bank.
         $settings = get_option( 'woocommerce_boleto_settings' );
         $bank = sanitize_text_field( $settings['bank'] );
+        $shop_name = get_bloginfo( 'name' );
+        $rate = str_replace( ',', '.', $settings['boleto_rate'] );
 
         // Sets the boleto data.
         $dadosboleto = array();
         foreach ( $order_data as $key => $value ) {
             $dadosboleto[ $key ] = $value;
         }
+
+        // Client info.
+        $dadosboleto['demonstrativo1'] = sprintf( __( 'Pagamento de Compra em %s', 'wcboleto' ), $shop_name );
+        $dadosboleto['demonstrativo2'] = sprintf( __( 'Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s', 'wcboleto' ), $dadosboleto['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
+        $dadosboleto['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
+        $dadosboleto['instrucoes1']    = __( '- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento', 'wcboleto' );
+        $dadosboleto['instrucoes2']    = __( '- Receber at&eacute; 10 dias ap&oacute;s o vencimento', 'wcboleto' );
+        $dadosboleto['instrucoes3']    = sprintf( __( '- Em caso de d&uacute;vidas entre em contato conosco: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
+        $dadosboleto['instrucoes4']    = '';
+
+        // Bank data.
+        $dadosboleto['agencia']        = $settings['bank_agency'];
+        $dadosboleto['conta']          = $settings['bank_account'];
+        $dadosboleto['conta_dv']       = $settings['bank_account_digit'];
+        $dadosboleto['carteira']       = $settings['bank_wallet_code'];
+
+        // Shop data.
+        $dadosboleto['identificacao']  = $shop_name;
+        $dadosboleto['cpf_cnpj']       = $settings['shop_cpf_cnpj'];
+        $dadosboleto['endereco']       = $settings['shop_address'];
+        $dadosboleto['cidade_uf']      = $settings['shop_city_state'];
+        $dadosboleto['cedente']        = $settings['shop_corporate_name'];
 
         // Extra fields.
         $dadosboleto['quantidade']     = '';
