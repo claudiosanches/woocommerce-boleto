@@ -81,14 +81,17 @@ function wcboleto_gateway_load() {
             $this->init_settings();
 
             // Define user settings variables.
-            $this->title              = $this->settings['title'];
-            $this->description        = $this->settings['description'];
-            $this->boleto_time        = $this->settings['boleto_time'];
-            $this->boleto_rate        = $this->settings['boleto_rate'];
-            $this->bank               = $this->settings['bank'];
-            $this->bank_agency        = $this->settings['bank_agency'];
-            $this->bank_account       = $this->settings['bank_account'];
-            $this->bank_account_digit = $this->settings['bank_account_digit'];
+            $this->title                = $this->settings['title'];
+            $this->description          = $this->settings['description'];
+            $this->boleto_time          = $this->settings['boleto_time'];
+            $this->boleto_rate          = $this->settings['boleto_rate'];
+            $this->bank                 = $this->settings['bank'];
+            $this->bank_agency          = $this->settings['bank_agency'];
+            $this->bank_account         = $this->settings['bank_account'];
+            $this->shop_cpf_cnpj       = $this->settings['shop_cpf_cnpj'];
+            $this->shop_address        = $this->settings['shop_address'];
+            $this->shop_city_state     = $this->settings['shop_city_state'];
+            $this->shop_corporate_name = $this->settings['shop_corporate_name'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -203,6 +206,29 @@ function wcboleto_gateway_load() {
                     'title' => __( 'Account Digit', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account Digit.', 'wcboleto' ),
+                ),
+                'shop_details' => array(
+                    'title' => __( 'Shop Details', 'wcboleto' ),
+                    'type' => 'title'
+                ),
+                'shop_cpf_cnpj' => array(
+                    'title' => __( 'CPF/CNPJ', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Document number.', 'wcboleto' ),
+                ),
+                'shop_address' => array(
+                    'title' => __( 'Address', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Shop Address.', 'wcboleto' ),
+                ),
+                'shop_city_state' => array(
+                    'title' => __( 'City/State', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', 'wcboleto' ),
+                ),
+                'shop_corporate_name' => array(
+                    'title' => __( 'Corporate Name', 'wcboleto' ),
+                    'type' => 'text',
                 ),
             );
         }
