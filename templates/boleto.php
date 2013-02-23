@@ -19,6 +19,10 @@ if ( isset( $_GET['ref'] ) ) {
         // Gets the data saved from boleto.
         $order_data = get_post_meta( $order_info->post_id, 'wc_boleto_data', true );
 
+        // Gets current bank.
+        $settings = get_option( 'woocommerce_boleto_settings' );
+        $bank = sanitize_text_field( $settings['bank'] );
+
         // Sets the boleto data.
         $dadosboleto = array();
         foreach ( $order_data as $key => $value ) {
@@ -33,8 +37,8 @@ if ( isset( $_GET['ref'] ) ) {
         $dadosboleto['especie_doc']    = '';
 
         // Include bank templates.
-        include WC_BOLETO_PATH . 'banks/itau/functions.php';
-        include WC_BOLETO_PATH . 'banks/itau/layout.php';
+        include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
+        include WC_BOLETO_PATH . 'banks/' . $bank . '/layout.php';
 
         exit;
     }
