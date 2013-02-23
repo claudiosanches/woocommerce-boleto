@@ -11,6 +11,43 @@
  * Domain Path: /languages/
  */
 
+define( 'WC_BOLETO_PATH', plugin_dir_path( __FILE__ ) );
+
+/**
+ * Create Payment Process page.
+ */
+function wcboleto_create_page() {
+    if ( ! get_page_by_path( 'boleto' ) ) {
+
+        $page = array(
+            'post_title'     => __( 'Pay Boleto', 'wcboleto' ),
+            'post_name'      => 'boleto',
+            'post_status'    => 'publish',
+            'post_type'      => 'page',
+            'comment_status' => 'closed',
+            'ping_status'    => 'closed',
+            'post_content'   => '',
+        );
+
+        wp_insert_post( $page );
+    }
+}
+
+register_activation_hook( __FILE__, 'wcboleto_create_page' );
+
+/**
+ * Add custom template page.
+ */
+function wcboleto_add_page_template( $page_template ) {
+    if ( is_page( 'boleto' ) ) {
+        $page_template = WC_BOLETO_PATH . 'templates/boleto.php';
+    }
+
+    return $page_template;
+}
+
+add_filter( 'page_template', 'wcboleto_add_page_template' );
+
 /**
  * WooCommerce fallback notice.
  */
@@ -281,7 +318,7 @@ function wcboleto_gateway_load() {
 
                 // echo wpautop( wptexturize( $this->get_description() ) );
 
-                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'key', $_GET['key'], get_permalink( woocommerce_get_page_id( 'thanks' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( woocommerce_get_page_id( 'thanks' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
             }
         }
 
@@ -330,8 +367,6 @@ function wcboleto_gateway_load() {
                 $data['cedente']       = $this->shop_corporate_name;
 
                 update_post_meta( $order->id, 'wc_boleto_data', $data );
-
-                echo '<pre>' . print_r( $data, true ) . '</pre>';
             }
         }
 
