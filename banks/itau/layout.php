@@ -135,7 +135,7 @@ mec&acirc;nica</td></tr><tr><td  width=7 ></td><td class=cp width=564 >
 <?php echo $dadosboleto["linha_digitavel"]?>
 </span></span></td>
 </tr><tbody><tr><td colspan=5><img height=2 src=<?php echo wcboleto_assets_url(); ?>/images/2.png width=666 border=0></td></tr></tbody></table><table cellspacing=0 cellpadding=0 border=0><tbody><tr><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=ct valign=top width=472 height=13>Local
-de pagamento</td><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Vencimento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=cp valign=top width=472 height=12>Pag?vel
+de pagamento</td><td class=ct valign=top width=7 height=13><img height=13 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=ct valign=top width=180 height=13>Vencimento</td></tr><tr><td class=cp valign=top width=7 height=12><img height=12 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=cp valign=top width=472 height=12>Pag&aacute;vel
 em qualquer Banco at&eacute; o vencimento</td><td class=cp valign=top width=7 height=12><img height=12 src=<?php echo wcboleto_assets_url(); ?>/images/1.png width=1 border=0></td><td class=cp valign=top align=right width=180 height=12>
   <span class="campo">
   <?php echo $dadosboleto["data_vencimento"]?>
