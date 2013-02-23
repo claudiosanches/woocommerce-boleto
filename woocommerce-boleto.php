@@ -81,17 +81,18 @@ function wcboleto_gateway_load() {
             $this->init_settings();
 
             // Define user settings variables.
-            $this->title                = $this->get_option( 'title' );
-            $this->description          = $this->get_option( 'description' );
-            $this->boleto_time          = $this->get_option( 'boleto_time' );
-            $this->boleto_rate          = $this->get_option( 'boleto_rate' );
-            $this->bank                 = $this->get_option( 'bank' );
-            $this->bank_agency          = $this->get_option( 'bank_agency' );
-            $this->bank_account         = $this->get_option( 'bank_account' );
-            $this->shop_cpf_cnpj        = $this->get_option( 'shop_cpf_cnpj' );
-            $this->shop_address         = $this->get_option( 'shop_address' );
-            $this->shop_city_state      = $this->get_option( 'shop_city_state' );
-            $this->shop_corporate_name  = $this->get_option( 'shop_corporate_name' );
+            $this->title               = $this->get_option( 'title' );
+            $this->description         = $this->get_option( 'description' );
+            $this->boleto_time         = $this->get_option( 'boleto_time' );
+            $this->boleto_rate         = $this->get_option( 'boleto_rate' );
+            $this->bank                = $this->get_option( 'bank' );
+            $this->bank_agency         = $this->get_option( 'bank_agency' );
+            $this->bank_account        = $this->get_option( 'bank_account' );
+            $this->bank_wallet_code    = $this->get_option( 'bank_wallet_code' );
+            $this->shop_cpf_cnpj       = $this->get_option( 'shop_cpf_cnpj' );
+            $this->shop_address        = $this->get_option( 'shop_address' );
+            $this->shop_city_state     = $this->get_option( 'shop_city_state' );
+            $this->shop_corporate_name = $this->get_option( 'shop_corporate_name' );
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -206,6 +207,11 @@ function wcboleto_gateway_load() {
                     'title' => __( 'Account Digit', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account Digit.', 'wcboleto' ),
+                ),
+                'bank_wallet_code' => array(
+                    'title' => __( 'Wallet code', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Insert the code.', 'wcboleto' ),
                 ),
                 'shop_details' => array(
                     'title' => __( 'Shop Details', 'wcboleto' ),
