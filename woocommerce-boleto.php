@@ -81,12 +81,14 @@ function wcboleto_gateway_load() {
             $this->init_settings();
 
             // Define user settings variables.
-            $this->title         = $this->settings['title'];
-            $this->description   = $this->settings['description'];
-            $this->bank          = $this->settings['bank'];
-            $this->agency        = $this->settings['agency'];
-            $this->account       = $this->settings['account'];
-            $this->account_digit = $this->settings['account_digit'];
+            $this->title              = $this->settings['title'];
+            $this->description        = $this->settings['description'];
+            $this->boleto_time        = $this->settings['boleto_time'];
+            $this->boleto_rate        = $this->settings['boleto_rate'];
+            $this->bank               = $this->settings['bank'];
+            $this->bank_agency        = $this->settings['bank_agency'];
+            $this->bank_account       = $this->settings['bank_account'];
+            $this->bank_account_digit = $this->settings['bank_account_digit'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -158,8 +160,24 @@ function wcboleto_gateway_load() {
                     'description' => __( 'This controls the description which the user sees during checkout.', 'wcboleto' ),
                     'default' => __( 'Pay with Boleto', 'wcboleto' )
                 ),
-                'details' => array(
+                'boleto_details' => array(
                     'title' => __( 'Boleto Details', 'wcboleto' ),
+                    'type' => 'title'
+                ),
+                'boleto_time' => array(
+                    'title' => __( 'Deadline to pay the Boleto', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Number of days to pay.', 'wcboleto' ),
+                    'default' => __( '5', 'wcboleto' )
+                ),
+                'boleto_rate' => array(
+                    'title' => __( 'Boleto rate', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Number with dot, example <code>2.95</code>.', 'wcboleto' ),
+                    'default' => __( '2.95', 'wcboleto' )
+                ),
+                'bank_details' => array(
+                    'title' => __( 'Bank Details', 'wcboleto' ),
                     'type' => 'title'
                 ),
                 'bank' => array(
@@ -171,17 +189,17 @@ function wcboleto_gateway_load() {
                         'itau' => __( 'Itau', 'wcboleto' ),
                     )
                 ),
-                'agency' => array(
+                'bank_agency' => array(
                     'title' => __( 'Agency', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Agency number.', 'wcboleto' ),
                 ),
-                'account' => array(
+                'bank_account' => array(
                     'title' => __( 'Account', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account number.', 'wcboleto' ),
                 ),
-                'account_digit' => array(
+                'bank_account_digit' => array(
                     'title' => __( 'Account Digit', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account Digit.', 'wcboleto' ),
