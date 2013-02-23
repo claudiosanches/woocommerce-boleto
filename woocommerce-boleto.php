@@ -49,6 +49,15 @@ function wcboleto_add_page_template( $page_template ) {
 add_filter( 'page_template', 'wcboleto_add_page_template' );
 
 /**
+ * Assets URL.
+ *
+ * @return string
+ */
+function wcboleto_assets_url() {
+    return plugin_dir_url( __FILE__ ) . 'assets/';
+}
+
+/**
  * WooCommerce fallback notice.
  */
 function wcboleto_woocommerce_fallback_notice() {
@@ -318,7 +327,7 @@ function wcboleto_gateway_load() {
 
                 // echo wpautop( wptexturize( $this->get_description() ) );
 
-                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( woocommerce_get_page_id( 'thanks' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
             }
         }
 
