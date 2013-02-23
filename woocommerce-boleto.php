@@ -116,7 +116,7 @@ function wcboleto_gateway_load() {
             global $woocommerce;
 
             $this->id           = 'boleto';
-            $this->icon         = plugins_url( 'images/boleto.png', __FILE__ );
+            $this->icon         = plugins_url( 'assets/images/boleto.png', __FILE__ );
             $this->has_fields   = false;
             $this->method_title = __( 'Boleto', 'wcboleto' );
 
