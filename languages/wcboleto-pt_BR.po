@@ -1,0 +1,1201 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Boleto v0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-02-24 16:33:07+0000\n"
+"Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: banks/banespa/layout.php:55
+#: banks/bradesco/layout.php:55
+#: banks/cef/layout.php:55
+#: banks/cef_sinco/layout.php:55
+#: banks/hsbc/layout.php:55
+#: banks/itau/layout.php:55
+#: banks/nossacaixa/layout.php:55
+#: banks/real/layout.php:55
+#: banks/santader/layout.php:55
+#: banks/unibanco/layout.php:55
+#@ wcboleto
+msgid "Instru&ccedil;&otilde;es de Impress&atilde;o"
+msgstr ""
+
+#: banks/banespa/layout.php:63
+#: banks/bradesco/layout.php:63
+#: banks/cef/layout.php:63
+#: banks/cef_sinco/layout.php:63
+#: banks/hsbc/layout.php:63
+#: banks/itau/layout.php:63
+#: banks/nossacaixa/layout.php:63
+#: banks/real/layout.php:63
+#: banks/santader/layout.php:63
+#: banks/unibanco/layout.php:63
+#@ wcboleto
+msgid "Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (N&atilde;o use modo econ&ocirc;mico)."
+msgstr ""
+
+#: banks/banespa/layout.php:65
+#: banks/bb/layout.php:523
+#: banks/bradesco/layout.php:65
+#: banks/cef/layout.php:65
+#: banks/cef_sinco/layout.php:65
+#: banks/hsbc/layout.php:65
+#: banks/itau/layout.php:65
+#: banks/nossacaixa/layout.php:65
+#: banks/real/layout.php:65
+#: banks/santader/layout.php:65
+#: banks/unibanco/layout.php:65
+#@ wcboleto
+msgid "Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio."
+msgstr ""
+
+#: banks/banespa/layout.php:67
+#: banks/bradesco/layout.php:67
+#: banks/cef/layout.php:67
+#: banks/cef_sinco/layout.php:67
+#: banks/hsbc/layout.php:67
+#: banks/itau/layout.php:67
+#: banks/nossacaixa/layout.php:67
+#: banks/real/layout.php:67
+#: banks/santader/layout.php:67
+#: banks/unibanco/layout.php:67
+#@ wcboleto
+msgid "Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras."
+msgstr ""
+
+#: banks/banespa/layout.php:69
+#: banks/bradesco/layout.php:69
+#: banks/cef/layout.php:69
+#: banks/cef_sinco/layout.php:69
+#: banks/hsbc/layout.php:69
+#: banks/itau/layout.php:69
+#: banks/nossacaixa/layout.php:69
+#: banks/real/layout.php:69
+#: banks/santader/layout.php:69
+#: banks/unibanco/layout.php:69
+#@ wcboleto
+msgid "Caso n&atilde;o apare&ccedil;a o c&oacute;digo de barras no final, clique em F5 para atualizar esta tela."
+msgstr ""
+
+#: banks/banespa/layout.php:71
+#: banks/bradesco/layout.php:71
+#: banks/cef/layout.php:71
+#: banks/cef_sinco/layout.php:71
+#: banks/hsbc/layout.php:71
+#: banks/itau/layout.php:71
+#: banks/nossacaixa/layout.php:71
+#: banks/real/layout.php:71
+#: banks/santader/layout.php:71
+#: banks/unibanco/layout.php:71
+#@ wcboleto
+msgid "Caso tenha problemas ao imprimir, copie a seq&uuml;encia num&eacute;rica abaixo e pague no caixa eletr&ocirc;nico ou no internet banking:"
+msgstr ""
+
+#: banks/banespa/layout.php:73
+#: banks/bradesco/layout.php:73
+#: banks/cef/layout.php:73
+#: banks/cef_sinco/layout.php:73
+#: banks/hsbc/layout.php:73
+#: banks/itau/layout.php:73
+#: banks/nossacaixa/layout.php:73
+#: banks/real/layout.php:73
+#: banks/santader/layout.php:73
+#@ wcboleto
+msgid "Linha Digit&aacute;vel:"
+msgstr ""
+
+#: banks/banespa/layout.php:74
+#: banks/bradesco/layout.php:74
+#: banks/cef/layout.php:74
+#: banks/cef_sinco/layout.php:74
+#: banks/hsbc/layout.php:74
+#: banks/itau/layout.php:74
+#: banks/nossacaixa/layout.php:74
+#: banks/real/layout.php:74
+#: banks/santader/layout.php:74
+#: banks/unibanco/layout.php:74
+#@ wcboleto
+msgid "Valor:"
+msgstr ""
+
+#: banks/banespa/layout.php:91
+#: banks/bb/layout.php:541
+#: banks/bradesco/layout.php:91
+#: banks/cef/layout.php:91
+#: banks/cef_sinco/layout.php:91
+#: banks/hsbc/layout.php:91
+#: banks/itau/layout.php:91
+#: banks/nossacaixa/layout.php:91
+#: banks/real/layout.php:91
+#: banks/santader/layout.php:91
+#: banks/unibanco/layout.php:91
+#@ wcboleto
+msgid "Recibo do Sacado"
+msgstr ""
+
+#: banks/banespa/layout.php:152
+#: banks/banespa/layout.php:590
+#: banks/bb/layout.php:568
+#: banks/bb/layout.php:743
+#: banks/bradesco/layout.php:152
+#: banks/bradesco/layout.php:588
+#: banks/cef/layout.php:152
+#: banks/cef/layout.php:588
+#: banks/cef_sinco/layout.php:152
+#: banks/cef_sinco/layout.php:588
+#: banks/hsbc/layout.php:152
+#: banks/hsbc/layout.php:588
+#: banks/itau/layout.php:152
+#: banks/itau/layout.php:588
+#: banks/nossacaixa/layout.php:152
+#: banks/nossacaixa/layout.php:588
+#: banks/real/layout.php:152
+#: banks/real/layout.php:588
+#: banks/santader/layout.php:152
+#: banks/santader/layout.php:595
+#: banks/unibanco/layout.php:152
+#: banks/unibanco/layout.php:588
+#@ wcboleto
+msgid "Cedente"
+msgstr ""
+
+#: banks/banespa/layout.php:158
+#: banks/bradesco/layout.php:158
+#: banks/cef/layout.php:158
+#: banks/cef_sinco/layout.php:158
+#: banks/hsbc/layout.php:158
+#: banks/itau/layout.php:158
+#: banks/nossacaixa/layout.php:158
+#: banks/real/layout.php:158
+#: banks/santader/layout.php:158
+#: banks/unibanco/layout.php:158
+#@ wcboleto
+msgid "Ag&ecirc;ncia/C&oacute;digo do Cedente"
+msgstr ""
+
+#: banks/banespa/layout.php:164
+#: banks/banespa/layout.php:776
+#: banks/bb/layout.php:574
+#: banks/bb/layout.php:813
+#: banks/bradesco/layout.php:164
+#: banks/bradesco/layout.php:772
+#: banks/cef/layout.php:164
+#: banks/cef/layout.php:772
+#: banks/cef_sinco/layout.php:164
+#: banks/cef_sinco/layout.php:772
+#: banks/hsbc/layout.php:164
+#: banks/hsbc/layout.php:772
+#: banks/itau/layout.php:164
+#: banks/itau/layout.php:772
+#: banks/nossacaixa/layout.php:164
+#: banks/nossacaixa/layout.php:772
+#: banks/real/layout.php:164
+#: banks/real/layout.php:772
+#: banks/santader/layout.php:164
+#: banks/santader/layout.php:778
+#: banks/unibanco/layout.php:164
+#: banks/unibanco/layout.php:772
+#@ wcboleto
+msgid "Esp&eacute;cie"
+msgstr ""
+
+#: banks/banespa/layout.php:170
+#: banks/banespa/layout.php:782
+#: banks/bb/layout.php:577
+#: banks/bb/layout.php:816
+#: banks/bradesco/layout.php:170
+#: banks/bradesco/layout.php:778
+#: banks/cef/layout.php:170
+#: banks/cef/layout.php:778
+#: banks/cef_sinco/layout.php:170
+#: banks/cef_sinco/layout.php:778
+#: banks/hsbc/layout.php:170
+#: banks/hsbc/layout.php:778
+#: banks/itau/layout.php:170
+#: banks/itau/layout.php:778
+#: banks/nossacaixa/layout.php:170
+#: banks/nossacaixa/layout.php:778
+#: banks/real/layout.php:170
+#: banks/real/layout.php:778
+#: banks/santader/layout.php:170
+#: banks/santader/layout.php:784
+#: banks/unibanco/layout.php:170
+#: banks/unibanco/layout.php:778
+#@ wcboleto
+msgid "Quantidade"
+msgstr ""
+
+#: banks/banespa/layout.php:176
+#: banks/banespa/layout.php:667
+#: banks/bb/layout.php:580
+#: banks/bb/layout.php:778
+#: banks/bradesco/layout.php:176
+#: banks/bradesco/layout.php:664
+#: banks/cef/layout.php:176
+#: banks/cef/layout.php:664
+#: banks/cef_sinco/layout.php:176
+#: banks/cef_sinco/layout.php:664
+#: banks/hsbc/layout.php:176
+#: banks/hsbc/layout.php:664
+#: banks/itau/layout.php:176
+#: banks/itau/layout.php:664
+#: banks/nossacaixa/layout.php:176
+#: banks/nossacaixa/layout.php:664
+#: banks/real/layout.php:176
+#: banks/real/layout.php:664
+#: banks/santader/layout.php:176
+#: banks/santader/layout.php:675
+#: banks/unibanco/layout.php:176
+#: banks/unibanco/layout.php:664
+#@ wcboleto
+msgid "Nosso n&uacute;mero"
+msgstr ""
+
+#: banks/banespa/layout.php:254
+#: banks/bb/layout.php:606
+#: banks/bradesco/layout.php:252
+#: banks/cef/layout.php:252
+#: banks/cef_sinco/layout.php:252
+#: banks/hsbc/layout.php:252
+#: banks/itau/layout.php:252
+#: banks/nossacaixa/layout.php:252
+#: banks/real/layout.php:252
+#: banks/santader/layout.php:259
+#: banks/unibanco/layout.php:252
+#@ wcboleto
+msgid "N&uacute;mero do documento"
+msgstr ""
+
+#: banks/banespa/layout.php:260
+#: banks/bradesco/layout.php:258
+#: banks/cef/layout.php:258
+#: banks/cef_sinco/layout.php:258
+#: banks/hsbc/layout.php:258
+#: banks/itau/layout.php:258
+#: banks/nossacaixa/layout.php:258
+#: banks/real/layout.php:258
+#: banks/santader/layout.php:265
+#: banks/unibanco/layout.php:258
+#: woocommerce-boleto.php:303
+#@ wcboleto
+msgid "CPF/CNPJ"
+msgstr ""
+
+#: banks/banespa/layout.php:266
+#: banks/banespa/layout.php:550
+#: banks/bb/layout.php:615
+#: banks/bb/layout.php:726
+#: banks/bradesco/layout.php:264
+#: banks/bradesco/layout.php:548
+#: banks/cef/layout.php:264
+#: banks/cef/layout.php:548
+#: banks/cef_sinco/layout.php:264
+#: banks/cef_sinco/layout.php:548
+#: banks/hsbc/layout.php:264
+#: banks/hsbc/layout.php:548
+#: banks/itau/layout.php:264
+#: banks/itau/layout.php:548
+#: banks/nossacaixa/layout.php:264
+#: banks/nossacaixa/layout.php:548
+#: banks/real/layout.php:264
+#: banks/real/layout.php:548
+#: banks/santader/layout.php:271
+#: banks/santader/layout.php:555
+#: banks/unibanco/layout.php:264
+#: banks/unibanco/layout.php:548
+#@ wcboleto
+msgid "Vencimento"
+msgstr ""
+
+#: banks/banespa/layout.php:272
+#: banks/bb/layout.php:618
+#: banks/bradesco/layout.php:270
+#: banks/cef/layout.php:270
+#: banks/cef_sinco/layout.php:270
+#: banks/hsbc/layout.php:270
+#: banks/itau/layout.php:270
+#: banks/nossacaixa/layout.php:270
+#: banks/real/layout.php:270
+#: banks/santader/layout.php:277
+#: banks/unibanco/layout.php:270
+#@ wcboleto
+msgid "Valor documento"
+msgstr ""
+
+#: banks/banespa/layout.php:342
+#: banks/banespa/layout.php:928
+#: banks/bradesco/layout.php:340
+#: banks/bradesco/layout.php:922
+#: banks/cef/layout.php:340
+#: banks/cef/layout.php:922
+#: banks/cef_sinco/layout.php:340
+#: banks/cef_sinco/layout.php:922
+#: banks/hsbc/layout.php:340
+#: banks/hsbc/layout.php:922
+#: banks/itau/layout.php:340
+#: banks/itau/layout.php:922
+#: banks/nossacaixa/layout.php:340
+#: banks/nossacaixa/layout.php:922
+#: banks/real/layout.php:340
+#: banks/real/layout.php:922
+#: banks/santader/layout.php:347
+#: banks/santader/layout.php:923
+#: banks/unibanco/layout.php:340
+#: banks/unibanco/layout.php:922
+#@ wcboleto
+msgid "(-) Desconto / Abatimentos"
+msgstr ""
+
+#: banks/banespa/layout.php:348
+#: banks/banespa/layout.php:979
+#: banks/bb/layout.php:647
+#: banks/bb/layout.php:911
+#: banks/bradesco/layout.php:346
+#: banks/bradesco/layout.php:973
+#: banks/cef/layout.php:346
+#: banks/cef/layout.php:973
+#: banks/cef_sinco/layout.php:346
+#: banks/cef_sinco/layout.php:973
+#: banks/hsbc/layout.php:346
+#: banks/hsbc/layout.php:973
+#: banks/itau/layout.php:346
+#: banks/itau/layout.php:973
+#: banks/nossacaixa/layout.php:346
+#: banks/nossacaixa/layout.php:973
+#: banks/real/layout.php:346
+#: banks/real/layout.php:973
+#: banks/santader/layout.php:353
+#: banks/santader/layout.php:974
+#: banks/unibanco/layout.php:346
+#: banks/unibanco/layout.php:973
+#@ wcboleto
+msgid "(-) Outras dedu&ccedil;&otilde;es"
+msgstr ""
+
+#: banks/banespa/layout.php:354
+#: banks/banespa/layout.php:1030
+#: banks/bb/layout.php:650
+#: banks/bb/layout.php:929
+#: banks/bradesco/layout.php:352
+#: banks/bradesco/layout.php:1024
+#: banks/cef/layout.php:352
+#: banks/cef/layout.php:1024
+#: banks/cef_sinco/layout.php:352
+#: banks/cef_sinco/layout.php:1024
+#: banks/hsbc/layout.php:352
+#: banks/hsbc/layout.php:1024
+#: banks/itau/layout.php:352
+#: banks/itau/layout.php:1024
+#: banks/nossacaixa/layout.php:352
+#: banks/nossacaixa/layout.php:1024
+#: banks/real/layout.php:352
+#: banks/real/layout.php:1024
+#: banks/santader/layout.php:359
+#: banks/santader/layout.php:1025
+#: banks/unibanco/layout.php:352
+#: banks/unibanco/layout.php:1024
+#@ wcboleto
+msgid "(+) Mora / Multa"
+msgstr ""
+
+#: banks/banespa/layout.php:360
+#: banks/banespa/layout.php:1081
+#: banks/bb/layout.php:653
+#: banks/bradesco/layout.php:358
+#: banks/bradesco/layout.php:1075
+#: banks/cef/layout.php:358
+#: banks/cef/layout.php:1075
+#: banks/cef_sinco/layout.php:358
+#: banks/cef_sinco/layout.php:1075
+#: banks/hsbc/layout.php:358
+#: banks/hsbc/layout.php:1075
+#: banks/itau/layout.php:358
+#: banks/itau/layout.php:1075
+#: banks/nossacaixa/layout.php:358
+#: banks/nossacaixa/layout.php:1075
+#: banks/real/layout.php:358
+#: banks/real/layout.php:1075
+#: banks/santader/layout.php:365
+#: banks/santader/layout.php:1076
+#: banks/unibanco/layout.php:358
+#: banks/unibanco/layout.php:1075
+#@ wcboleto
+msgid "(+) Outros acr&eacute;scimos"
+msgstr ""
+
+#: banks/banespa/layout.php:366
+#: banks/banespa/layout.php:1127
+#: banks/bb/layout.php:656
+#: banks/bb/layout.php:965
+#: banks/bradesco/layout.php:364
+#: banks/bradesco/layout.php:1121
+#: banks/cef/layout.php:364
+#: banks/cef/layout.php:1121
+#: banks/cef_sinco/layout.php:364
+#: banks/cef_sinco/layout.php:1121
+#: banks/hsbc/layout.php:364
+#: banks/hsbc/layout.php:1121
+#: banks/itau/layout.php:364
+#: banks/itau/layout.php:1121
+#: banks/nossacaixa/layout.php:364
+#: banks/nossacaixa/layout.php:1121
+#: banks/real/layout.php:364
+#: banks/real/layout.php:1121
+#: banks/santader/layout.php:371
+#: banks/santader/layout.php:1122
+#: banks/unibanco/layout.php:364
+#: banks/unibanco/layout.php:1121
+#@ wcboleto
+msgid "(=) Valor cobrado"
+msgstr ""
+
+#: banks/banespa/layout.php:432
+#: banks/banespa/layout.php:1158
+#: banks/bb/layout.php:682
+#: banks/bb/layout.php:983
+#: banks/bradesco/layout.php:430
+#: banks/bradesco/layout.php:1152
+#: banks/cef/layout.php:430
+#: banks/cef/layout.php:1152
+#: banks/cef_sinco/layout.php:430
+#: banks/cef_sinco/layout.php:1152
+#: banks/hsbc/layout.php:430
+#: banks/hsbc/layout.php:1152
+#: banks/itau/layout.php:430
+#: banks/itau/layout.php:1152
+#: banks/nossacaixa/layout.php:430
+#: banks/nossacaixa/layout.php:1152
+#: banks/real/layout.php:430
+#: banks/real/layout.php:1152
+#: banks/santader/layout.php:437
+#: banks/santader/layout.php:1153
+#: banks/unibanco/layout.php:430
+#: banks/unibanco/layout.php:1152
+#@ wcboleto
+msgid "Sacado"
+msgstr ""
+
+#: banks/banespa/layout.php:458
+#: banks/bradesco/layout.php:456
+#: banks/cef/layout.php:456
+#: banks/cef_sinco/layout.php:456
+#: banks/hsbc/layout.php:456
+#: banks/itau/layout.php:456
+#: banks/nossacaixa/layout.php:456
+#: banks/real/layout.php:456
+#: banks/santader/layout.php:463
+#: banks/unibanco/layout.php:456
+#@ wcboleto
+msgid "Demonstrativo"
+msgstr ""
+
+#: banks/banespa/layout.php:462
+#: banks/banespa/layout.php:1224
+#: banks/bb/layout.php:694
+#: banks/bradesco/layout.php:460
+#: banks/bradesco/layout.php:1218
+#: banks/cef/layout.php:460
+#: banks/cef/layout.php:1218
+#: banks/cef_sinco/layout.php:460
+#: banks/cef_sinco/layout.php:1218
+#: banks/hsbc/layout.php:460
+#: banks/hsbc/layout.php:1218
+#: banks/itau/layout.php:460
+#: banks/itau/layout.php:1218
+#: banks/nossacaixa/layout.php:460
+#: banks/nossacaixa/layout.php:1218
+#: banks/real/layout.php:460
+#: banks/real/layout.php:1218
+#: banks/santader/layout.php:467
+#: banks/santader/layout.php:1219
+#: banks/unibanco/layout.php:460
+#: banks/unibanco/layout.php:1218
+#@ wcboleto
+msgid "Autentica&ccedil;&atilde;o mec&acirc;nica"
+msgstr ""
+
+#: banks/banespa/layout.php:498
+#: banks/banespa/layout.php:1250
+#: banks/bb/layout.php:533
+#: banks/bb/layout.php:699
+#: banks/bb/layout.php:1034
+#: banks/bradesco/layout.php:496
+#: banks/bradesco/layout.php:1244
+#: banks/cef/layout.php:496
+#: banks/cef/layout.php:1244
+#: banks/cef_sinco/layout.php:496
+#: banks/cef_sinco/layout.php:1244
+#: banks/hsbc/layout.php:496
+#: banks/hsbc/layout.php:1244
+#: banks/itau/layout.php:496
+#: banks/itau/layout.php:1244
+#: banks/nossacaixa/layout.php:496
+#: banks/nossacaixa/layout.php:1244
+#: banks/real/layout.php:496
+#: banks/real/layout.php:1244
+#: banks/santader/layout.php:503
+#: banks/santader/layout.php:1245
+#: banks/unibanco/layout.php:496
+#: banks/unibanco/layout.php:1244
+#@ wcboleto
+msgid "Corte na linha pontilhada"
+msgstr ""
+
+#: banks/banespa/layout.php:544
+#: banks/bb/layout.php:723
+#: banks/bradesco/layout.php:542
+#: banks/cef/layout.php:542
+#: banks/cef_sinco/layout.php:542
+#: banks/hsbc/layout.php:542
+#: banks/itau/layout.php:542
+#: banks/nossacaixa/layout.php:542
+#: banks/real/layout.php:542
+#: banks/santader/layout.php:549
+#: banks/unibanco/layout.php:542
+#@ wcboleto
+msgid "Local de pagamento"
+msgstr ""
+
+#: banks/banespa/layout.php:558
+#: banks/bradesco/layout.php:556
+#: banks/cef/layout.php:556
+#: banks/cef_sinco/layout.php:556
+#: banks/hsbc/layout.php:556
+#: banks/itau/layout.php:556
+#: banks/nossacaixa/layout.php:556
+#: banks/real/layout.php:556
+#: banks/santader/layout.php:563
+#: banks/unibanco/layout.php:556
+#@ wcboleto
+msgid "Pag&aacute;vel em qualquer Banco at&eacute; o vencimento"
+msgstr ""
+
+#: banks/banespa/layout.php:596
+#: banks/bb/layout.php:746
+#: banks/bradesco/layout.php:594
+#: banks/cef/layout.php:594
+#: banks/cef_sinco/layout.php:594
+#: banks/hsbc/layout.php:594
+#: banks/itau/layout.php:594
+#: banks/nossacaixa/layout.php:594
+#: banks/real/layout.php:594
+#: banks/unibanco/layout.php:594
+#@ wcboleto
+msgid "Ag&ecirc;ncia/C&oacute;digo cedente"
+msgstr ""
+
+#: banks/banespa/layout.php:637
+#: banks/bb/layout.php:763
+#: banks/bradesco/layout.php:634
+#: banks/cef/layout.php:634
+#: banks/cef_sinco/layout.php:634
+#: banks/hsbc/layout.php:634
+#: banks/itau/layout.php:634
+#: banks/nossacaixa/layout.php:634
+#: banks/real/layout.php:634
+#: banks/santader/layout.php:645
+#: banks/unibanco/layout.php:634
+#@ wcboleto
+msgid "Data do documento"
+msgstr ""
+
+#: banks/banespa/layout.php:643
+#: banks/bradesco/layout.php:640
+#: banks/cef/layout.php:640
+#: banks/cef_sinco/layout.php:640
+#: banks/hsbc/layout.php:640
+#: banks/itau/layout.php:640
+#: banks/nossacaixa/layout.php:640
+#: banks/real/layout.php:640
+#: banks/santader/layout.php:651
+#: banks/unibanco/layout.php:640
+#@ wcboleto
+msgid "N<u>o</u> documento"
+msgstr ""
+
+#: banks/banespa/layout.php:649
+#: banks/bb/layout.php:769
+#: banks/bradesco/layout.php:646
+#: banks/cef/layout.php:646
+#: banks/cef_sinco/layout.php:646
+#: banks/hsbc/layout.php:646
+#: banks/itau/layout.php:646
+#: banks/nossacaixa/layout.php:646
+#: banks/real/layout.php:646
+#: banks/santader/layout.php:657
+#: banks/unibanco/layout.php:646
+#@ wcboleto
+msgid "Esp&eacute;cie doc."
+msgstr ""
+
+#: banks/banespa/layout.php:655
+#: banks/bb/layout.php:772
+#: banks/bradesco/layout.php:652
+#: banks/cef/layout.php:652
+#: banks/cef_sinco/layout.php:652
+#: banks/hsbc/layout.php:652
+#: banks/itau/layout.php:652
+#: banks/nossacaixa/layout.php:652
+#: banks/real/layout.php:652
+#: banks/santader/layout.php:663
+#: banks/unibanco/layout.php:652
+#@ wcboleto
+msgid "Aceite"
+msgstr ""
+
+#: banks/banespa/layout.php:661
+#: banks/bradesco/layout.php:658
+#: banks/cef/layout.php:658
+#: banks/cef_sinco/layout.php:658
+#: banks/hsbc/layout.php:658
+#: banks/itau/layout.php:658
+#: banks/nossacaixa/layout.php:658
+#: banks/real/layout.php:658
+#: banks/santader/layout.php:669
+#: banks/unibanco/layout.php:658
+#@ wcboleto
+msgid "Data processamento"
+msgstr ""
+
+#: banks/banespa/layout.php:764
+#: banks/bb/layout.php:807
+#: banks/bradesco/layout.php:760
+#: banks/cef/layout.php:760
+#: banks/cef_sinco/layout.php:760
+#: banks/hsbc/layout.php:760
+#: banks/itau/layout.php:760
+#: banks/nossacaixa/layout.php:760
+#: banks/real/layout.php:760
+#: banks/unibanco/layout.php:760
+#@ wcboleto
+msgid "Uso do banco"
+msgstr ""
+
+#: banks/banespa/layout.php:770
+#: banks/bb/layout.php:810
+#: banks/bradesco/layout.php:766
+#: banks/cef/layout.php:766
+#: banks/cef_sinco/layout.php:766
+#: banks/hsbc/layout.php:766
+#: banks/itau/layout.php:766
+#: banks/nossacaixa/layout.php:766
+#: banks/real/layout.php:766
+#: banks/santader/layout.php:772
+#: banks/unibanco/layout.php:766
+#@ wcboleto
+msgid "Carteira"
+msgstr ""
+
+#: banks/banespa/layout.php:788
+#: banks/bradesco/layout.php:784
+#: banks/cef/layout.php:784
+#: banks/cef_sinco/layout.php:784
+#: banks/hsbc/layout.php:784
+#: banks/itau/layout.php:784
+#: banks/nossacaixa/layout.php:784
+#: banks/real/layout.php:784
+#: banks/santader/layout.php:790
+#: banks/unibanco/layout.php:784
+#@ wcboleto
+msgid "Valor Documento"
+msgstr ""
+
+#: banks/banespa/layout.php:794
+#: banks/bb/layout.php:822
+#: banks/bradesco/layout.php:790
+#: banks/cef/layout.php:790
+#: banks/cef_sinco/layout.php:790
+#: banks/hsbc/layout.php:790
+#: banks/itau/layout.php:790
+#: banks/nossacaixa/layout.php:790
+#: banks/real/layout.php:790
+#: banks/santader/layout.php:796
+#: banks/unibanco/layout.php:790
+#@ wcboleto
+msgid "(=) Valor documento"
+msgstr ""
+
+#: banks/banespa/layout.php:912
+#: banks/bb/layout.php:855
+#: banks/bradesco/layout.php:906
+#: banks/cef/layout.php:906
+#: banks/cef_sinco/layout.php:906
+#: banks/hsbc/layout.php:906
+#: banks/itau/layout.php:906
+#: banks/nossacaixa/layout.php:906
+#: banks/real/layout.php:906
+#: banks/santader/layout.php:907
+#: banks/unibanco/layout.php:906
+#@ wcboleto
+msgid "Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)"
+msgstr ""
+
+#: banks/banespa/layout.php:1196
+#: banks/bb/layout.php:1013
+#: banks/bradesco/layout.php:1190
+#: banks/cef/layout.php:1190
+#: banks/cef_sinco/layout.php:1190
+#: banks/hsbc/layout.php:1190
+#: banks/itau/layout.php:1190
+#: banks/nossacaixa/layout.php:1190
+#: banks/real/layout.php:1190
+#: banks/santader/layout.php:1191
+#@ wcboleto
+msgid "C&oacute;d. baixa"
+msgstr ""
+
+#: banks/banespa/layout.php:1220
+#: banks/bb/layout.php:1005
+#: banks/bradesco/layout.php:1214
+#: banks/cef/layout.php:1214
+#: banks/cef_sinco/layout.php:1214
+#: banks/hsbc/layout.php:1214
+#: banks/itau/layout.php:1214
+#: banks/nossacaixa/layout.php:1214
+#: banks/real/layout.php:1214
+#: banks/santader/layout.php:1215
+#: banks/unibanco/layout.php:1214
+#@ wcboleto
+msgid "Sacador/Avalista"
+msgstr ""
+
+#: banks/banespa/layout.php:1224
+#: banks/bradesco/layout.php:1218
+#: banks/cef/layout.php:1218
+#: banks/cef_sinco/layout.php:1218
+#: banks/hsbc/layout.php:1218
+#: banks/itau/layout.php:1218
+#: banks/nossacaixa/layout.php:1218
+#: banks/real/layout.php:1218
+#: banks/santader/layout.php:1219
+#: banks/unibanco/layout.php:1218
+#@ wcboleto
+msgid "Ficha de Compensa&ccedil;&atilde;o"
+msgstr ""
+
+#: banks/bb/layout.php:512
+#@ wcboleto
+msgid "O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado nos terminais de Auto-Atendimento BB."
+msgstr ""
+
+#: banks/bb/layout.php:515
+#@ wcboleto
+msgid "Instru&ccedil;&otilde;es"
+msgstr ""
+
+#: banks/bb/layout.php:518
+#@ wcboleto
+msgid "Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico."
+msgstr ""
+
+#: banks/bb/layout.php:520
+#@ wcboleto
+msgid "Por favor, configure margens esquerda e direita para 17mm."
+msgstr ""
+
+#: banks/bb/layout.php:525
+#@ wcboleto
+msgid "Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras"
+msgstr ""
+
+#: banks/bb/layout.php:571
+#@ wcboleto
+msgid "Ag&ecirc;ncia / C&oacute;digo do Cedente"
+msgstr ""
+
+#: banks/bb/layout.php:609
+#@ wcboleto
+msgid "Contrato"
+msgstr ""
+
+#: banks/bb/layout.php:612
+#@ wcboleto
+msgid "CPF/CEI/CNPJ"
+msgstr ""
+
+#: banks/bb/layout.php:644
+#: banks/bb/layout.php:893
+#@ wcboleto
+msgid "(-) Desconto / Abatimento"
+msgstr ""
+
+#: banks/bb/layout.php:731
+#@ wcboleto
+msgid "QUALQUER BANCO AT&Eacute; O VENCIMENTO"
+msgstr ""
+
+#: banks/bb/layout.php:766
+#@ wcboleto
+msgid "No. documento"
+msgstr ""
+
+#: banks/bb/layout.php:775
+#@ wcboleto
+msgid "Data process."
+msgstr ""
+
+#: banks/bb/layout.php:819
+#@ wcboleto
+msgid "x Valor"
+msgstr ""
+
+#: banks/bb/layout.php:947
+#@ wcboleto
+msgid "(+) Outros Acr&eacute;scimos"
+msgstr ""
+
+#: banks/bb/layout.php:1022
+#@ wcboleto
+msgid "Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa&ccedil;&atilde;o"
+msgstr ""
+
+#: templates/boleto.php:36
+#, php-format
+#@ wcboleto
+msgid "Pagamento de Compra em %s"
+msgstr ""
+
+#: templates/boleto.php:37
+#, php-format
+#@ wcboleto
+msgid "Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s"
+msgstr ""
+
+#: templates/boleto.php:39
+#@ wcboleto
+msgid "- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento"
+msgstr ""
+
+#: templates/boleto.php:40
+#@ wcboleto
+msgid "- Receber at&eacute; 10 dias ap&oacute;s o vencimento"
+msgstr ""
+
+#: templates/boleto.php:41
+#, php-format
+#@ wcboleto
+msgid "- Em caso de d&uacute;vidas entre em contato conosco: %s"
+msgstr ""
+
+#. translators: plugin header field 'Name'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "WooCommerce Boleto"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "https://github.com/wpbrasil/woocommerce-boleto"
+msgstr ""
+
+#. translators: plugin header field 'Description'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "WooCommerce Boleto is a brazilian payment gateway for WooCommerce"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "claudiosanches"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "https://github.com/wpbrasil/"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "0.1"
+msgstr ""
+
+#: woocommerce-boleto.php:23
+#@ wcboleto
+msgid "Pay Boleto"
+msgstr "Pagar Boleto"
+
+#: woocommerce-boleto.php:72
+#: woocommerce-boleto.php:364
+#: woocommerce-boleto.php:422
+#@ wcboleto
+msgid "Pagar Boleto &rarr;"
+msgstr ""
+
+#: woocommerce-boleto.php:74
+#, php-format
+#@ wcboleto
+msgid "%sAten&ccedil;&atilde;o!%s At&eacute; o momento n&atilde;o registrado o pagamento do boleto para este produto."
+msgstr ""
+
+#: woocommerce-boleto.php:75
+#@ wcboleto
+msgid "Por favor, clique no bot&atilde;o ao lado e pague o boleto pelo seu Internet Banking."
+msgstr ""
+
+#: woocommerce-boleto.php:76
+#: woocommerce-boleto.php:368
+#: woocommerce-boleto.php:420
+#@ wcboleto
+msgid "Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica."
+msgstr ""
+
+#: woocommerce-boleto.php:77
+#@ wcboleto
+msgid "Ignore esta mensagem caso o pagamento j&aacute; tenha sido realizado."
+msgstr ""
+
+#: woocommerce-boleto.php:92
+#@ wcboleto
+msgid "WooCommerce Boleto Gateway depends on the last version of <a href=\"http://wordpress.org/extend/plugins/woocommerce/\">WooCommerce</a> to work!"
+msgstr "WooCommerce Boleto Gateway depende da última versão do <a href=\"http://wordpress.org/extend/plugins/woocommerce/\">WooCommerce</a> para funcionar!"
+
+#: woocommerce-boleto.php:148
+#: woocommerce-boleto.php:235
+#@ wcboleto
+msgid "Boleto"
+msgstr "Boleto"
+
+#: woocommerce-boleto.php:208
+#@ wcboleto
+msgid "Boleto standard"
+msgstr "Boleto padrão"
+
+#: woocommerce-boleto.php:209
+#@ wcboleto
+msgid "Enables payments via Boleto."
+msgstr "Ativar pagamento via Boleto."
+
+#: woocommerce-boleto.php:226
+#@ wcboleto
+msgid "Enable/Disable"
+msgstr "Ativar/Desativar"
+
+#: woocommerce-boleto.php:228
+#@ wcboleto
+msgid "Enable Boleto standard"
+msgstr "Ativar o padrão Boleto"
+
+#: woocommerce-boleto.php:232
+#@ wcboleto
+msgid "Title"
+msgstr "Título"
+
+#: woocommerce-boleto.php:234
+#@ wcboleto
+msgid "This controls the title which the user sees during checkout."
+msgstr "Isto controla o título que o usuário vê durante o checkout."
+
+#: woocommerce-boleto.php:238
+#@ wcboleto
+msgid "Description"
+msgstr "Descrição"
+
+#: woocommerce-boleto.php:240
+#@ wcboleto
+msgid "This controls the description which the user sees during checkout."
+msgstr "Isto controla a descrição que o usuário vê durante o checkout."
+
+#: woocommerce-boleto.php:241
+#: woocommerce-boleto.php:273
+#@ wcboleto
+msgid "Pay with Boleto"
+msgstr "Pagar com Boleto."
+
+#: woocommerce-boleto.php:244
+#@ wcboleto
+msgid "Boleto Details"
+msgstr "Detalhes do Boleto"
+
+#: woocommerce-boleto.php:248
+#@ wcboleto
+msgid "Deadline to pay the Boleto"
+msgstr "Dias para pagar o Boleto"
+
+#: woocommerce-boleto.php:250
+#@ wcboleto
+msgid "Number of days to pay."
+msgstr "Número de dicas para pagar."
+
+#: woocommerce-boleto.php:251
+#@ wcboleto
+msgid "5"
+msgstr "5"
+
+#: woocommerce-boleto.php:254
+#@ wcboleto
+msgid "Boleto rate"
+msgstr "Taxa do Boleto"
+
+#: woocommerce-boleto.php:256
+#@ wcboleto
+msgid "Number with dot, example <code>2.95</code>."
+msgstr "Número com ponto. Exemplo <code>2.95</code>."
+
+#: woocommerce-boleto.php:257
+#@ wcboleto
+msgid "2.95"
+msgstr "2.95"
+
+#: woocommerce-boleto.php:260
+#@ wcboleto
+msgid "Boleto Logo"
+msgstr "Logo do Boleto"
+
+#: woocommerce-boleto.php:262
+#@ wcboleto
+msgid "Logo with 147px x 46px."
+msgstr "Logo com 147px de largura e 46px de altura."
+
+#: woocommerce-boleto.php:266
+#@ wcboleto
+msgid "Bank Details"
+msgstr "Detalhes do Banco"
+
+#: woocommerce-boleto.php:270
+#@ wcboleto
+msgid "Bank"
+msgstr "Banco"
+
+#: woocommerce-boleto.php:272
+#@ wcboleto
+msgid "Choose the bank for Boleto."
+msgstr "Escolha o banco do Boleto."
+
+#: woocommerce-boleto.php:275
+#@ wcboleto
+msgid "Itau"
+msgstr ""
+
+#: woocommerce-boleto.php:279
+#@ wcboleto
+msgid "Agency"
+msgstr "Agencia"
+
+#: woocommerce-boleto.php:281
+#@ wcboleto
+msgid "Agency number."
+msgstr "Número da agencia."
+
+#: woocommerce-boleto.php:284
+#@ wcboleto
+msgid "Account"
+msgstr "Conta"
+
+#: woocommerce-boleto.php:286
+#@ wcboleto
+msgid "Account number."
+msgstr "Número da conta."
+
+#: woocommerce-boleto.php:289
+#@ wcboleto
+msgid "Account Digit"
+msgstr "Conta digito"
+
+#: woocommerce-boleto.php:291
+#@ wcboleto
+msgid "Account Digit."
+msgstr "Digito da sua conta."
+
+#: woocommerce-boleto.php:294
+#@ wcboleto
+msgid "Wallet code"
+msgstr "Carteira"
+
+#: woocommerce-boleto.php:296
+#@ wcboleto
+msgid "Insert the code."
+msgstr "Insira o código da sua carteira."
+
+#: woocommerce-boleto.php:299
+#@ wcboleto
+msgid "Shop Details"
+msgstr "Detalhes da Loja"
+
+#: woocommerce-boleto.php:305
+#@ wcboleto
+msgid "Document number."
+msgstr "Número do documento."
+
+#: woocommerce-boleto.php:308
+#@ wcboleto
+msgid "Address"
+msgstr "Endereço"
+
+#: woocommerce-boleto.php:310
+#@ wcboleto
+msgid "Shop Address."
+msgstr "Endereço do loja"
+
+#: woocommerce-boleto.php:313
+#@ wcboleto
+msgid "City/State"
+msgstr "Cidade/UF"
+
+#: woocommerce-boleto.php:315
+#@ wcboleto
+msgid "Example <code>S&atilde;o Paulo/SP</code>."
+msgstr "Examplo <code>S&atilde;o Paulo/SP</code>."
+
+#: woocommerce-boleto.php:318
+#@ wcboleto
+msgid "Corporate Name"
+msgstr "Razão Social"
+
+#: woocommerce-boleto.php:336
+#@ wcboleto
+msgid "Awaiting boleto payment"
+msgstr "Aguardando pagamento do Boleto"
+
+#: woocommerce-boleto.php:366
+#: woocommerce-boleto.php:418
+#, php-format
+#@ wcboleto
+msgid "%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios."
+msgstr ""
+
+#: woocommerce-boleto.php:367
+#@ wcboleto
+msgid "Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking."
+msgstr ""
+
+#: woocommerce-boleto.php:370
+#: woocommerce-boleto.php:424
+#, php-format
+#@ wcboleto
+msgid "Validade do boleto: %s."
+msgstr ""
+
+#: woocommerce-boleto.php:392
+#, php-format
+#@ wcboleto
+msgid "%s - %s - CEP: %s"
+msgstr ""
+
+#: woocommerce-boleto.php:414
+#@ wcboleto
+msgid "Pagamento"
+msgstr ""
+
+#: woocommerce-boleto.php:419
+#@ wcboleto
+msgid "Para acess&aacute;-lo, clique no link a baixo e pague no seu Internet Banking."
+msgstr ""
+
