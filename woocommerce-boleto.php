@@ -69,12 +69,12 @@ function wcboleto_pending_payment_message( $order_id ) {
 
     if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
         $html = '<div class="woocommerce-info">';
-        $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+        $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) );
 
-        $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s At&eacute; o momento n&atilde;o registrado o pagamento do boleto para este produto.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
-        $html .= __( 'Por favor, clique no bot&atilde;o ao lado e pague o boleto pelo seu Internet Banking.', 'wcboleto' ) . '<br />';
-        $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
-        $html .= __( 'Ignore esta mensagem caso o pagamento j&aacute; tenha sido realizado.', 'wcboleto' ) . '<br />';
+        $html .= sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+        $html .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'wcboleto' ) . '<br />';
+        $html .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
+        $html .= __( 'Ignore this message if the payment has already been made​​.', 'wcboleto' ) . '<br />';
 
         $html .= '</div>';
 
@@ -248,7 +248,7 @@ function wcboleto_gateway_load() {
                     'title' => __( 'Deadline to pay the Boleto', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Number of days to pay.', 'wcboleto' ),
-                    'default' => __( '5', 'wcboleto' )
+                    'default' => 5
                 ),
                 'boleto_rate' => array(
                     'title' => __( 'Boleto rate', 'wcboleto' ),
@@ -272,7 +272,7 @@ function wcboleto_gateway_load() {
                     'description' => __( 'Choose the bank for Boleto.', 'wcboleto' ),
                     'default' => __( 'Pay with Boleto', 'wcboleto' ),
                     'options' => array(
-                        'itau' => __( 'Itau', 'wcboleto' ),
+                        'itau' => 'Itau',
                     )
                 ),
                 'bank_agency' => array(
@@ -361,13 +361,13 @@ function wcboleto_gateway_load() {
             if ( $this->get_description() ) {
 
                 $html = '<div class="woocommerce-message">';
-                $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+                $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) );
 
-                $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
-                $html .= __( 'Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
-                $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
+                $html .= sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+                $html .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'wcboleto' ) . '<br />';
+                $html .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
 
-                $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validade do boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+                $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
                 $html .= '</div>';
 
@@ -411,17 +411,17 @@ function wcboleto_gateway_load() {
                 return;
             }
 
-            $html = '<h2>' . __( 'Pagamento', 'wcboleto' ) . '</h2>';
+            $html = '<h2>' . __( 'Payment', 'wcboleto' ) . '</h2>';
 
             $html .= '<p class="order_details">';
 
-            $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
-            $html .= __( 'Para acess&aacute;-lo, clique no link a baixo e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
-            $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
+            $html .= sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+            $html .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'wcboleto' ) . '<br />';
+            $html .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
 
-            $html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) ) . '<br />';
+            $html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '<br />';
 
-            $html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validade do boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+            $html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
             $html .= '</p>';
 

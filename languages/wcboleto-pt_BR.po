@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Boleto v0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-02-24 16:33:07+0000\n"
+"PO-Revision-Date: 2013-02-24 16:56:41+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -932,36 +932,6 @@ msgstr ""
 msgid "Pay Boleto"
 msgstr "Pagar Boleto"
 
-#: woocommerce-boleto.php:72
-#: woocommerce-boleto.php:364
-#: woocommerce-boleto.php:422
-#@ wcboleto
-msgid "Pagar Boleto &rarr;"
-msgstr ""
-
-#: woocommerce-boleto.php:74
-#, php-format
-#@ wcboleto
-msgid "%sAten&ccedil;&atilde;o!%s At&eacute; o momento n&atilde;o registrado o pagamento do boleto para este produto."
-msgstr ""
-
-#: woocommerce-boleto.php:75
-#@ wcboleto
-msgid "Por favor, clique no bot&atilde;o ao lado e pague o boleto pelo seu Internet Banking."
-msgstr ""
-
-#: woocommerce-boleto.php:76
-#: woocommerce-boleto.php:368
-#: woocommerce-boleto.php:420
-#@ wcboleto
-msgid "Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica."
-msgstr ""
-
-#: woocommerce-boleto.php:77
-#@ wcboleto
-msgid "Ignore esta mensagem caso o pagamento j&aacute; tenha sido realizado."
-msgstr ""
-
 #: woocommerce-boleto.php:92
 #@ wcboleto
 msgid "WooCommerce Boleto Gateway depends on the last version of <a href=\"http://wordpress.org/extend/plugins/woocommerce/\">WooCommerce</a> to work!"
@@ -1034,11 +1004,6 @@ msgstr "Dias para pagar o Boleto"
 msgid "Number of days to pay."
 msgstr "Número de dicas para pagar."
 
-#: woocommerce-boleto.php:251
-#@ wcboleto
-msgid "5"
-msgstr "5"
-
 #: woocommerce-boleto.php:254
 #@ wcboleto
 msgid "Boleto rate"
@@ -1079,20 +1044,15 @@ msgstr "Banco"
 msgid "Choose the bank for Boleto."
 msgstr "Escolha o banco do Boleto."
 
-#: woocommerce-boleto.php:275
-#@ wcboleto
-msgid "Itau"
-msgstr ""
-
 #: woocommerce-boleto.php:279
 #@ wcboleto
 msgid "Agency"
-msgstr "Agencia"
+msgstr "Agência"
 
 #: woocommerce-boleto.php:281
 #@ wcboleto
 msgid "Agency number."
-msgstr "Número da agencia."
+msgstr "Número da agência."
 
 #: woocommerce-boleto.php:284
 #@ wcboleto
@@ -1164,38 +1124,60 @@ msgstr "Razão Social"
 msgid "Awaiting boleto payment"
 msgstr "Aguardando pagamento do Boleto"
 
-#: woocommerce-boleto.php:366
-#: woocommerce-boleto.php:418
-#, php-format
-#@ wcboleto
-msgid "%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios."
-msgstr ""
-
-#: woocommerce-boleto.php:367
-#@ wcboleto
-msgid "Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking."
-msgstr ""
-
-#: woocommerce-boleto.php:370
-#: woocommerce-boleto.php:424
-#, php-format
-#@ wcboleto
-msgid "Validade do boleto: %s."
-msgstr ""
-
 #: woocommerce-boleto.php:392
 #, php-format
 #@ wcboleto
 msgid "%s - %s - CEP: %s"
 msgstr ""
 
-#: woocommerce-boleto.php:414
+#: woocommerce-boleto.php:72
+#: woocommerce-boleto.php:364
+#: woocommerce-boleto.php:422
 #@ wcboleto
-msgid "Pagamento"
-msgstr ""
+msgid "Pay the Boleto &rarr;"
+msgstr "Pagar Boleto &rarr;"
 
+#: woocommerce-boleto.php:74
+#, php-format
+#@ wcboleto
+msgid "%sAttention!%s Not registered the payment the docket for this product yet."
+msgstr "%sAtenção!%s Até o momento não esta registrado o pagamento do boleto para este produto."
+
+#: woocommerce-boleto.php:75
+#: woocommerce-boleto.php:367
 #: woocommerce-boleto.php:419
 #@ wcboleto
-msgid "Para acess&aacute;-lo, clique no link a baixo e pague no seu Internet Banking."
-msgstr ""
+msgid "Please click the following button and pay the Boleto in your Internet Banking."
+msgstr "Por favor, clique no botão ao lado e pague o boleto pelo seu Internet Banking."
+
+#: woocommerce-boleto.php:76
+#: woocommerce-boleto.php:368
+#: woocommerce-boleto.php:420
+#@ wcboleto
+msgid "If you prefer, print and pay at any bank branch or home lottery."
+msgstr "Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica."
+
+#: woocommerce-boleto.php:77
+#@ wcboleto
+msgid "Ignore this message if the payment has already been made​​."
+msgstr "Ignore esta mensagem caso o pagamento já tenha sido realizado."
+
+#: woocommerce-boleto.php:366
+#: woocommerce-boleto.php:418
+#, php-format
+#@ wcboleto
+msgid "%sAttention!%s You will not get the ticket by Correios."
+msgstr "%sAtenção!%s Você não receberá o boleto pelos Correios."
+
+#: woocommerce-boleto.php:370
+#: woocommerce-boleto.php:424
+#, php-format
+#@ wcboleto
+msgid "Validity of the Boleto: %s."
+msgstr "Boleto valido até: %s."
+
+#: woocommerce-boleto.php:414
+#@ wcboleto
+msgid "Payment"
+msgstr "Pagamento"
 
