@@ -131,6 +131,7 @@ function wcboleto_gateway_load() {
             $this->description         = $this->settings['description'];
             $this->boleto_time         = $this->settings['boleto_time'];
             $this->boleto_rate         = $this->settings['boleto_rate'];
+            $this->boleto_logo         = $this->settings['boleto_logo'];
             $this->bank                = $this->settings['bank'];
             $this->bank_agency         = $this->settings['bank_agency'];
             $this->bank_account        = $this->settings['bank_account'];
@@ -226,6 +227,12 @@ function wcboleto_gateway_load() {
                     'type' => 'text',
                     'description' => __( 'Number with dot, example <code>2.95</code>.', 'wcboleto' ),
                     'default' => __( '2.95', 'wcboleto' )
+                ),
+                'boleto_logo' => array(
+                    'title' => __( 'Boleto Logo', 'wcboleto' ),
+                    'type' => 'text',
+                    'description' => __( 'Logo with 147px x 46px.', 'wcboleto' ),
+                    'default' => plugins_url( 'assets/images/logo_empresa.png', __FILE__ )
                 ),
                 'bank_details' => array(
                     'title' => __( 'Bank Details', 'wcboleto' ),

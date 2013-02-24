@@ -94,7 +94,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
         <table width="666" cellspacing="5" cellpadding="0" border="0" align="default">
             <tr>
                 <td width="41">
-                    <img src="<?php echo wcboleto_assets_url(); ?>images/logo_empresa.png">
+                    <img src="<?php echo $logo; ?>" alt="<?php echo $shop_name; ?>">
                 </td>
                 <td class="ti" width="455">
                     <?php echo $dadosboleto["identificacao"]; ?><?php echo isset($dadosboleto["cpf_cnpj"]) ? "<br>".$dadosboleto["cpf_cnpj"] : '' ?><br>

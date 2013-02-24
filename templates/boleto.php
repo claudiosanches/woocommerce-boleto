@@ -22,6 +22,7 @@ if ( isset( $_GET['ref'] ) ) {
         // Gets current bank.
         $settings = get_option( 'woocommerce_boleto_settings' );
         $bank = sanitize_text_field( $settings['bank'] );
+        $logo = sanitize_text_field( $settings['boleto_logo'] );
         $shop_name = get_bloginfo( 'name' );
         $rate = str_replace( ',', '.', $settings['boleto_rate'] );
 
