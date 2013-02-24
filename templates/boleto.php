@@ -33,12 +33,12 @@ if ( isset( $_GET['ref'] ) ) {
         }
 
         // Client info.
-        $dadosboleto['demonstrativo1'] = sprintf( __( 'Pagamento de Compra em %s', 'wcboleto' ), $shop_name );
-        $dadosboleto['demonstrativo2'] = sprintf( __( 'Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s', 'wcboleto' ), $dadosboleto['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
+        $dadosboleto['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
+        $dadosboleto['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s %sBank Rate - R$ %s', 'wcboleto' ), $dadosboleto['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
         $dadosboleto['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
-        $dadosboleto['instrucoes1']    = __( '- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento', 'wcboleto' );
-        $dadosboleto['instrucoes2']    = __( '- Receber at&eacute; 10 dias ap&oacute;s o vencimento', 'wcboleto' );
-        $dadosboleto['instrucoes3']    = sprintf( __( '- Em caso de d&uacute;vidas entre em contato conosco: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
+        $dadosboleto['instrucoes1']    = __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' );
+        $dadosboleto['instrucoes2']    = __( '- Receive up to 10 days past due', 'wcboleto' );
+        $dadosboleto['instrucoes3']    = sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
         $dadosboleto['instrucoes4']    = '';
 
         // Bank data.

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Boleto v0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-02-24 16:56:41+0000\n"
+"PO-Revision-Date: 2013-02-24 17:07:43+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -863,34 +863,6 @@ msgstr ""
 msgid "Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa&ccedil;&atilde;o"
 msgstr ""
 
-#: templates/boleto.php:36
-#, php-format
-#@ wcboleto
-msgid "Pagamento de Compra em %s"
-msgstr ""
-
-#: templates/boleto.php:37
-#, php-format
-#@ wcboleto
-msgid "Mensalidade referente ao pedido #%s %sTaxa banc&aacute;ria - R$ %s"
-msgstr ""
-
-#: templates/boleto.php:39
-#@ wcboleto
-msgid "- Sr. Caixa, cobrar multa de 2% ap&oacute;s o vencimento"
-msgstr ""
-
-#: templates/boleto.php:40
-#@ wcboleto
-msgid "- Receber at&eacute; 10 dias ap&oacute;s o vencimento"
-msgstr ""
-
-#: templates/boleto.php:41
-#, php-format
-#@ wcboleto
-msgid "- Em caso de d&uacute;vidas entre em contato conosco: %s"
-msgstr ""
-
 #. translators: plugin header field 'Name'
 #: woocommerce-boleto.php:0
 #@ wcboleto
@@ -1180,4 +1152,32 @@ msgstr "Boleto valido até: %s."
 #@ wcboleto
 msgid "Payment"
 msgstr "Pagamento"
+
+#: templates/boleto.php:36
+#, php-format
+#@ wcboleto
+msgid "Payment for purchase in %s"
+msgstr "Pagamento de compra em %s"
+
+#: templates/boleto.php:37
+#, php-format
+#@ wcboleto
+msgid "Payment referred to the order #%s %sBank Rate - R$ %s"
+msgstr "Pagamento referente ao pedido #%s %sTaxa bancária - R$ %s"
+
+#: templates/boleto.php:39
+#@ wcboleto
+msgid "- Mr. Cash, charge a fine of 2% after maturity"
+msgstr "- Sr. Caixa, cobrar multa de 2% após o vencimento"
+
+#: templates/boleto.php:40
+#@ wcboleto
+msgid "- Receive up to 10 days past due"
+msgstr "- Receber até 10 dias após o vencimento"
+
+#: templates/boleto.php:41
+#, php-format
+#@ wcboleto
+msgid "- For questions please contact us: %s"
+msgstr "- Em caso de dúvidas entre em contato conosco: %s"
 
