@@ -144,6 +144,7 @@ function wcboleto_gateway_load() {
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
+            add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
 
             if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '<' ) ) {
                 add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
@@ -329,9 +330,6 @@ function wcboleto_gateway_load() {
         public function thankyou_page() {
             if ( $this->get_description() ) {
 
-                // Generates boleto data.
-                $this->generate_boleto_data( $_GET['order'] );
-
                 $html = '<div class="woocommerce-message">';
                 $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
 
@@ -340,7 +338,7 @@ function wcboleto_gateway_load() {
                 $html .= __( 'Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
                 $html .= __( 'Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica.', 'wcboleto' ) . '<br />';
 
-                $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( 'Validade do boleto: %s.', 'wcboleto', date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+                $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validade do boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
                 $html .= '</div>';
 
@@ -373,6 +371,39 @@ function wcboleto_gateway_load() {
             }
         }
 
+        /**
+         * Add content to the WC emails.
+         */
+        function email_instructions( $order, $sent_to_admin ) {
+
+            if ( $sent_to_admin ) {
+                return;
+            }
+
+            if ( $order->status !== 'on-hold' ) {
+                return;
+            }
+
+            if ( $order->payment_method !== 'boleto' ) {
+                return;
+            }
+
+            $html = '<h2>' . __( 'Pagamento', 'wcboleto' ) . '</h2>';
+
+            $html .= '<p class="order_details">';
+
+            $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+            $html .= __( 'Para acess&aacute;-lo, clique no link a baixo e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
+            $html .= __( 'Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica.', 'wcboleto' ) . '<br />';
+
+            $html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) ) . '<br />';
+
+            $html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validade do boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+
+            $html .= '</p>';
+
+            echo $html;
+        }
 
     } // class WC_Boleto_Gateway.
 } // function wcboleto_gateway_load.
