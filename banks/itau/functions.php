@@ -1,22 +1,30 @@
 <?php
-/**
- * BoletoPhp - Versão Beta.
- *
- * Licença: GPL <http://www.gnu.org/licenses/gpl.txt>.
- *
- * Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel
- * William Schultz e Leandro Maniezo que por sua vez foi derivado do
- * PHPBoleto de João Prado Maia e Pablo Martins F. Costa.
- *
- * Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)
- * Acesse o site do Projeto BoletoPhp: www.boletophp.com.br.
- *
- * Equipe Coordena&ccedil;&atilde;o Projeto BoletoPhp: <boletophp@boletophp.com.br>.
- * Desenvolvimento Boleto Itaú: Glauber Portella.
- *
- * Este documento é um fork criado para funcionar no WooCommerce.
- * Você pode ver mais detalhe sobre o projeto em <https://github.com/wpbrasil/woocommerce-boleto>.
- */
+// +----------------------------------------------------------------------+
+// | BoletoPhp - Versão Beta                                              |
+// +----------------------------------------------------------------------+
+// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
+// | Você deve ter recebido uma cópia da GNU Public License junto com     |
+// | esse pacote; se não, escreva para:                                   |
+// |                                                                      |
+// | Free Software Foundation, Inc.                                       |
+// | 59 Temple Place - Suite 330                                          |
+// | Boston, MA 02111-1307, USA.                                          |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | William Schultz e Leandro Maniezo que por sua vez foi derivado do    |
+// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// |                                                                      |
+// | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
+// | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
+// +----------------------------------------------------------------------+
+
+// +----------------------------------------------------------------------+
+// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Desenvolvimento Boleto Itaú: Glauber Portella                        |
+// +----------------------------------------------------------------------+
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
