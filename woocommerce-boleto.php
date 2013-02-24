@@ -58,6 +58,33 @@ function wcboleto_assets_url() {
 }
 
 /**
+ * Display pending payment message in order details.
+ *
+ * @param  int $order_id Order id.
+ *
+ * @return string        Message HTML.
+ */
+function wcboleto_pending_payment_message( $order_id ) {
+    $order = new WC_Order( $order_id );
+
+    if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
+        $html = '<div class="woocommerce-info">';
+        $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+
+        $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s At&eacute; o momento n&atilde;o registrado o pagamento do boleto para este produto.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+        $html .= __( 'Por favor, clique no bot&atilde;o ao lado e pague o boleto pelo seu Internet Banking.', 'wcboleto' ) . '<br />';
+        $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
+        $html .= __( 'Ignore esta mensagem caso o pagamento j&aacute; tenha sido realizado.', 'wcboleto' ) . '<br />';
+
+        $html .= '</div>';
+
+        echo $html;
+    }
+}
+
+add_action( 'woocommerce_view_order', 'wcboleto_pending_payment_message' );
+
+/**
  * WooCommerce fallback notice.
  */
 function wcboleto_woocommerce_fallback_notice() {
@@ -308,6 +335,9 @@ function wcboleto_gateway_load() {
             // Mark as on-hold (we're awaiting the boleto).
             $order->update_status( 'on-hold', __( 'Awaiting boleto payment', 'wcboleto' ) );
 
+            // Generates boleto data.
+            $this->generate_boleto_data( $order );
+
             // Reduce stock levels.
             $order->reduce_order_stock();
 
@@ -333,10 +363,9 @@ function wcboleto_gateway_load() {
                 $html = '<div class="woocommerce-message">';
                 $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
 
-
                 $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
                 $html .= __( 'Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
-                $html .= __( 'Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica.', 'wcboleto' ) . '<br />';
+                $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
 
                 $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validade do boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
@@ -346,29 +375,23 @@ function wcboleto_gateway_load() {
             }
         }
 
-        public function generate_boleto_data( $order_id ) {
-            $id = (int) $order_id;
-            $order = new WC_Order( $id );
+        public function generate_boleto_data( $order ) {
+            $rate = str_replace( ',', '.', $this->boleto_rate );
 
-            if ( $order->id ) {
+            // Boleto data.
+            $data['nosso_numero']       = $order->id; // max 8 digits
+            $data['numero_documento']   = $order->id;
+            $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
+            $data['data_documento']     = date( 'd/m/Y' );
+            $data['data_processamento'] = date( 'd/m/Y' );
+            $data['valor_boleto']       = number_format( $order->order_total + $rate, 2, ',', '' );
 
-                $rate = str_replace( ',', '.', $this->boleto_rate );
+            // Client data.
+            $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
+            $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
+            $data['endereco2'] = sprintf( __( '%s - %s - CEP: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
 
-                // Boleto data.
-                $data['nosso_numero']       = $order->id; // max 8 digits
-                $data['numero_documento']   = $order->id;
-                $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
-                $data['data_documento']     = date( 'd/m/Y' );
-                $data['data_processamento'] = date( 'd/m/Y' );
-                $data['valor_boleto']       = number_format( $order->order_total + $rate, 2, ',', '' );
-
-                // Client data.
-                $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
-                $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
-                $data['endereco2'] = sprintf( __( '%s - %s - CEP: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
-
-                update_post_meta( $order->id, 'wc_boleto_data', $data );
-            }
+            update_post_meta( $order->id, 'wc_boleto_data', $data );
         }
 
         /**
@@ -394,7 +417,7 @@ function wcboleto_gateway_load() {
 
             $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
             $html .= __( 'Para acess&aacute;-lo, clique no link a baixo e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
-            $html .= __( 'Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica.', 'wcboleto' ) . '<br />';
+            $html .= __( 'Se preferir, imprima e pague em qualquer ag&ecirc;ncia banc&aacute;ria ou casa lot&eacute;rica.', 'wcboleto' ) . '<br />';
 
             $html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) ) . '<br />';
 
