@@ -40,8 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
         <!--.cp {  font: bold 10px Arial; color: black}
         <!--.ti {  font: 9px Arial, Helvetica, sans-serif}
         <!--.ld { font: bold 15px Arial; color: #000000}
-        <!--.ct { FONT: 9px "Arial Narrow"; COLOR: #000033}
-        <!--.cn { FONT: 9px Arial; COLOR: black }
+        <!--.ct { font: 9px "Arial Narrow"; COLOR: #000033}
+        <!--.cn { font: 9px Arial; COLOR: black }
         <!--.bc { font: bold 20px Arial; color: #000000 }
         <!--.ld2 { font: bold 12px Arial; color: #000000 }
         -->
