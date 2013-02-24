@@ -40,8 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
         <!--.cp {  font: bold 10px Arial; color: black}
         <!--.ti {  font: 9px Arial, Helvetica, sans-serif}
         <!--.ld { font: bold 15px Arial; color: #000000}
-        <!--.ct { font: 9px "Arial Narrow"; COLOR: #000033}
-        <!--.cn { font: 9px Arial; COLOR: black }
+        <!--.ct { font: 9px "Arial Narrow"; color: #000033}
+        <!--.cn { font: 9px Arial; color: black }
         <!--.bc { font: bold 20px Arial; color: #000000 }
         <!--.ld2 { font: bold 12px Arial; color: #000000 }
         -->
@@ -52,7 +52,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <tr>
                 <td valign="top" class="cp">
                     <div align="center">
-                        Instruções de Impressão
+                        <?php _e( 'Instru&ccedil;&otilde;es de Impress&atilde;o', 'wcboleto' ); ?>
                     </div>
                 </td>
             </tr>
@@ -60,18 +60,18 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <td valign="top" class="cp">
                     <div align="left">
                         <ul>
-                            <li>Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (Não use modo econômico).<br>
+                            <li><?php _e( 'Imprima em impressora jato de tinta (ink jet) ou laser em qualidade normal ou alta (N&atilde;o use modo econ&ocirc;mico).', 'wcboleto' ); ?><br>
                             </li>
-                            <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.<br>
+                            <li><?php _e( 'Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.', 'wcboleto' ); ?><br>
                             </li>
-                            <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras.<br>
+                            <li><?php _e( 'Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras.', 'wcboleto' ); ?><br>
                             </li>
-                            <li>Caso não apareça o código de barras no final, clique em F5 para atualizar esta tela.
+                            <li><?php _e( 'Caso n&atilde;o apare&ccedil;a o c&oacute;digo de barras no final, clique em F5 para atualizar esta tela.', 'wcboleto' ); ?>
                             </li>
-                            <li>Caso tenha problemas ao imprimir, copie a seqüencia numérica abaixo e pague no caixa eletrônico ou no internet banking:<br>
+                            <li><?php _e( 'Caso tenha problemas ao imprimir, copie a seq&uuml;encia num&eacute;rica abaixo e pague no caixa eletr&ocirc;nico ou no internet banking:', 'wcboleto' ); ?><br>
                                 <br>
-                                <span class="ld2">&nbsp;&nbsp;&nbsp;&nbsp;Linha Digitável: &nbsp;<?php echo $dadosboleto["linha_digitavel"]?><br>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Valor: &nbsp;&nbsp;R$ <?php echo $dadosboleto["valor_boleto"]?><br></span>
+                                <span class="ld2">&nbsp;&nbsp;&nbsp;&nbsp;<?php _e( 'Linha Digit&aacute;vel:', 'wcboleto' ); ?> &nbsp;<?php echo $dadosboleto["linha_digitavel"]?><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<?php _e( 'Valor:', 'wcboleto' ); ?>&nbsp;&nbsp;R$ <?php echo $dadosboleto["valor_boleto"]?><br></span>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tr>
                     <td class="ct" width="666">
                         <div align="right">
-                            <b class="cp">Recibo do Sacado</b>
+                            <b class="cp"><?php _e( 'Recibo do Sacado', 'wcboleto' ); ?></b>
                         </div>
                     </td>
                 </tr>
@@ -149,31 +149,31 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="298" height="13">
-                        Cedente
+                        <?php _e( 'Cedente', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="126" height="13">
-                        Agência/Código do Cedente
+                        <?php _e( 'Ag&ecirc;ncia/C&oacute;digo do Cedente', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="34" height="13">
-                        Espécie
+                        <?php _e( 'Esp&eacute;cie', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="53" height="13">
-                        Quantidade
+                        <?php _e( 'Quantidade', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="120" height="13">
-                        Nosso número
+                        <?php _e( 'Nosso n&uacute;mero', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -256,25 +256,25 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" colspan="3" height="13">
-                        Número do documento
+                        <?php _e( 'N&uacute;mero do documento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="132" height="13">
-                        CPF/CNPJ
+                        <?php _e( 'CPF/CNPJ', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="134" height="13">
-                        Vencimento
+                        <?php _e( 'Vencimento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        Valor documento
+                        <?php _e( 'Valor documento', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -344,31 +344,31 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="113" height="13">
-                        (-) Desconto / Abatimentos
+                        <?php _e( '(-) Desconto / Abatimentos', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="112" height="13">
-                        (-) Outras deduções
+                        <?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="113" height="13">
-                        (+) Mora / Multa
+                        <?php _e( '(+) Mora / Multa', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="113" height="13">
-                        (+) Outros acréscimos
+                        <?php _e( '(+) Outros acr&eacute;scimos', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        (=) Valor cobrado
+                        <?php _e( '(=) Valor cobrado', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -434,7 +434,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="659" height="13">
-                        Sacado
+                        <?php _e( 'Sacado', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -460,11 +460,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tr>
                     <td class="ct" width="7" height="12"></td>
                     <td class="ct" width="564">
-                        Demonstrativo
+                        <?php _e( 'Demonstrativo', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" width="7" height="12"></td>
                     <td class="ct" width="88">
-                        Autenticação mecânica
+                        <?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -500,7 +500,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tr>
                     <td class="ct" width="666">
                         <div align="right">
-                            Corte na linha pontilhada
+                            <?php _e( 'Corte na linha pontilhada', 'wcboleto' ); ?>
                         </div>
                     </td>
                 </tr>
@@ -546,13 +546,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="472" height="13">
-                        Local de pagamento
+                        <?php _e( 'Local de pagamento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        Vencimento
+                        <?php _e( 'Vencimento', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -560,7 +560,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="cp" valign="top" width="472" height="12">
-                        Pagável em qualquer Banco até o vencimento
+                        <?php _e( 'Pag&aacute;vel em qualquer Banco at&eacute; o vencimento', 'wcboleto' ); ?>
                     </td>
                     <td class="cp" valign="top" width="7" height="12">
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
@@ -592,7 +592,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="472" height="13">
-                        Cedente
+                        <?php _e( 'Cedente', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
@@ -642,37 +642,37 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="113" height="13">
-                        Data do documento
+                        <?php _e( 'Data do documento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="153" height="13">
-                        N<u>o</u> documento
+                        <?php _e( 'N<u>o</u> documento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="62" height="13">
-                        Espécie doc.
+                        <?php _e( 'Esp&eacute;cie doc.', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="34" height="13">
-                        Aceite
+                        <?php _e( 'Aceite', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="82" height="13">
-                        Data processamento
+                        <?php _e( 'Data processamento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        Nosso número
+                        <?php _e( 'Nosso n&uacute;mero', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -769,31 +769,31 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" colspan="5" height="13">
-                        Carteira
+                        <?php _e( 'Carteira', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" height="13" width="7">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="53" height="13">
-                        Espécie
+                        <?php _e( 'Esp&eacute;cie', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" height="13" width="7">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="123" height="13">
-                        Quantidade
+                        <?php _e( 'Quantidade', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" height="13" width="7">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="72" height="13">
-                        Valor Documento
+                        <?php _e( 'Valor Documento', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" valign="top" width="7" height="13">
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        (=) Valor documento
+                        <?php _e( '(=) Valor documento', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -904,7 +904,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         </table>
                     </td>
                     <td valign="top" width="468" rowspan="5">
-                        <font class="ct">Instruções (Texto de responsabilidade do cedente)</font><br>
+                        <font class="ct"><?php _e( 'Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)', 'wcboleto' ); ?></font><br>
                         <br>
                         <span class="cp"><font class="campo"><?php echo $dadosboleto["instrucoes1"]; ?><br>
                         <?php echo $dadosboleto["instrucoes2"]; ?><br>
@@ -920,7 +920,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                                     </td>
                                     <td class="ct" valign="top" width="180" height="13">
-                                        (-) Desconto / Abatimentos
+                                        <?php _e( '(-) Desconto / Abatimentos', 'wcboleto' ); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -971,7 +971,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                                     </td>
                                     <td class="ct" valign="top" width="180" height="13">
-                                        (-) Outras deduções
+                                        <?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'wcboleto' ); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1022,7 +1022,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                                     </td>
                                     <td class="ct" valign="top" width="180" height="13">
-                                        (+) Mora / Multa
+                                        <?php _e( '(+) Mora / Multa', 'wcboleto' ); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1073,7 +1073,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                                     </td>
                                     <td class="ct" valign="top" width="180" height="13">
-                                        (+) Outros acréscimos
+                                        <?php _e( '(+) Outros acr&eacute;scimos', 'wcboleto' ); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1119,7 +1119,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                                     </td>
                                     <td class="ct" valign="top" width="180" height="13">
-                                        (=) Valor cobrado
+                                        <?php _e( '(=) Valor cobrado', 'wcboleto' ); ?>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1150,7 +1150,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="659" height="13">
-                        Sacado
+                        <?php _e( 'Sacado', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -1188,7 +1188,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="13" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="ct" valign="top" width="180" height="13">
-                        Cód. baixa
+                        <?php _e( 'C&oacute;d. baixa', 'wcboleto' ); ?>
                     </td>
                 </tr>
                 <tr>
@@ -1212,11 +1212,11 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tr>
                     <td class="ct" width="7" height="12"></td>
                     <td class="ct" width="409">
-                        Sacador/Avalista
+                        <?php _e( 'Sacador/Avalista', 'wcboleto' ); ?>
                     </td>
                     <td class="ct" width="250">
                         <div align="right">
-                            Autenticação mecânica - <b class="cp">Ficha de Compensação</b>
+                            <?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica', 'wcboleto' ); ?> - <b class="cp"><?php _e( 'Ficha de Compensa&ccedil;&atilde;o', 'wcboleto' ); ?></b>
                         </div>
                     </td>
                 </tr>
@@ -1242,7 +1242,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tr>
                     <td class="ct" width="666">
                         <div align="right">
-                            Corte na linha pontilhada
+                            <?php _e( 'Corte na linha pontilhada', 'wcboleto' ); ?>
                         </div>
                     </td>
                 </tr>

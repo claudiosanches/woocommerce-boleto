@@ -509,20 +509,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
  -->
                 <div id="instr_content">
                     <p>
-                        O pagamento deste boleto também poderá ser efetuado nos terminais de Auto-Atendimento BB.
+                        <?php _e( 'O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado nos terminais de Auto-Atendimento BB.', 'wcboleto' ); ?>
                     </p>
                     <h2>
-                        Instruções
+                        <?php _e( 'Instru&ccedil;&otilde;es', 'wcboleto' ); ?>
                     </h2>
                     <ol>
-                        <li>Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal ou alta. Não use modo econômico.
+                        <li><?php _e( 'Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico.', 'wcboleto' ); ?>
                             <p class="notice">
-                                Por favor, configure margens esquerda e direita para 17mm.
+                                <?php _e( 'Por favor, configure margens esquerda e direita para 17mm.', 'wcboleto' ); ?>
                             </p>
                         </li>
-                        <li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens mínimas à esquerda e à direita do formulário.
+                        <li><?php _e( 'Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.', 'wcboleto' ); ?>
                         </li>
-                        <li>Corte na linha indicada. Não rasure, risque, fure ou dobre a região onde se encontra o código de barras
+                        <li><?php _e( 'Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras', 'wcboleto' ); ?>
                         </li>
                     </ol>
                 </div><!-- id="instr_content2" -->
@@ -530,7 +530,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <div id="boleto">
                 <div class="cut">
                     <p>
-                        Corte na linha pontilhada
+                        <?php _e( 'Corte na linha pontilhada', 'wcboleto' ); ?>
                     </p>
                 </div>
                 <table cellspacing="0" cellpadding="0" width="666" border="0">
@@ -538,7 +538,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <tr>
                             <td class="ct" width="666">
                                 <div align="right">
-                                    <b class="cp">Recibo do Sacado</b>
+                                    <b class="cp"><?php _e( 'Recibo do Sacado', 'wcboleto' ); ?></b>
                                 </div>
                             </td>
                         </tr>
@@ -565,19 +565,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="cedente">
-                                Cedente
+                                <?php _e( 'Cedente', 'wcboleto' ); ?>
                             </td>
                             <td class="ag_cod_cedente">
-                                Agência / Código do Cedente
+                                <?php _e( 'Ag&ecirc;ncia / C&oacute;digo do Cedente', 'wcboleto' ); ?>
                             </td>
                             <td class="especie">
-                                Espécie
+                                <?php _e( 'Esp&eacute;cie', 'wcboleto' ); ?>
                             </td>
                             <td class="qtd">
-                                Quantidade
+                                <?php _e( 'Quantidade', 'wcboleto' ); ?>
                             </td>
                             <td class="nosso_numero">
-                                Nosso número
+                                <?php _e( 'Nosso n&uacute;mero', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -603,19 +603,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="num_doc">
-                                Número do documento
+                                <?php _e( 'N&uacute;mero do documento', 'wcboleto' ); ?>
                             </td>
                             <td class="contrato">
-                                Contrato
+                                <?php _e( 'Contrato', 'wcboleto' ); ?>
                             </td>
                             <td class="cpf_cei_cnpj">
-                                CPF/CEI/CNPJ
+                                <?php _e( 'CPF/CEI/CNPJ', 'wcboleto' ); ?>
                             </td>
                             <td class="vencmento">
-                                Vencimento
+                                <?php _e( 'Vencimento', 'wcboleto' ); ?>
                             </td>
                             <td class="valor_doc">
-                                Valor documento
+                                <?php _e( 'Valor documento', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -641,19 +641,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="desconto">
-                                (-) Desconto / Abatimento
+                                <?php _e( '(-) Desconto / Abatimento', 'wcboleto' ); ?>
                             </td>
                             <td class="outras_deducoes">
-                                (-) Outras deduções
+                                <?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'wcboleto' ); ?>
                             </td>
                             <td class="mora_multa">
-                                (+) Mora / Multa
+                                <?php _e( '(+) Mora / Multa', 'wcboleto' ); ?>
                             </td>
                             <td class="outros_acrescimos">
-                                (+) Outros acréscimos
+                                <?php _e( '(+) Outros acr&eacute;scimos', 'wcboleto' ); ?>
                             </td>
                             <td class="valor_cobrado">
-                                (=) Valor cobrado
+                                <?php _e( '(=) Valor cobrado', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -679,7 +679,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="sacado">
-                                Sacado
+                                <?php _e( 'Sacado', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -691,12 +691,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 </table>
                 <div class="footer">
                     <p>
-                        Autenticação mecânica
+                        <?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica', 'wcboleto' ); ?>
                     </p>
                 </div>
                 <div class="cut">
                     <p>
-                        Corte na linha pontilhada
+                        <?php _e( 'Corte na linha pontilhada', 'wcboleto' ); ?>
                     </p>
                 </div>
                 <table class="header" border="0" cellspacing="0" cellpadding="0">
@@ -720,15 +720,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="local_pagto">
-                                Local de pagamento
+                                <?php _e( 'Local de pagamento', 'wcboleto' ); ?>
                             </td>
                             <td class="vencimento2">
-                                Vencimento
+                                <?php _e( 'Vencimento', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
                             <td class="local_pagto">
-                                QUALQUER BANCO ATÉ O VENCIMENTO
+                                <?php _e( 'QUALQUER BANCO AT&Eacute; O VENCIMENTO', 'wcboleto' ); ?>
                             </td>
                             <td class="vencimento2">
                                 <?php echo $dadosboleto["data_vencimento"]?>
@@ -740,10 +740,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="cedente2">
-                                Cedente
+                                <?php _e( 'Cedente', 'wcboleto' ); ?>
                             </td>
                             <td class="ag_cod_cedente2">
-                                Agência/Código cedente
+                                <?php _e( 'Ag&ecirc;ncia/C&oacute;digo cedente', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -760,22 +760,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="data_doc">
-                                Data do documento
+                                <?php _e( 'Data do documento', 'wcboleto' ); ?>
                             </td>
                             <td class="num_doc2">
-                                No. documento
+                                <?php _e( 'No. documento', 'wcboleto' ); ?>
                             </td>
                             <td class="especie_doc">
-                                Espécie doc.
+                                <?php _e( 'Esp&eacute;cie doc.', 'wcboleto' ); ?>
                             </td>
                             <td class="aceite">
-                                Aceite
+                                <?php _e( 'Aceite', 'wcboleto' ); ?>
                             </td>
                             <td class="data_process">
-                                Data process.
+                                <?php _e( 'Data process.', 'wcboleto' ); ?>
                             </td>
                             <td class="nosso_numero2">
-                                Nosso número
+                                <?php _e( 'Nosso n&uacute;mero', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -804,22 +804,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="reservado">
-                                Uso do banco
+                                <?php _e( 'Uso do banco', 'wcboleto' ); ?>
                             </td>
                             <td class="carteira">
-                                Carteira
+                                <?php _e( 'Carteira', 'wcboleto' ); ?>
                             </td>
                             <td class="especie2">
-                                Espécie
+                                <?php _e( 'Esp&eacute;cie', 'wcboleto' ); ?>
                             </td>
                             <td class="qtd2">
-                                Quantidade
+                                <?php _e( 'Quantidade', 'wcboleto' ); ?>
                             </td>
                             <td class="xvalor">
-                                x Valor
+                                <?php _e( 'x Valor', 'wcboleto' ); ?>
                             </td>
                             <td class="valor_doc2">
-                                (=) Valor documento
+                                <?php _e( '(=) Valor documento', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -852,7 +852,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="instrucoes">
-                                                Instruções (Texto de responsabilidade do cedente)
+                                                <?php _e( 'Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -890,7 +890,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="desconto2">
-                                                (-) Desconto / Abatimento
+                                                <?php _e( '(-) Desconto / Abatimento', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -908,7 +908,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="outras_deducoes2">
-                                                (-) Outras deduções
+                                                <?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -926,7 +926,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="mora_multa2">
-                                                (+) Mora / Multa
+                                                <?php _e( '(+) Mora / Multa', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -944,7 +944,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="outros_acrescimos2">
-                                                (+) Outros Acréscimos
+                                                <?php _e( '(+) Outros Acr&eacute;scimos', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -962,7 +962,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                     <tbody>
                                         <tr class="titulos">
                                             <td class="valor_cobrado2">
-                                                (=) Valor cobrado
+                                                <?php _e( '(=) Valor cobrado', 'wcboleto' ); ?>
                                             </td>
                                         </tr>
                                         <tr class="campos">
@@ -980,7 +980,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="sacado2">
-                                Sacado
+                                <?php _e( 'Sacado', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -1002,7 +1002,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr class="titulos">
                             <td class="sacador_avalista" colspan="2">
-                                Sacador/Avalista
+                                <?php _e( 'Sacador/Avalista', 'wcboleto' ); ?>
                             </td>
                         </tr>
                         <tr class="campos">
@@ -1010,7 +1010,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                 &nbsp;
                             </td>
                             <td class="cod_baixa">
-                                Cód. baixa
+                                <?php _e( 'C&oacute;d. baixa', 'wcboleto' ); ?>
                             </td>
                         </tr>
                     </tbody>
@@ -1019,7 +1019,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tbody>
                         <tr>
                             <td width="666" align="right">
-                                <font style="font-size: 10px;">Autenticação mecânica - Ficha de Compensação</font>
+                                <font style="font-size: 10px;"><?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa&ccedil;&atilde;o', 'wcboleto' ); ?></font>
                             </td>
                         </tr>
                     </tbody>
@@ -1031,7 +1031,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 </div>
                 <div class="cut">
                     <p>
-                        Corte na linha pontilhada
+                        <?php _e( 'Corte na linha pontilhada', 'wcboleto' ); ?>
                     </p>
                 </div>
             </div>
