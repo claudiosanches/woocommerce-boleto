@@ -332,9 +332,19 @@ function wcboleto_gateway_load() {
                 // Generates boleto data.
                 $this->generate_boleto_data( $_GET['order'] );
 
-                // echo wpautop( wptexturize( $this->get_description() ) );
+                $html = '<div class="woocommerce-message">';
+                $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
 
-                printf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $_GET['key'], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pagar Boleto &rarr;', 'wcboleto' ) );
+
+                $html .= sprintf( __( '%sAten&ccedil;&atilde;o!%s Voc&ecirc; n&atilde;o receber&aacute; o boleto pelos Correios.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+                $html .= __( 'Para acess&aacute;-lo, clique no bot&atilde;o ao lado e pague no seu Internet Banking.', 'wcboleto' ) . '<br />';
+                $html .= __( 'Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica.', 'wcboleto' ) . '<br />';
+
+                $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( 'Validade do boleto: %s.', 'wcboleto', date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+
+                $html .= '</div>';
+
+                echo $html;
             }
         }
 
