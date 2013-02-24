@@ -127,19 +127,19 @@ function wcboleto_gateway_load() {
             $this->init_settings();
 
             // Define user settings variables.
-            $this->title               = $this->get_option( 'title' );
-            $this->description         = $this->get_option( 'description' );
-            $this->boleto_time         = $this->get_option( 'boleto_time' );
-            $this->boleto_rate         = $this->get_option( 'boleto_rate' );
-            $this->bank                = $this->get_option( 'bank' );
-            $this->bank_agency         = $this->get_option( 'bank_agency' );
-            $this->bank_account        = $this->get_option( 'bank_account' );
-            $this->bank_account_digit  = $this->get_option( 'bank_account_digit' );
-            $this->bank_wallet_code    = $this->get_option( 'bank_wallet_code' );
-            $this->shop_cpf_cnpj       = $this->get_option( 'shop_cpf_cnpj' );
-            $this->shop_address        = $this->get_option( 'shop_address' );
-            $this->shop_city_state     = $this->get_option( 'shop_city_state' );
-            $this->shop_corporate_name = $this->get_option( 'shop_corporate_name' );
+            $this->title               = $this->settings['title'];
+            $this->description         = $this->settings['description'];
+            $this->boleto_time         = $this->settings['boleto_time'];
+            $this->boleto_rate         = $this->settings['boleto_rate'];
+            $this->bank                = $this->settings['bank'];
+            $this->bank_agency         = $this->settings['bank_agency'];
+            $this->bank_account        = $this->settings['bank_account'];
+            $this->bank_account_digit  = $this->settings['bank_account_digit'];
+            $this->bank_wallet_code    = $this->settings['bank_wallet_code'];
+            $this->shop_cpf_cnpj       = $this->settings['shop_cpf_cnpj'];
+            $this->shop_address        = $this->settings['shop_address'];
+            $this->shop_city_state     = $this->settings['shop_city_state'];
+            $this->shop_corporate_name = $this->settings['shop_corporate_name'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
