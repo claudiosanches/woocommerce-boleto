@@ -173,10 +173,10 @@ function wcboleto_gateway_load() {
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
             add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
 
-            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '<' ) ) {
-                add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
-            } else {
+            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
                 add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
+            } else {
+                add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
             }
 
             // Valid for use.
