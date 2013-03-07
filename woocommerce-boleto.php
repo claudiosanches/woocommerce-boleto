@@ -484,6 +484,31 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'santander':
+                    $fields = array(
+                        'codigo_cliente' => array(
+                            'title' => __( 'Código do Cliente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Código do Cliente (PSK) com apenas 7 digitos.', 'wcboleto' ),
+                        ),
+                        'ponto_venda' => array(
+                            'title' => __( 'Ponto de venda (Agência)', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agencia number.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Cobrança Simples - SEM Registro.', 'wcboleto' )
+                        ),
+                        'carteira_descricao' => array(
+                            'title' => __( 'Descrição da Carteira', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Descrição da Carteira.', 'wcboleto' ),
+                            'default' => 'COBRANÇA SIMPLES - CSR'
+                        )
+                    );
+                    break;
                 case 'unibanco':
                     $fields = array(
                         'agencia' => array(
