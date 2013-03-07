@@ -73,8 +73,7 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 ### Requerimentos: ###
 
 * WooCommerce 2.0.0 ou superior.
-* Possuir uma conta válida em seu banco.
-* Possuir os dados necessários para utilizar nas opções do plugin.
+* Possuir convênio com sua agência bancária para emitir boletos.
 
 ### Configuração do Plugin: ###
 
@@ -92,7 +91,6 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 ### What is needed to use this plugin? ###
 
 * WooCommerce 2.0.0 or later installed and active.
-* One bank account.
 * Own seller account in the bank.
 
 ### FAQ em Português: ###
@@ -106,8 +104,7 @@ Assim como os arquivos do [BoletoPHP](http://boletophp.com.br/). Cada arquivo do
 ### O que eu preciso para utilizar este plugin? ###
 
 * Ter instalado o plugin WooCommerce 2.0.0 ou mais recente.
-* Possuir uma conta no banco.
-* Ter as informações necessárias para utilizar o boleto pelo banco.
+* Possuir convênio com sua agência bancária para emitir boletos.
 
 ### Boleto recebe pagamentos de quais países? ###
 
