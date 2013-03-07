@@ -395,6 +395,40 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'nossacaixa':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        ),
+                        'conta_cedente' => array(
+                            'title' => __( 'Conta Cedente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Conta do cedente sem digito e com apenas 6 digitos.', 'wcboleto' ),
+                        ),
+                        'conta_cedente_dv' => array(
+                            'title' => __( 'Conta Cedente digito', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Utilize 5 para Cobrança Direta ou 1 para Cobrança Simples.', 'wcboleto' )
+                        ),
+                        'modalidade_conta' => array(
+                            'title' => __( 'Modalidade da conta', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( '02 posições.', 'wcboleto' ),
+                        )
+                    );
+                    break;
+
+// $dadosboleto["agencia"] = "0033"; // Num da agencia, sem digito
+// $dadosboleto["conta_cedente"] = "001131"; // Conta Cedente do Cliente, sem digito (Somente 6 digitos)
+// $dadosboleto["conta_cedente_dv"] = "1"; // Digito da ContaCedente do Cliente
+// $dadosboleto["carteira"] = "5"; // Código da Carteira -> 5-Cobrança Direta ou 1-Cobrança Simples
+// $dadosboleto["modalidade_conta"] = "04"; // modalidade da conta 02 posições
                 case 'itau':
                     $fields = array(
                         'agencia' => array(
