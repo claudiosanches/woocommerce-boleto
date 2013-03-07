@@ -62,14 +62,14 @@ $modalidade == "18" ? $modalidade_c1 = 8 : $modalidade_c1;
 
 
 //nosso número (sem dv) é 9 digitos
+$dadosboleto["inicio_nosso_numero"] = ( 5 == $carteira ) ? 99 : 0;
 $nnum = $dadosboleto["inicio_nosso_numero"] . formata_numero( $dadosboleto["nosso_numero"], 7, 0 );
 
 //Agencia sem o digito + modalidade convertida e conta sem o dígito
 $ag_contacedente = $agencia .$modalidade_c1. $conta_cedente;
 
 //
-$carteira == 5 ? $prefixo = "9" : $prefixo;
-$carteira == 1 ? $prefixo = "0" : $prefixo;
+$prefixo = ( 5 == $carteira ) ? 9 : 0;
 
 //Calcula o digito verificador do nosso número
 $dv_nosso_numero = digitoVerificador_nossonumero( $nnum, $conta_cedente, $conta_cedente_dv, $agencia, $modalidade );
