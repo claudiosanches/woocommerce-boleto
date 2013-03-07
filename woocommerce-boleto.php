@@ -737,8 +737,8 @@ function wcboleto_gateway_load() {
             $rate = str_replace( ',', '.', $this->boleto_rate );
 
             // Boleto data.
-            $data['nosso_numero']       = $order->id;
-            $data['numero_documento']   = $order->id;
+            $data['nosso_numero']       = apply_filters( 'wcboleto_our_number', $order->id );
+            $data['numero_documento']   = apply_filters( 'wcboleto_document_number', $order->id );
             $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
             $data['data_documento']     = date( 'd/m/Y' );
             $data['data_processamento'] = date( 'd/m/Y' );
