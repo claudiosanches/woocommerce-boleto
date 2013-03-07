@@ -23,8 +23,6 @@ if ( isset( $_GET['ref'] ) ) {
         $settings = get_option( 'woocommerce_boleto_settings' );
         $bank = sanitize_text_field( $settings['bank'] );
 
-        // echo $bank;
-
         if ( $bank ) {
 
             // Sets the boleto details.
@@ -65,9 +63,9 @@ if ( isset( $_GET['ref'] ) ) {
             // Include bank templates.
             include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
             include WC_BOLETO_PATH . 'banks/' . $bank . '/layout.php';
-        }
 
-        exit;
+            exit;
+        }
     }
 }
 
