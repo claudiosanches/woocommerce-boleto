@@ -53,7 +53,7 @@ if ( isset( $_GET['ref'] ) ) {
             // Shop data.
             $data['identificacao']  = $shop_name;
 
-            $dadosboleto = apply_filters( 'wc_boleto_data', $data );
+            $dadosboleto = apply_filters( 'wcboleto_data', $data );
 
             // Include bank templates.
             include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
