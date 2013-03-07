@@ -287,7 +287,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="cp" valign="top" width="134" height="12">
-                        <span class="campo"><?php echo ($data_venc != "") ? $dadosboleto["data_vencimento"] : "Contra Apresentação" ?></span>
+                        <span class="campo"><?php echo ($dadosboleto["data_vencimento"] != "") ? $dadosboleto["data_vencimento"] : "Contra Apresentação" ?></span>
                     </td>
                     <td class="cp" valign="top" width="7" height="12">
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
