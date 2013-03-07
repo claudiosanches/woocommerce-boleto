@@ -1,15 +1,15 @@
-# WooCommerce Boleto #
-**Contributors:** claudiosanches  
-**Tags:** ecommerce, woocommerce, payment gateway, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco  
-**Requires at least:** 3.0  
-**Tested up to:** 3.5.1  
-**Stable tag:** 1.0  
-**License:** GPLv2 or later  
-**License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
+=== WooCommerce Boleto ===
+Contributors: claudiosanches
+Tags: ecommerce, woocommerce, payment gateway, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
+Requires at least: 3.0
+Tested up to: 3.5.1
+Stable tag: 1.0
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Adds Boleto as payment gateway in WooCommerce plugin
 
-## Description ##
+== Description ==
 
 This plugin adds Boleto as payment gateway in [WooCommerce](http://wordpress.org/extend/plugins/woocommerce/) plugin.
 
@@ -35,11 +35,11 @@ O plugin WooCommerce Boleto foi desenvolvido sem nenhum isentivo de nenhum dos b
 
 Este plugin foi desenvolvido usando o [BoletoPHP](http://boletophp.com.br/).
 
-### Instalação: ###
+= Instalação: =
 
 Confira o nosso guia de instalação e configuração do Boleto na aba [Installation](http://wordpress.org/extend/plugins/woocommerce-boleto/installation/).
 
-### Dúvidas? ###
+= Dúvidas? =
 
 Você pode esclarecer suas dúvidas usando:
 
@@ -47,16 +47,16 @@ Você pode esclarecer suas dúvidas usando:
 * Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-boleto) (apenas em inglês).
 * Criando um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocommerce-boleto/issues) (em português).
 
-### Quer colaborar? ###
+= Quer colaborar? =
 
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
 
-### Créditos ###
+= Créditos =
 
 * Código fonte dos boletos => [BoletoPHP](http://boletophp.com.br/)
 * Ícone do checkout => [Yummygum](http://yummygum.com/)
 
-## Installation ##
+== Installation ==
 
 * Upload plugin files to your plugins folder, or install using WordPress built-in Add New Plugin installer;
 * Activate the plugin;
@@ -64,32 +64,32 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 ### Instalação e configuração em Português: ###
 
-### Instalação do plugin: ###
+= Instalação do plugin: =
 
 * Envie os arquivos do plugin para a pasta wp-content/plugins, ou instale usando o instalador de plugins do WordPress;
 * Ative o plugin;
 * Depois navegue até WooCommerce -> Configurações -> Portais de Pagamento, selecione a opção **Boleto** e preencha as opções do plugin.
 
-### Requerimentos: ###
+= Requerimentos: =
 
 * WooCommerce 2.0.0 ou superior.
 * Possuir uma conta válida em seu banco.
 * Possuir os dados necessários para utilizar nas opções do plugin.
 
-### Configuração do Plugin: ###
+= Configuração do Plugin: =
 
 1. Com o plugin instalado acesse o admin do WordPress e entre em "WooCommerce" > "Configurações" > "Portais de pagamento"  > "Boleto";
 2. Habilite o opção **Boleto**;
 3. Clique no link **Boleto** e configure as opções. Será necessário ter uma conta no banco e os dados necessários para preencher as opções;
 4. Pronto, sua loja já pode receber pagamentos pelo Boleto.
 
-## Frequently Asked Questions ##
+== Frequently Asked Questions ==
 
-### What is the plugin license? ###
+= What is the plugin license? =
 
 * This plugin is released under a GPL license.
 
-### What is needed to use this plugin? ###
+= What is needed to use this plugin? =
 
 * WooCommerce 2.0.0 or later installed and active.
 * One bank account.
@@ -97,23 +97,23 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 ### FAQ em Português: ###
 
-### Qual é a licença do plugin? ###
+= Qual é a licença do plugin? =
 
 Este plugin esta licenciado como GPL.
 
 Assim como os arquivos do [BoletoPHP](http://boletophp.com.br/). Cada arquivo do BoletoPHP possui um cabeçalho com os seus respectivos créditos.
 
-### O que eu preciso para utilizar este plugin? ###
+= O que eu preciso para utilizar este plugin? =
 
 * Ter instalado o plugin WooCommerce 2.0.0 ou mais recente.
 * Possuir uma conta no banco.
 * Ter as informações necessárias para utilizar o boleto pelo banco.
 
-### Boleto recebe pagamentos de quais países? ###
+= Boleto recebe pagamentos de quais países? =
 
 Recebe apenas do Brasil.
 
-### O plugin pode gerar Boletos de quais bancos? ###
+= O plugin pode gerar Boletos de quais bancos? =
 
 * Banco do Brasil
 * Bradesco
@@ -125,27 +125,27 @@ Recebe apenas do Brasil.
 * Santander
 * Unibanco
 
-### Mais dúvidas relacionadas ao funcionamento do plugin? ###
+= Mais dúvidas relacionadas ao funcionamento do plugin? =
 
 Crie um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocommerce-boleto/issues) (em português).
 
-### Quer colaborar? ###
+= Quer colaborar? =
 
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
 
-## Changelog ##
+== Changelog ==
 
-### 1.0 ###
+= 1.0 =
 
 * Versão incial do plugin.
 
-## Upgrade Notice ##
+== Upgrade Notice ==
 
-### 1.0 ###
+= 1.0 =
 
 * Enjoy it.
 
-## License ##
+== License ==
 
 This file is part of WooCommerce Boleto.
 WooCommerce Boleto is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
