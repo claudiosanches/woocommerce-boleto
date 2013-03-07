@@ -724,7 +724,6 @@ function wcboleto_gateway_load() {
 
                 $html .= apply_filters( 'wcboleto_thankyou_page_message', $message );
 
-
                 $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 
@@ -748,7 +747,7 @@ function wcboleto_gateway_load() {
             // Client data.
             $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
             $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
-            $data['endereco2'] = sprintf( __( '%s - %s - CEP: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
+            $data['endereco2'] = sprintf( __( '%s - %s - Zip Code: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
 
             update_post_meta( $order->id, 'wc_boleto_data', $data );
         }
