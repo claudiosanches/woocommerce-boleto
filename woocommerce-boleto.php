@@ -71,10 +71,12 @@ function wcboleto_pending_payment_message( $order_id ) {
         $html = '<div class="woocommerce-info">';
         $html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) );
 
-        $html .= sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
-        $html .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'wcboleto' ) . '<br />';
-        $html .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
-        $html .= __( 'Ignore this message if the payment has already been made​​.', 'wcboleto' ) . '<br />';
+        $message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'wcboleto' ), '<strong>', '</strong>' ) . '<br />';
+        $message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'wcboleto' ) . '<br />';
+        $message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
+        $message .= __( 'Ignore this message if the payment has already been made​​.', 'wcboleto' ) . '<br />';
+
+        $html .= apply_filters( 'wcboleto_pending_payment_message', $message );
 
         $html .= '</div>';
 
