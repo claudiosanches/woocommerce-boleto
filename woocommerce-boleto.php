@@ -154,20 +154,11 @@ function wcboleto_gateway_load() {
             $this->init_settings();
 
             // Define user settings variables.
-            $this->title               = $this->settings['title'];
-            $this->description         = $this->settings['description'];
-            $this->boleto_time         = $this->settings['boleto_time'];
-            $this->boleto_rate         = $this->settings['boleto_rate'];
-            $this->boleto_logo         = $this->settings['boleto_logo'];
-            $this->bank                = $this->settings['bank'];
-            $this->bank_agency         = $this->settings['bank_agency'];
-            $this->bank_account        = $this->settings['bank_account'];
-            $this->bank_account_digit  = $this->settings['bank_account_digit'];
-            $this->bank_wallet_code    = $this->settings['bank_wallet_code'];
-            $this->shop_cpf_cnpj       = $this->settings['shop_cpf_cnpj'];
-            $this->shop_address        = $this->settings['shop_address'];
-            $this->shop_city_state     = $this->settings['shop_city_state'];
-            $this->shop_corporate_name = $this->settings['shop_corporate_name'];
+            $this->title       = $this->settings['title'];
+            $this->description = $this->settings['description'];
+            $this->boleto_time = $this->settings['boleto_time'];
+            $this->boleto_rate = $this->settings['boleto_rate'];
+            $this->bank        = $this->settings['bank'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -211,6 +202,14 @@ function wcboleto_gateway_load() {
                 <?php $this->generate_settings_html(); ?>
             </table>
 
+            <script type="text/javascript">
+                jQuery(document).ready(function($) {
+                    $('#woocommerce_boleto_bank').change(function() {
+                        $('#mainform').submit();
+                    });
+                });
+            </script>
+
             <?php
         }
 
@@ -221,102 +220,126 @@ function wcboleto_gateway_load() {
          */
         public function init_form_fields() {
 
-            $this->form_fields = array(
+            $general_fields = array(
                 'enabled' => array(
-                    'title' => __( 'Enable/Disable', 'wcboleto' ),
-                    'type' => 'checkbox',
-                    'label' => __( 'Enable Boleto standard', 'wcboleto' ),
+                    'title'   => __( 'Enable/Disable', 'wcboleto' ),
+                    'type'    => 'checkbox',
+                    'label'   => __( 'Enable Boleto standard', 'wcboleto' ),
                     'default' => 'yes'
                 ),
                 'title' => array(
-                    'title' => __( 'Title', 'wcboleto' ),
-                    'type' => 'text',
+                    'title'       => __( 'Title', 'wcboleto' ),
+                    'type'        => 'text',
                     'description' => __( 'This controls the title which the user sees during checkout.', 'wcboleto' ),
-                    'default' => __( 'Boleto', 'wcboleto' )
+                    'default'     => __( 'Boleto', 'wcboleto' )
                 ),
                 'description' => array(
-                    'title' => __( 'Description', 'wcboleto' ),
-                    'type' => 'textarea',
+                    'title'       => __( 'Description', 'wcboleto' ),
+                    'type'        => 'textarea',
                     'description' => __( 'This controls the description which the user sees during checkout.', 'wcboleto' ),
-                    'default' => __( 'Pay with Boleto', 'wcboleto' )
+                    'default'     => __( 'Pay with Boleto', 'wcboleto' )
                 ),
                 'boleto_details' => array(
                     'title' => __( 'Boleto Details', 'wcboleto' ),
-                    'type' => 'title'
+                    'type'  => 'title'
                 ),
                 'boleto_time' => array(
-                    'title' => __( 'Deadline to pay the Boleto', 'wcboleto' ),
-                    'type' => 'text',
+                    'title'       => __( 'Deadline to pay the Boleto', 'wcboleto' ),
+                    'type'        => 'text',
                     'description' => __( 'Number of days to pay.', 'wcboleto' ),
-                    'default' => 5
+                    'default'     => 5
                 ),
                 'boleto_rate' => array(
-                    'title' => __( 'Boleto rate', 'wcboleto' ),
-                    'type' => 'text',
+                    'title'       => __( 'Boleto rate', 'wcboleto' ),
+                    'type'        => 'text',
                     'description' => __( 'Number with dot, example <code>2.95</code>.', 'wcboleto' ),
-                    'default' => __( '2.95', 'wcboleto' )
+                    'default'     => __( '2.95', 'wcboleto' )
                 ),
                 'boleto_logo' => array(
-                    'title' => __( 'Boleto Logo', 'wcboleto' ),
-                    'type' => 'text',
+                    'title'       => __( 'Boleto Logo', 'wcboleto' ),
+                    'type'        => 'text',
                     'description' => __( 'Logo with 147px x 46px.', 'wcboleto' ),
-                    'default' => plugins_url( 'assets/images/logo_empresa.png', __FILE__ )
+                    'default'     => plugins_url( 'assets/images/logo_empresa.png', __FILE__ )
                 ),
                 'bank_details' => array(
                     'title' => __( 'Bank Details', 'wcboleto' ),
-                    'type' => 'title'
+                    'type'  => 'title'
                 ),
                 'bank' => array(
-                    'title' => __( 'Bank', 'wcboleto' ),
-                    'type' => 'select',
+                    'title'       => __( 'Bank', 'wcboleto' ),
+                    'type'        => 'select',
                     'description' => __( 'Choose the bank for Boleto.', 'wcboleto' ),
-                    'default' => __( 'Pay with Boleto', 'wcboleto' ),
-                    'options' => array(
-                        'itau' => 'Itau',
+                    'default'     => __( 'Pay with Boleto', 'wcboleto' ),
+                    'options'     => array(
+                        '0'          => '--',
+                        'banespa'    => 'Banespa',
+                        'bb'         => 'Banco do Brasil',
+                        'bradesco'   => 'Bradesco',
+                        'cef'        => 'Caixa Economica Federal - SR (SICOB)',
+                        'cef_sigcb'  => 'Caixa Economica Federal - SIGCB',
+                        'cef_sinco'  => 'Caixa Economica Federal - SINCO',
+                        'hsbc'       => 'HSBC',
+                        'itau'       => 'Itau',
+                        'nossacaixa' => 'Nossa Caixa',
+                        'real'       => 'Real',
+                        'santander'  => 'Santander',
+                        'unibanco'   => 'Unibanco',
                     )
+                )
+            );
+
+            $shop_fields = array(
+                'shop_details' => array(
+                    'title' => __( 'Shop Details', 'wcboleto' ),
+                    'type'  => 'title'
                 ),
-                'bank_agency' => array(
+                'cpf_cnpj' => array(
+                    'title'       => __( 'CPF/CNPJ', 'wcboleto' ),
+                    'type'        => 'text',
+                    'description' => __( 'Document number.', 'wcboleto' ),
+                ),
+                'endereco' => array(
+                    'title'       => __( 'Address', 'wcboleto' ),
+                    'type'        => 'text',
+                    'description' => __( 'Shop Address.', 'wcboleto' ),
+                ),
+                'cidade_uf' => array(
+                    'title'       => __( 'City/State', 'wcboleto' ),
+                    'type'        => 'text',
+                    'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', 'wcboleto' ),
+                ),
+                'cedente' => array(
+                    'title' => __( 'Corporate Name', 'wcboleto' ),
+                    'type'  => 'text',
+                ),
+            );
+
+            $this->form_fields = array_merge( $general_fields, $this->bank_fields(), $shop_fields );
+        }
+
+        protected function bank_fields() {
+            //$this->bank;
+
+            return array(
+                'agencia' => array(
                     'title' => __( 'Agency', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Agency number.', 'wcboleto' ),
                 ),
-                'bank_account' => array(
+                'conta' => array(
                     'title' => __( 'Account', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account number.', 'wcboleto' ),
                 ),
-                'bank_account_digit' => array(
+                'conta_dv' => array(
                     'title' => __( 'Account Digit', 'wcboleto' ),
                     'type' => 'text',
                     'description' => __( 'Account Digit.', 'wcboleto' ),
                 ),
-                'bank_wallet_code' => array(
+                'carteira' => array(
                     'title' => __( 'Wallet code', 'wcboleto' ),
                     'type' => 'text',
-                    'description' => __( 'Insert the code.', 'wcboleto' ),
-                ),
-                'shop_details' => array(
-                    'title' => __( 'Shop Details', 'wcboleto' ),
-                    'type' => 'title'
-                ),
-                'shop_cpf_cnpj' => array(
-                    'title' => __( 'CPF/CNPJ', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Document number.', 'wcboleto' ),
-                ),
-                'shop_address' => array(
-                    'title' => __( 'Address', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Shop Address.', 'wcboleto' ),
-                ),
-                'shop_city_state' => array(
-                    'title' => __( 'City/State', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', 'wcboleto' ),
-                ),
-                'shop_corporate_name' => array(
-                    'title' => __( 'Corporate Name', 'wcboleto' ),
-                    'type' => 'text',
+                    'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
                 ),
             );
         }
