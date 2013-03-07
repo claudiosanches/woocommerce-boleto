@@ -28,6 +28,13 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
+// Composição Nosso Numero - CEF SIGCB
+$dadosboleto["nosso_numero1"] = "000"; // tamanho 3
+$dadosboleto["nosso_numero_const1"] = ( 'CR' == $dadosboleto['carteira'] ) ? '1' : '2'; //constanto 1 , 1=registrada , 2=sem registro
+$dadosboleto["nosso_numero2"] = "000"; // tamanho 3
+$dadosboleto["nosso_numero_const2"] = "4"; //constanto 2 , 4=emitido pelo proprio cliente
+$dadosboleto["nosso_numero3"] = sprintf('%09d', $dadosboleto["nosso_numero"]);; // tamanho 9
+
 $codigobanco = "104";
 $codigo_banco_com_dv = geraCodigoBanco( $codigobanco );
 $nummoeda = "9";
