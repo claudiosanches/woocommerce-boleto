@@ -308,10 +308,15 @@ function wcboleto_gateway_load() {
                 ),
             );
 
-            $this->form_fields = array_merge( $general_fields, $this->bank_fields(), $shop_fields );
+            $this->form_fields = array_merge( $general_fields, $this->get_bank_fields(), $shop_fields );
         }
 
-        protected function bank_fields() {
+        /**
+         * Gets bank fields.
+         *
+         * @return array Current bank fields.
+         */
+        protected function get_bank_fields() {
 
             switch ( $this->get_option( 'bank' ) ) {
                 case 'banespa':
@@ -336,7 +341,43 @@ function wcboleto_gateway_load() {
                             'title' => __( 'Nome da agencia (opcional)', 'wcboleto' ),
                             'type' => 'text',
                             'description' => __( 'Nome da agencia (opcional).', 'wcboleto' ),
+                        )
+                    );
+                    break;
+                case 'bradesco':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
                         ),
+                        'agencia_dv' => array(
+                            'title' => __( 'Agency digit', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        ),
+                        'conta_dv' => array(
+                            'title' => __( 'Account digit', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'conta_cedente' => array(
+                            'title' => __( 'Conta do cedente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Conta cedente sem digito (apenas números).', 'wcboleto' ),
+                        ),
+                        'conta_cedente_dv' => array(
+                            'title' => __( 'Conta do cedente digito', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( '03 or 06.', 'wcboleto' )
+                        )
                     );
                     break;
                 case 'itau':
@@ -360,7 +401,7 @@ function wcboleto_gateway_load() {
                             'title' => __( 'Wallet code', 'wcboleto' ),
                             'type' => 'text',
                             'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
-                        ),
+                        )
                     );
                     break;
 
