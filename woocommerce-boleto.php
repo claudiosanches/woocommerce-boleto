@@ -158,7 +158,7 @@ function wcboleto_gateway_load() {
             $this->description = $this->settings['description'];
             $this->boleto_time = $this->settings['boleto_time'];
             $this->boleto_rate = $this->settings['boleto_rate'];
-            $this->bank        = $this->settings['bank'];
+            $this->boleto_bank = $this->settings['bank'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -317,31 +317,40 @@ function wcboleto_gateway_load() {
             $this->form_fields = array_merge( $general_fields, $this->bank_fields(), $shop_fields );
         }
 
-        protected function bank_fields() {
-            //$this->bank;
+        public function bank_fields() {
 
-            return array(
-                'agencia' => array(
-                    'title' => __( 'Agency', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Agency number.', 'wcboleto' ),
-                ),
-                'conta' => array(
-                    'title' => __( 'Account', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Account number.', 'wcboleto' ),
-                ),
-                'conta_dv' => array(
-                    'title' => __( 'Account Digit', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Account Digit.', 'wcboleto' ),
-                ),
-                'carteira' => array(
-                    'title' => __( 'Wallet code', 'wcboleto' ),
-                    'type' => 'text',
-                    'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
-                ),
-            );
+            switch ( $this->boleto_bank ) {
+                case 'itau':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number.', 'wcboleto' ),
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number.', 'wcboleto' ),
+                        ),
+                        'conta_dv' => array(
+                            'title' => __( 'Account Digit', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account Digit.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
+                        ),
+                    );
+                    break;
+
+                default:
+                    $fields = array();
+                    break;
+            }
+
+            return $fields;
         }
 
         /**
