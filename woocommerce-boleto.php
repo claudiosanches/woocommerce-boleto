@@ -380,6 +380,21 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'hsbc':
+                    $fields = array(
+                        'codigo_cedente' => array(
+                            'title' => __( 'Código do cedente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Código do cedente com apenas 7 digitos.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Sempre CNR.', 'wcboleto' ),
+                            'default' => 'CNR'
+                        )
+                    );
+                    break;
                 case 'itau':
                     $fields = array(
                         'agencia' => array(
@@ -390,12 +405,11 @@ function wcboleto_gateway_load() {
                         'conta' => array(
                             'title' => __( 'Account', 'wcboleto' ),
                             'type' => 'text',
-                            'description' => __( 'Account number.', 'wcboleto' ),
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
                         ),
                         'conta_dv' => array(
-                            'title' => __( 'Account Digit', 'wcboleto' ),
-                            'type' => 'text',
-                            'description' => __( 'Account Digit.', 'wcboleto' ),
+                            'title' => __( 'Account digit', 'wcboleto' ),
+                            'type' => 'text'
                         ),
                         'carteira' => array(
                             'title' => __( 'Wallet code', 'wcboleto' ),
