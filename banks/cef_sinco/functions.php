@@ -28,6 +28,9 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
+$dadosboleto["campo_fixo_obrigatorio"] = "1"; // campo fixo obrigatorio - valor = 1
+$dadosboleto["inicio_nosso_numero"] = "9"; // Inicio do Nosso numero - obrigatoriamente deve começar com 9;
+
 $codigobanco = "104";
 $codigo_banco_com_dv = geraCodigoBanco( $codigobanco );
 $nummoeda = "9";
