@@ -395,6 +395,29 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'itau':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number.', 'wcboleto' ),
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        ),
+                        'conta_dv' => array(
+                            'title' => __( 'Account digit', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
+                        )
+                    );
+                    break;
                 case 'nossacaixa':
                     $fields = array(
                         'agencia' => array(
@@ -442,12 +465,12 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
-                case 'itau':
+                case 'unibanco':
                     $fields = array(
                         'agencia' => array(
                             'title' => __( 'Agency', 'wcboleto' ),
                             'type' => 'text',
-                            'description' => __( 'Agency number.', 'wcboleto' ),
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
                         ),
                         'conta' => array(
                             'title' => __( 'Account', 'wcboleto' ),
@@ -458,10 +481,15 @@ function wcboleto_gateway_load() {
                             'title' => __( 'Account digit', 'wcboleto' ),
                             'type' => 'text'
                         ),
+                        'codigo_cliente' => array(
+                            'title' => __( 'Client code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Client code.', 'wcboleto' ),
+                        ),
                         'carteira' => array(
                             'title' => __( 'Wallet code', 'wcboleto' ),
                             'type' => 'text',
-                            'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
+                            'description' => __( 'Wallet code.', 'wcboleto' )
                         )
                     );
                     break;
