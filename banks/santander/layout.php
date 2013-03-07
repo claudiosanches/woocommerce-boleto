@@ -187,11 +187,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="cp" valign="top" width="126" height="12">
-                        <span class="campo"><? $tmp2 = $dadosboleto["codigo_cliente"];
-                             $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
-                          ?>
-                         <? echo $dadosboleto["ponto_venda"]." <img src='<?php echo wcboleto_assets_url(); ?>images/b.png' width=10 height=1>
-                         ".$tmp2?&gt;</span>
+                        <span class="campo">
+                            <?php
+                                $tmp2 = $dadosboleto["codigo_cliente"];
+                                $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
+                            ?>
+                            <?php echo $dadosboleto["ponto_venda"]; ?>
+                            <img src="<?php echo wcboleto_assets_url(); ?>images/b.png" width="10" height="1">
+                            <?php echo $tmp2; ?>
+                        </span>
                     </td>
                     <td class="cp" valign="top" width="7" height="12">
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
@@ -612,11 +616,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <img height="12" src="<?php echo wcboleto_assets_url(); ?>images/1.png" width="1" border="0">
                     </td>
                     <td class="cp" valign="top" align="right" width="180" height="12">
-                        <span class="campo"><? $tmp2 = $dadosboleto["codigo_cliente"];
-                             $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
-                          ?>
-                         <? echo $dadosboleto["ponto_venda"]." <img src='<?php echo wcboleto_assets_url(); ?>images/b.png' width=10 height=1>
-                         ".$tmp2?&gt;</span>
+                        <span class="campo">
+                            <?php
+                                $tmp2 = $dadosboleto["codigo_cliente"];
+                                $tmp2 = substr($tmp2,0,strlen($tmp2)-1).'-'.substr($tmp2,strlen($tmp2)-1,1);
+                            ?>
+                            <?php echo $dadosboleto["ponto_venda"]; ?>
+                            <img src="<?php echo wcboleto_assets_url(); ?>images/b.png" width="10" height="1">
+                            <?php echo $tmp2; ?>
+                        </span>
                     </td>
                 </tr>
                 <tr>
