@@ -344,6 +344,51 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'bb':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        ),
+                        'convenio' => array(
+                            'title' => __( 'Número do convênio', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Convênios de 6, 7 ou 8 digitos.', 'wcboleto' ),
+                        ),
+                        'contrato' => array(
+                            'title' => __( 'Número do contrato', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Número do contrato.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Wallet code.', 'wcboleto' )
+                        ),
+                        'variacao_carteira' => array(
+                            'title' => __( 'Variação da Carteira (opcional)', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Variação da Carteira com traço.', 'wcboleto' )
+                        ),
+                        'formatacao_convenio' => array(
+                            'title' => __( 'Variação da Carteira (opcional)', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( '8 para Convênio com 8 dígitos, 7 para Convênio com 7 dígitos, ou 6 para Convênio com 6 dígitos.', 'wcboleto' )
+                        ),
+                        'formatacao_nosso_numero' => array(
+                            'title' => __( 'Formatação do Nosso Número', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Usado apenas para Convênio com 6 dígitos (informe 1 caso o Nosso Número for de até 5 dígitos ou 2 para opção de até 17 dígitos.', 'wcboleto' ),
+                            'default' => 2
+                        )
+                    );
+                    break;
                 case 'bradesco':
                     $fields = array(
                         'agencia' => array(
