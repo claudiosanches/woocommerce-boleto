@@ -266,7 +266,6 @@ function wcboleto_gateway_load() {
                     'default'     => __( 'Pay with Boleto', 'wcboleto' ),
                     'options'     => array(
                         '0'          => '--',
-                        'banespa'    => 'Banespa',
                         'bb'         => 'Banco do Brasil',
                         'bradesco'   => 'Bradesco',
                         'cef'        => 'Caixa Economica Federal - SR (SICOB)',
@@ -277,6 +276,7 @@ function wcboleto_gateway_load() {
                         'nossacaixa' => 'Nossa Caixa',
                         'real'       => 'Real',
                         'santander'  => 'Santander',
+                        'banespa'    => 'Santander Banespa',
                         'unibanco'   => 'Unibanco',
                     )
                 )
@@ -314,6 +314,31 @@ function wcboleto_gateway_load() {
         protected function bank_fields() {
 
             switch ( $this->get_option( 'bank' ) ) {
+                case 'banespa':
+                    $fields = array(
+                        'codigo_cedente' => array(
+                            'title' => __( 'Código do cedente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Código do cedente (Somente 11 digitos).', 'wcboleto' ),
+                        ),
+                        'ponto_venda' => array(
+                            'title' => __( 'Agencia', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agencia number.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'COB - SEM Registro.', 'wcboleto' ),
+                            'default' => 'COB'
+                        ),
+                        'nome_da_agencia' => array(
+                            'title' => __( 'Nome da agencia (opcional)', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Nome da agencia (opcional).', 'wcboleto' ),
+                        ),
+                    );
+                    break;
                 case 'itau':
                     $fields = array(
                         'agencia' => array(
