@@ -158,17 +158,11 @@ function wcboleto_gateway_load() {
             $this->description = $this->settings['description'];
             $this->boleto_time = $this->settings['boleto_time'];
             $this->boleto_rate = $this->settings['boleto_rate'];
-            $this->boleto_bank = $this->settings['bank'];
 
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
             add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
-
-            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
-                add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
-            } else {
-                add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
-            }
+            add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
 
             // Valid for use.
             $this->enabled = ( 'yes' == $this->settings['enabled'] ) && $this->is_valid_for_use();
@@ -317,9 +311,9 @@ function wcboleto_gateway_load() {
             $this->form_fields = array_merge( $general_fields, $this->bank_fields(), $shop_fields );
         }
 
-        public function bank_fields() {
+        protected function bank_fields() {
 
-            switch ( $this->boleto_bank ) {
+            switch ( $this->get_option( 'bank' ) ) {
                 case 'itau':
                     $fields = array(
                         'agencia' => array(
