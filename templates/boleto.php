@@ -31,27 +31,29 @@ if ( isset( $_GET['ref'] ) ) {
             $rate = str_replace( ',', '.', $settings['boleto_rate'] );
 
             // Sets the boleto data.
-            $dadosboleto = array();
+            $data = array();
             foreach ( $order_data as $key => $value ) {
-                $dadosboleto[ $key ] = sanitize_text_field( $value );
+                $data[ $key ] = sanitize_text_field( $value );
             }
 
             // Sets the settings data.
             foreach ( $settings as $key => $value ) {
-                $dadosboleto[ $key ] = sanitize_text_field( $value );
+                $data[ $key ] = sanitize_text_field( $value );
             }
 
             // Client info.
-            $dadosboleto['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
-            $dadosboleto['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s %sBank Rate - R$ %s', 'wcboleto' ), $dadosboleto['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
-            $dadosboleto['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
-            $dadosboleto['instrucoes1']    = __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' );
-            $dadosboleto['instrucoes2']    = __( '- Receive up to 10 days past due', 'wcboleto' );
-            $dadosboleto['instrucoes3']    = sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
-            $dadosboleto['instrucoes4']    = '';
+            $data['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
+            $data['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s %sBank Rate - R$ %s', 'wcboleto' ), $data['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
+            $data['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
+            $data['instrucoes1']    = __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' );
+            $data['instrucoes2']    = __( '- Receive up to 10 days past due', 'wcboleto' );
+            $data['instrucoes3']    = sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
+            $data['instrucoes4']    = '';
 
             // Shop data.
-            $dadosboleto['identificacao']  = $shop_name;
+            $data['identificacao']  = $shop_name;
+
+            $dadosboleto = apply_filters( 'wc_boleto_data', $data );
 
             // Include bank templates.
             include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
