@@ -468,6 +468,40 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
+                case 'cef_sinco':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        ),
+                        'conta_dv' => array(
+                            'title' => __( 'Account digit', 'wcboleto' ),
+                            'type' => 'text'
+                        ),
+                        'conta_cedente' => array(
+                            'title' => __( 'Conta do cedente', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Conta cedente sem digito. Utilize apenas números.', 'wcboleto' ),
+                        ),
+                        'conta_cedente_dv' => array(
+                            'title' => __( 'Conta do cedente digito', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Digito da conta cedente.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente.', 'wcboleto' ),
+                            'default' => 'SR'
+                        ),
+                    );
+                    break;
                 case 'hsbc':
                     $fields = array(
                         'codigo_cedente' => array(
