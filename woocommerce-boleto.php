@@ -423,12 +423,25 @@ function wcboleto_gateway_load() {
                         )
                     );
                     break;
-
-// $dadosboleto["agencia"] = "0033"; // Num da agencia, sem digito
-// $dadosboleto["conta_cedente"] = "001131"; // Conta Cedente do Cliente, sem digito (Somente 6 digitos)
-// $dadosboleto["conta_cedente_dv"] = "1"; // Digito da ContaCedente do Cliente
-// $dadosboleto["carteira"] = "5"; // Código da Carteira -> 5-Cobrança Direta ou 1-Cobrança Simples
-// $dadosboleto["modalidade_conta"] = "04"; // modalidade da conta 02 posições
+                case 'real':
+                    $fields = array(
+                        'agencia' => array(
+                            'title' => __( 'Agency', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        ),
+                        'conta' => array(
+                            'title' => __( 'Account', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        ),
+                        'carteira' => array(
+                            'title' => __( 'Wallet code', 'wcboleto' ),
+                            'type' => 'text',
+                            'description' => __( 'Wallet code.', 'wcboleto' )
+                        )
+                    );
+                    break;
                 case 'itau':
                     $fields = array(
                         'agencia' => array(
@@ -519,7 +532,7 @@ function wcboleto_gateway_load() {
             $rate = str_replace( ',', '.', $this->boleto_rate );
 
             // Boleto data.
-            $data['nosso_numero']       = $order->id; // max 8 digits
+            $data['nosso_numero']       = $order->id;
             $data['numero_documento']   = $order->id;
             $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
             $data['data_documento']     = date( 'd/m/Y' );
