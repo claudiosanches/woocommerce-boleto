@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Boleto v0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-03-07 03:44:10+0000\n"
+"PO-Revision-Date: 2013-03-07 05:17:22+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -1047,7 +1047,7 @@ msgstr "Aguardando pagamento do Boleto"
 
 #: woocommerce-boleto.php:72
 #: woocommerce-boleto.php:719
-#: woocommerce-boleto.php:780
+#: woocommerce-boleto.php:782
 #@ wcboleto
 msgid "Pay the Boleto &rarr;"
 msgstr "Pagar Boleto &rarr;"
@@ -1085,11 +1085,11 @@ msgid "%sAttention!%s You will not get the ticket by Correios."
 msgstr "%sAtenção!%s Você não receberá o boleto pelos Correios."
 
 #: woocommerce-boleto.php:727
-#: woocommerce-boleto.php:782
+#: woocommerce-boleto.php:784
 #, php-format
 #@ wcboleto
 msgid "Validity of the Boleto: %s."
-msgstr "Boleto valido até: %s."
+msgstr "Boleto válido até: %s."
 
 #: woocommerce-boleto.php:772
 #@ wcboleto
