@@ -214,7 +214,7 @@ function wcboleto_gateway_load() {
          */
         public function init_form_fields() {
 
-            $general_fields = array(
+            $first = array(
                 'enabled' => array(
                     'title'   => __( 'Enable/Disable', 'wcboleto' ),
                     'type'    => 'checkbox',
@@ -281,7 +281,7 @@ function wcboleto_gateway_load() {
                 )
             );
 
-            $extra_fields = array(
+            $last = array(
                 'extra_details' => array(
                     'title' => __( 'Optional Data', 'wcboleto' ),
                     'type'  => 'title'
@@ -306,10 +306,7 @@ function wcboleto_gateway_load() {
                 'especie_doc' => array(
                     'title'       => __( 'Kind of document', 'wcboleto' ),
                     'type'        => 'text'
-                )
-            );
-
-            $shop_fields = array(
+                ),
                 'shop_details' => array(
                     'title' => __( 'Shop Details', 'wcboleto' ),
                     'type'  => 'title'
@@ -335,7 +332,7 @@ function wcboleto_gateway_load() {
                 ),
             );
 
-            $this->form_fields = array_merge( $general_fields, $this->get_bank_fields(), $extra_fields, $shop_fields );
+            $this->form_fields = array_merge( $first, $this->get_bank_fields(), $last );
         }
 
         /**
