@@ -281,6 +281,34 @@ function wcboleto_gateway_load() {
                 )
             );
 
+            $extra_fields = array(
+                'extra_details' => array(
+                    'title' => __( 'Optional Data', 'wcboleto' ),
+                    'type'  => 'title'
+                ),
+                'quantidade' => array(
+                    'title'       => __( 'Quantity', 'wcboleto' ),
+                    'type'        => 'text'
+                ),
+                'valor_unitario' => array(
+                    'title'       => __( 'Unitary value', 'wcboleto' ),
+                    'type'        => 'text'
+                ),
+                'aceite' => array(
+                    'title'       => __( 'Acceptance', 'wcboleto' ),
+                    'type'        => 'text'
+                ),
+                'especie' => array(
+                    'title'       => __( 'Currency', 'wcboleto' ),
+                    'type'        => 'text',
+                    'default'     => 'R$'
+                ),
+                'especie_doc' => array(
+                    'title'       => __( 'Kind of document', 'wcboleto' ),
+                    'type'        => 'text'
+                )
+            );
+
             $shop_fields = array(
                 'shop_details' => array(
                     'title' => __( 'Shop Details', 'wcboleto' ),
@@ -307,7 +335,7 @@ function wcboleto_gateway_load() {
                 ),
             );
 
-            $this->form_fields = array_merge( $general_fields, $this->get_bank_fields(), $shop_fields );
+            $this->form_fields = array_merge( $general_fields, $this->get_bank_fields(), $extra_fields, $shop_fields );
         }
 
         /**

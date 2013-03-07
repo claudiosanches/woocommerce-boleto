@@ -53,13 +53,6 @@ if ( isset( $_GET['ref'] ) ) {
             // Shop data.
             $dadosboleto['identificacao']  = $shop_name;
 
-            // Extra fields.
-            $dadosboleto['quantidade']     = '';
-            $dadosboleto['valor_unitario'] = '';
-            $dadosboleto['aceite']         = '';
-            $dadosboleto['especie']        = 'R$';
-            $dadosboleto['especie_doc']    = '';
-
             // Include bank templates.
             include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
             include WC_BOLETO_PATH . 'banks/' . $bank . '/layout.php';
