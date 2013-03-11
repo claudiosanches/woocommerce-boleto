@@ -3,7 +3,7 @@
 **Tags:** ecommerce, woocommerce, payment gateway, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco  
 **Requires at least:** 3.0  
 **Tested up to:** 3.5.1  
-**Stable tag:** 0.1  
+**Stable tag:** 0.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -137,6 +137,10 @@ Crie um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocomme
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
 
 ## Changelog ##
+
+### 0.2 - 10/03/2013 ###
+
+* Adicionada compatibilidade com o WooCommerce 1.6.6.
 
 ### 0.1 ###
 
