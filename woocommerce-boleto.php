@@ -164,7 +164,11 @@ function wcboleto_gateway_load() {
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
             add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
-            add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
+            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
+                add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
+            } else {
+                add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
+            }
 
             // Valid for use.
             $this->enabled = ( 'yes' == $this->settings['enabled'] ) && $this->is_valid_for_use();
@@ -338,13 +342,30 @@ function wcboleto_gateway_load() {
         }
 
         /**
+         * Get current bank.
+         * Method compatible with versions prior to woocommerce 2.0
+         *
+         * @return Current bank.
+         */
+        protected function get_current_bank() {
+            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
+                return $this->get_option( 'bank' );
+            } else {
+                // Gets current bank.
+                $settings = get_option( 'woocommerce_boleto_settings' );
+
+                return sanitize_text_field( $settings['bank'] );
+            }
+        }
+
+        /**
          * Gets bank fields.
          *
          * @return array Current bank fields.
          */
         protected function get_bank_fields() {
 
-            switch ( $this->get_option( 'bank' ) ) {
+            switch ( $this->get_current_bank() ) {
                 case 'bb':
                     $fields = array(
                         'agencia' => array(
