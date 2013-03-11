@@ -347,7 +347,7 @@ function wcboleto_gateway_load() {
          *
          * @return Current bank.
          */
-        protected function get_bank() {
+        protected function get_current_bank() {
             if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
                 return $this->get_option( 'bank' );
             } else {
@@ -365,7 +365,7 @@ function wcboleto_gateway_load() {
          */
         protected function get_bank_fields() {
 
-            switch ( $this->get_bank() ) {
+            switch ( $this->get_current_bank() ) {
                 case 'bb':
                     $fields = array(
                         'agencia' => array(
