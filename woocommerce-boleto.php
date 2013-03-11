@@ -782,11 +782,11 @@ function wcboleto_gateway_load() {
                 return;
             }
 
-            if ( $order->status !== 'on-hold' ) {
+            if ( 'on-hold' !== $order->status ) {
                 return;
             }
 
-            if ( $order->payment_method !== 'boleto' ) {
+            if ( 'boleto' !== $order->payment_method ) {
                 return;
             }
 
