@@ -12,12 +12,12 @@ if ( isset( $_GET['ref'] ) ) {
     // Sanitize the ref.
     $ref = sanitize_title( $_GET['ref'] );
 
-    // Gets post_id.
-    $order_info = $wpdb->get_row( "SELECT post_id FROM $wpdb->postmeta WHERE meta_key = '_order_key' AND meta_value = '$ref'" );
+    // Gets Order id.
+    $order_id = woocommerce_get_order_id_by_order_key( $ref );
 
-    if ( $order_info ) {
+    if ( $order_id ) {
         // Gets the data saved from boleto.
-        $order_data = get_post_meta( $order_info->post_id, 'wc_boleto_data', true );
+        $order_data = get_post_meta( $order_id, 'wc_boleto_data', true );
 
         // Gets current bank.
         $settings = get_option( 'woocommerce_boleto_settings' );
