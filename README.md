@@ -1,9 +1,9 @@
 # WooCommerce Boleto #
-**Contributors:** claudiosanches  
+**Contributors:** claudiosanches, deblyn  
 **Tags:** ecommerce, woocommerce, payment gateway, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco  
 **Requires at least:** 3.0  
 **Tested up to:** 3.5.1  
-**Stable tag:** 0.2  
+**Stable tag:** 0.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -137,6 +137,10 @@ Crie um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocomme
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
 
 ## Changelog ##
+
+### 0.3 - 20/04/2013 ###
+
+* Trocada a consulta de ID do template boleto.php pela função `woocommerce_get_order_id_by_order_key` nativa do WooCommerce.
 
 ### 0.2 - 10/03/2013 ###
 
