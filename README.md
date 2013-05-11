@@ -31,7 +31,7 @@ São aceitos boletos dos bancos:
 * Santander
 * Unibanco
 
-O plugin WooCommerce Boleto foi desenvolvido sem nenhum isentivo de nenhum dos bancos citados a cima. Nenhum dos desenvolvedores deste plugin possuem vínculos com qualquer banco citado.
+O plugin WooCommerce Boleto foi desenvolvido sem nenhum incentivo de nenhum dos bancos citados a cima. Nenhum dos desenvolvedores deste plugin possuem vínculos com qualquer banco citado.
 
 Este plugin foi desenvolvido usando o [BoletoPHP](http://boletophp.com.br/).
 
