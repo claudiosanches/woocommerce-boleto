@@ -90,11 +90,7 @@ add_action( 'woocommerce_view_order', 'wcboleto_pending_payment_message' );
  * WooCommerce fallback notice.
  */
 function wcboleto_woocommerce_fallback_notice() {
-    $message = '<div class="error">';
-        $message .= '<p>' . __( 'WooCommerce Boleto Gateway depends on the last version of <a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a> to work!' , 'wcboleto' ) . '</p>';
-    $message .= '</div>';
-
-    echo $message;
+    echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!' , 'wcboleto' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a>' ) . '</p></div>';
 }
 
 /**
@@ -399,7 +395,7 @@ function wcboleto_gateway_load() {
                             'description' => __( 'Variação da Carteira com traço.', 'wcboleto' )
                         ),
                         'formatacao_convenio' => array(
-                            'title' => __( 'Variação da Carteira (opcional)', 'wcboleto' ),
+                            'title' => __( 'Formatação do Convênio', 'wcboleto' ),
                             'type' => 'text',
                             'description' => __( '8 para Convênio com 8 dígitos, 7 para Convênio com 7 dígitos, ou 6 para Convênio com 6 dígitos.', 'wcboleto' )
                         ),
