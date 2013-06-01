@@ -39,9 +39,8 @@ register_activation_hook( __FILE__, 'wcboleto_create_page' );
  * Add custom template page.
  */
 function wcboleto_add_page_template( $page_template ) {
-    if ( is_page( 'boleto' ) ) {
+    if ( is_page( 'boleto' ) )
         $page_template = WC_BOLETO_PATH . 'templates/boleto.php';
-    }
 
     return $page_template;
 }
@@ -122,6 +121,7 @@ function wcboleto_gateway_load() {
 
     function wcboleto_add_gateway( $methods ) {
         $methods[] = 'WC_Boleto_Gateway';
+
         return $methods;
     }
 
@@ -160,11 +160,10 @@ function wcboleto_gateway_load() {
             // Actions.
             add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
             add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
-            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
+            if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) )
                 add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( &$this, 'process_admin_options' ) );
-            } else {
+            else
                 add_action( 'woocommerce_update_options_payment_gateways', array( &$this, 'process_admin_options' ) );
-            }
 
             // Valid for use.
             $this->enabled = ( 'yes' == $this->settings['enabled'] ) && $this->is_valid_for_use();
@@ -176,9 +175,8 @@ function wcboleto_gateway_load() {
          * @return bool
          */
         public function is_valid_for_use() {
-            if ( ! in_array( get_woocommerce_currency(), array( 'BRL' ) ) ) {
+            if ( ! in_array( get_woocommerce_currency(), array( 'BRL' ) ) )
                 return false;
-            }
 
             return true;
         }
@@ -743,7 +741,6 @@ function wcboleto_gateway_load() {
 
                 $html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
-
                 $html .= '</div>';
 
                 echo $html;
@@ -774,17 +771,14 @@ function wcboleto_gateway_load() {
          */
         function email_instructions( $order, $sent_to_admin ) {
 
-            if ( $sent_to_admin ) {
+            if ( $sent_to_admin )
                 return;
-            }
 
-            if ( 'on-hold' !== $order->status ) {
+            if ( 'on-hold' !== $order->status )
                 return;
-            }
 
-            if ( 'boleto' !== $order->payment_method ) {
+            if ( 'boleto' !== $order->payment_method )
                 return;
-            }
 
             $html = '<h2>' . __( 'Payment', 'wcboleto' ) . '</h2>';
 
