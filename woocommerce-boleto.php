@@ -182,10 +182,9 @@ function wcboleto_gateway_load() {
         }
 
         /**
-         * Admin Panel Options
-         * - Options for bits like 'title' and availability on a country-by-country basis.
+         * Admin Panel Options.
          *
-         * @since 1.0.0
+         * @return string Admin form.
          */
         public function admin_options() {
             ?>
@@ -694,8 +693,9 @@ function wcboleto_gateway_load() {
         /**
          * Process the payment and return the result.
          *
-         * @param int $order_id
-         * @return array
+         * @param int    $order_id Order ID.
+         *
+         * @return array           Redirect.
          */
         public function process_payment( $order_id ) {
             global $woocommerce;
@@ -724,8 +724,7 @@ function wcboleto_gateway_load() {
         /**
          * Output for the order received page.
          *
-         * @access public
-         * @return void
+         * @return string Thank You message.
          */
         public function thankyou_page() {
             $html = '<div class="woocommerce-message">';
@@ -744,6 +743,13 @@ function wcboleto_gateway_load() {
             echo $html;
         }
 
+        /**
+         * Generate boleto data.
+         *
+         * @param  object $order Order object.
+         *
+         * @return void
+         */
         public function generate_boleto_data( $order ) {
             $rate = str_replace( ',', '.', $this->boleto_rate );
 
@@ -765,6 +771,11 @@ function wcboleto_gateway_load() {
 
         /**
          * Add content to the WC emails.
+         *
+         * @param  object $order         Order object.
+         * @param  bool   $sent_to_admin Send to admin.
+         *
+         * @return string                Billet instructions.
          */
         function email_instructions( $order, $sent_to_admin ) {
 
