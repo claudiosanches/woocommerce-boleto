@@ -113,17 +113,17 @@ function wcboleto_gateway_load() {
     /**
      * Add the gateway to WooCommerce.
      *
-     * @access public
-     * @param array $methods
-     * @return array
+     * @param array $methods Gateway methods.
+     *
+     * @return array         Gateway methods with boleto gateway.
      */
-    add_filter( 'woocommerce_payment_gateways', 'wcboleto_add_gateway' );
-
     function wcboleto_add_gateway( $methods ) {
         $methods[] = 'WC_Boleto_Gateway';
 
         return $methods;
     }
+
+    add_filter( 'woocommerce_payment_gateways', 'wcboleto_add_gateway' );
 
     /**
      * WC Boleto Gateway Class.
