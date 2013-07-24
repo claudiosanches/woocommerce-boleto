@@ -53,7 +53,7 @@ function wcboleto_gateway_load() {
     add_filter( 'woocommerce_payment_gateways', 'wcboleto_add_gateway' );
 
     // Include the WC_Boleto_Gateway class.
-    require_once WOO_MOIP_PATH . 'includes/class-wc-boleto-gateway.php';
+    require_once WC_BOLETO_PATH . 'includes/class-wc-boleto-gateway.php';
 }
 
 add_action( 'plugins_loaded', 'wcboleto_gateway_load', 0 );
