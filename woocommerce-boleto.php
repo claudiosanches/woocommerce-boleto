@@ -15,6 +15,50 @@ define( 'WC_BOLETO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'WC_BOLETO_URL', plugin_dir_url( __FILE__ ) );
 
 /**
+ * WooCommerce fallback notice.
+ */
+function wcboleto_woocommerce_fallback_notice() {
+    echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!' , 'wcboleto' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a>' ) . '</p></div>';
+}
+
+/**
+ * Load functions.
+ */
+function wcboleto_gateway_load() {
+
+    if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
+        add_action( 'admin_notices', 'wcboleto_woocommerce_fallback_notice' );
+
+        return;
+    }
+
+    /**
+     * Load textdomain.
+     */
+    load_plugin_textdomain( 'wcboleto', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
+    /**
+     * Add the gateway to WooCommerce.
+     *
+     * @param array $methods Gateway methods.
+     *
+     * @return array         Gateway methods with boleto gateway.
+     */
+    function wcboleto_add_gateway( $methods ) {
+        $methods[] = 'WC_Boleto_Gateway';
+
+        return $methods;
+    }
+
+    add_filter( 'woocommerce_payment_gateways', 'wcboleto_add_gateway' );
+
+    // Include the WC_Boleto_Gateway class.
+    require_once WOO_MOIP_PATH . 'includes/class-wc-boleto-gateway.php';
+}
+
+add_action( 'plugins_loaded', 'wcboleto_gateway_load', 0 );
+
+/**
  * Create Payment Process page.
  */
 function wcboleto_create_page() {
@@ -85,47 +129,3 @@ function wcboleto_pending_payment_message( $order_id ) {
 }
 
 add_action( 'woocommerce_view_order', 'wcboleto_pending_payment_message' );
-
-/**
- * WooCommerce fallback notice.
- */
-function wcboleto_woocommerce_fallback_notice() {
-    echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!' , 'wcboleto' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">WooCommerce</a>' ) . '</p></div>';
-}
-
-/**
- * Load functions.
- */
-add_action( 'plugins_loaded', 'wcboleto_gateway_load', 0 );
-
-function wcboleto_gateway_load() {
-
-    if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
-        add_action( 'admin_notices', 'wcboleto_woocommerce_fallback_notice' );
-
-        return;
-    }
-
-    /**
-     * Load textdomain.
-     */
-    load_plugin_textdomain( 'wcboleto', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-
-    /**
-     * Add the gateway to WooCommerce.
-     *
-     * @param array $methods Gateway methods.
-     *
-     * @return array         Gateway methods with boleto gateway.
-     */
-    function wcboleto_add_gateway( $methods ) {
-        $methods[] = 'WC_Boleto_Gateway';
-
-        return $methods;
-    }
-
-    add_filter( 'woocommerce_payment_gateways', 'wcboleto_add_gateway' );
-
-    // Include the WC_Boleto_Gateway class.
-    require_once WOO_MOIP_PATH . 'includes/class-wc-boleto-gateway.php';
-}
