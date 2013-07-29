@@ -129,3 +129,25 @@ function wcboleto_pending_payment_message( $order_id ) {
 }
 
 add_action( 'woocommerce_view_order', 'wcboleto_pending_payment_message' );
+
+/**
+ * Adds custom settings url in plugins page.
+ *
+ * @param  array $links Default links.
+ *
+ * @return array        Default links and settings link.
+ */
+function wcboleto_action_links( $links ) {
+
+    $settings = array(
+        'settings' => sprintf(
+            '<a href="%s">%s</a>',
+            admin_url( 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=WC_Boleto_Gateway' ),
+            __( 'Settings', 'wcboleto' )
+        )
+    );
+
+    return array_merge( $settings, $links );
+}
+
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'wcboleto_action_links' );
