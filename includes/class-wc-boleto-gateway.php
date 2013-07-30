@@ -61,23 +61,21 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
      * @return string Admin form.
      */
     public function admin_options() {
-        ?>
+        echo '<h3>' . __( 'Boleto standard', 'wcboleto' ) . '</h3>';
+        echo '<p>' . __( 'Enables payments via Boleto.', 'wcboleto' ) . '</p>';
 
-        <h3><?php _e( 'Boleto standard', 'wcboleto' ); ?></h3>
-        <p><?php _e( 'Enables payments via Boleto.', 'wcboleto' ); ?></p>
-        <table class="form-table">
-            <?php $this->generate_settings_html(); ?>
-        </table>
-
-        <script type="text/javascript">
-            jQuery(document).ready(function($) {
-                $('#woocommerce_boleto_bank').change(function() {
-                    $('#mainform').submit();
-                });
-            });
-        </script>
-
-        <?php
+        // Checks if is valid for use.
+        if ( ! $this->is_valid_for_use() ) {
+            echo '<div class="inline error"><p><strong>' . __( 'Boleto Disabled', 'wcboleto' ) . '</strong>: ' . __( 'Works only with Brazilian Real.', 'wcboleto' ) . '</p></div>';
+        } else {
+            // Generate the HTML For the settings form.
+            echo '<table class="form-table">';
+            $this->generate_settings_html();
+            echo '</table>';
+            echo '<script type="text/javascript">';
+            echo 'jQuery(document).ready(function($){$("#woocommerce_boleto_bank").change(function(){$("#mainform").submit();});});';
+            echo'</script>';
+        }
     }
 
     /**
