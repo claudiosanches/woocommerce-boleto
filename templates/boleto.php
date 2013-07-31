@@ -28,7 +28,6 @@ if ( isset( $_GET['ref'] ) ) {
             // Sets the boleto details.
             $logo = sanitize_text_field( $settings['boleto_logo'] );
             $shop_name = get_bloginfo( 'name' );
-            $rate = str_replace( ',', '.', $settings['boleto_rate'] );
 
             // Sets the boleto data.
             $data = array();
@@ -41,8 +40,8 @@ if ( isset( $_GET['ref'] ) ) {
 
             // Client info.
             $data['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
-            $data['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s %sBank Rate - R$ %s', 'wcboleto' ), $data['nosso_numero'], '<br />', number_format( $rate, 2, ',', '' ) );
-            $data['demonstrativo3'] = $shop_name . ' - ' . get_home_url();
+            $data['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s', 'wcboleto' ), $data['nosso_numero'] );
+            $data['demonstrativo3'] = $shop_name . ' - ' . home_url();
             $data['instrucoes1']    = __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' );
             $data['instrucoes2']    = __( '- Receive up to 10 days past due', 'wcboleto' );
             $data['instrucoes3']    = sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
