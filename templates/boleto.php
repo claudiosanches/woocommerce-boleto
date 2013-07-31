@@ -32,14 +32,12 @@ if ( isset( $_GET['ref'] ) ) {
 
             // Sets the boleto data.
             $data = array();
-            foreach ( $order_data as $key => $value ) {
+            foreach ( $order_data as $key => $value )
                 $data[ $key ] = sanitize_text_field( $value );
-            }
 
             // Sets the settings data.
-            foreach ( $settings as $key => $value ) {
+            foreach ( $settings as $key => $value )
                 $data[ $key ] = sanitize_text_field( $value );
-            }
 
             // Client info.
             $data['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
