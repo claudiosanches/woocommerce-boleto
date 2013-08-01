@@ -29,7 +29,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
         $this->title       = $this->settings['title'];
         $this->description = $this->settings['description'];
         $this->boleto_time = $this->settings['boleto_time'];
-        $this->boleto_rate = $this->settings['boleto_rate'];
 
         // Actions.
         add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
@@ -113,12 +112,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
                 'type'        => 'text',
                 'description' => __( 'Number of days to pay.', 'wcboleto' ),
                 'default'     => 5
-            ),
-            'boleto_rate' => array(
-                'title'       => __( 'Boleto rate', 'wcboleto' ),
-                'type'        => 'text',
-                'description' => __( 'Number with dot, example <code>2.95</code>.', 'wcboleto' ),
-                'default'     => __( '2.95', 'wcboleto' )
             ),
             'boleto_logo' => array(
                 'title'       => __( 'Boleto Logo', 'wcboleto' ),
@@ -623,15 +616,13 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
      * @return void
      */
     public function generate_boleto_data( $order ) {
-        $rate = str_replace( ',', '.', $this->boleto_rate );
-
         // Boleto data.
         $data['nosso_numero']       = apply_filters( 'wcboleto_our_number', $order->id );
         $data['numero_documento']   = apply_filters( 'wcboleto_document_number', $order->id );
         $data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
         $data['data_documento']     = date( 'd/m/Y' );
         $data['data_processamento'] = date( 'd/m/Y' );
-        $data['valor_boleto']       = number_format( $order->order_total + $rate, 2, ',', '' );
+        $data['valor_boleto']       = number_format( $order->order_total, 2, ',', '' );
 
         // Client data.
         $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
