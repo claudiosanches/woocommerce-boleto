@@ -71,9 +71,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             echo '<table class="form-table">';
             $this->generate_settings_html();
             echo '</table>';
-            echo '<script type="text/javascript">';
-            echo 'jQuery(document).ready(function($){$("#woocommerce_boleto_bank").change(function(){$("#mainform").submit();});});';
-            echo'</script>';
+            echo '<script type="text/javascript" src="' . WC_BOLETO_URL . 'assets/js/admin.js"></script>';
         }
     }
 
