@@ -6,8 +6,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) || ! WP_UNINSTALL_PLUGIN || dirname( WP_
     exit;
 }
 
+// Delete boleto page.
 $post = get_page_by_path( 'boleto' );
-
-if ( $post ) {
+if ( $post )
     wp_delete_post( $post->ID, true );
-}
+
