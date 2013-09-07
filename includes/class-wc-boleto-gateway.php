@@ -280,58 +280,60 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             case 'bb':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'convenio' => array(
-                        'title' => __( 'Número do convênio', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Convênios de 6, 7 ou 8 digitos.', 'wcboleto' ),
+                        'title'       => __( 'Agreement number', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agreements with 6, 7 or 8 digits.', 'wcboleto' )
                     ),
                     'contrato' => array(
-                        'title' => __( 'Número do contrato', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Número do contrato.', 'wcboleto' ),
+                        'title' => __( 'Contract number', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
                         'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Wallet code.', 'wcboleto' )
+                        'type'  => 'text'
                     ),
                     'variacao_carteira' => array(
-                        'title' => __( 'Variação da Carteira (opcional)', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Variação da Carteira com traço.', 'wcboleto' )
+                        'title'       => __( 'Wallet variation (optional)', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Wallet variation with dash.', 'wcboleto' )
                     ),
                     'formatacao_convenio' => array(
-                        'title' => __( 'Formatação do Convênio', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( '8 para Convênio com 8 dígitos, 7 para Convênio com 7 dígitos, ou 6 para Convênio com 6 dígitos.', 'wcboleto' )
+                        'title'       => __( 'Agreement format', 'wcboleto' ),
+                        'type'        => 'select',
+                        'default'     => '6',
+                        'options'     => array(
+                            '6' => __( 'Agreement with 6 digits', 'wcboleto' ),
+                            '7' => __( 'Agreement with 7 dígitos', 'wcboleto' ),
+                            '8' => __( 'Agreement with 8 dígitos', 'wcboleto' ),
+                        )
                     ),
                     'formatacao_nosso_numero' => array(
-                        'title' => __( 'Formatação do Nosso Número', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Usado apenas para Convênio com 6 dígitos (informe 1 caso o Nosso Número for de até 5 dígitos ou 2 para opção de até 17 dígitos.', 'wcboleto' ),
-                        'default' => 2
+                        'title'       => __( 'Our number formatting', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Used only for agreement with 6 digits (enter 1 for Our Number is up to 5 digits or 2 for option up to 17 digits).', 'wcboleto' )
                     )
                 );
                 break;
             case 'bradesco':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
                         'description' => __( 'Agency number without digit.', 'wcboleto' ),
                     ),
                     'agencia_dv' => array(
                         'title' => __( 'Agency digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'conta' => array(
                         'title' => __( 'Account', 'wcboleto' ),

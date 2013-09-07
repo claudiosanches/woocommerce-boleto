@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Boleto v0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-09-07 05:38:27+0000\n"
+"PO-Revision-Date: 2013-09-07 17:54:26+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -897,7 +897,7 @@ msgstr "Dias para pagar o Boleto"
 #: includes/class-wc-boleto-gateway.php:112
 #@ wcboleto
 msgid "Number of days to pay."
-msgstr "Número de dicas para pagar."
+msgstr "Número de dias para pagar."
 
 #: includes/class-wc-boleto-gateway.php:116
 #@ wcboleto
@@ -925,46 +925,46 @@ msgid "Choose the bank for Boleto."
 msgstr "Escolha o banco do Boleto."
 
 #: includes/class-wc-boleto-gateway.php:283
-#: includes/class-wc-boleto-gateway.php:328
-#: includes/class-wc-boleto-gateway.php:364
-#: includes/class-wc-boleto-gateway.php:404
-#: includes/class-wc-boleto-gateway.php:433
-#: includes/class-wc-boleto-gateway.php:482
-#: includes/class-wc-boleto-gateway.php:505
-#: includes/class-wc-boleto-gateway.php:533
-#: includes/class-wc-boleto-gateway.php:577
+#: includes/class-wc-boleto-gateway.php:330
+#: includes/class-wc-boleto-gateway.php:366
+#: includes/class-wc-boleto-gateway.php:406
+#: includes/class-wc-boleto-gateway.php:435
+#: includes/class-wc-boleto-gateway.php:484
+#: includes/class-wc-boleto-gateway.php:507
+#: includes/class-wc-boleto-gateway.php:535
+#: includes/class-wc-boleto-gateway.php:579
 #@ wcboleto
 msgid "Agency"
 msgstr "Agência"
 
-#: includes/class-wc-boleto-gateway.php:484
+#: includes/class-wc-boleto-gateway.php:486
 #@ wcboleto
 msgid "Agency number."
 msgstr "Número da agência."
 
 #: includes/class-wc-boleto-gateway.php:288
-#: includes/class-wc-boleto-gateway.php:337
-#: includes/class-wc-boleto-gateway.php:369
-#: includes/class-wc-boleto-gateway.php:409
-#: includes/class-wc-boleto-gateway.php:438
-#: includes/class-wc-boleto-gateway.php:487
-#: includes/class-wc-boleto-gateway.php:538
-#: includes/class-wc-boleto-gateway.php:582
+#: includes/class-wc-boleto-gateway.php:339
+#: includes/class-wc-boleto-gateway.php:371
+#: includes/class-wc-boleto-gateway.php:411
+#: includes/class-wc-boleto-gateway.php:440
+#: includes/class-wc-boleto-gateway.php:489
+#: includes/class-wc-boleto-gateway.php:540
+#: includes/class-wc-boleto-gateway.php:584
 #@ wcboleto
 msgid "Account"
 msgstr "Conta"
 
-#: includes/class-wc-boleto-gateway.php:303
-#: includes/class-wc-boleto-gateway.php:355
-#: includes/class-wc-boleto-gateway.php:388
-#: includes/class-wc-boleto-gateway.php:423
-#: includes/class-wc-boleto-gateway.php:457
-#: includes/class-wc-boleto-gateway.php:472
-#: includes/class-wc-boleto-gateway.php:496
-#: includes/class-wc-boleto-gateway.php:519
-#: includes/class-wc-boleto-gateway.php:543
-#: includes/class-wc-boleto-gateway.php:562
-#: includes/class-wc-boleto-gateway.php:596
+#: includes/class-wc-boleto-gateway.php:302
+#: includes/class-wc-boleto-gateway.php:357
+#: includes/class-wc-boleto-gateway.php:390
+#: includes/class-wc-boleto-gateway.php:425
+#: includes/class-wc-boleto-gateway.php:459
+#: includes/class-wc-boleto-gateway.php:474
+#: includes/class-wc-boleto-gateway.php:498
+#: includes/class-wc-boleto-gateway.php:521
+#: includes/class-wc-boleto-gateway.php:545
+#: includes/class-wc-boleto-gateway.php:564
+#: includes/class-wc-boleto-gateway.php:598
 #@ wcboleto
 msgid "Wallet code"
 msgstr "Carteira"
@@ -1004,13 +1004,13 @@ msgstr "Examplo <code>S&atilde;o Paulo/SP</code>."
 msgid "Corporate Name"
 msgstr "Razão Social"
 
-#: includes/class-wc-boleto-gateway.php:624
+#: includes/class-wc-boleto-gateway.php:626
 #@ wcboleto
 msgid "Awaiting boleto payment"
 msgstr "Aguardando pagamento do Boleto"
 
-#: includes/class-wc-boleto-gateway.php:649
-#: includes/class-wc-boleto-gateway.php:712
+#: includes/class-wc-boleto-gateway.php:651
+#: includes/class-wc-boleto-gateway.php:708
 #: woocommerce-boleto.php:116
 #@ wcboleto
 msgid "Pay the Boleto &rarr;"
@@ -1022,15 +1022,15 @@ msgstr "Pagar Boleto &rarr;"
 msgid "%sAttention!%s Not registered the payment the docket for this product yet."
 msgstr "%sAtenção!%s Até o momento não esta registrado o pagamento do boleto para este produto."
 
-#: includes/class-wc-boleto-gateway.php:652
-#: includes/class-wc-boleto-gateway.php:707
+#: includes/class-wc-boleto-gateway.php:654
+#: includes/class-wc-boleto-gateway.php:703
 #: woocommerce-boleto.php:119
 #@ wcboleto
 msgid "Please click the following button and pay the Boleto in your Internet Banking."
 msgstr "Por favor, clique no botão ao lado e pague o boleto pelo seu Internet Banking."
 
-#: includes/class-wc-boleto-gateway.php:653
-#: includes/class-wc-boleto-gateway.php:708
+#: includes/class-wc-boleto-gateway.php:655
+#: includes/class-wc-boleto-gateway.php:704
 #: woocommerce-boleto.php:120
 #@ wcboleto
 msgid "If you prefer, print and pay at any bank branch or home lottery."
@@ -1041,21 +1041,21 @@ msgstr "Se preferir, imprima e pague em qualquer agência bancária ou casa lot�
 msgid "Ignore this message if the payment has already been made​​."
 msgstr "Ignore esta mensagem caso o pagamento já tenha sido realizado."
 
-#: includes/class-wc-boleto-gateway.php:651
-#: includes/class-wc-boleto-gateway.php:706
+#: includes/class-wc-boleto-gateway.php:653
+#: includes/class-wc-boleto-gateway.php:702
 #, php-format
 #@ wcboleto
 msgid "%sAttention!%s You will not get the ticket by Correios."
 msgstr "%sAtenção!%s Você não receberá o boleto pelos Correios."
 
-#: includes/class-wc-boleto-gateway.php:657
-#: includes/class-wc-boleto-gateway.php:714
+#: includes/class-wc-boleto-gateway.php:659
+#: includes/class-wc-boleto-gateway.php:710
 #, php-format
 #@ wcboleto
 msgid "Validity of the Boleto: %s."
 msgstr "Boleto válido até: %s."
 
-#: includes/class-wc-boleto-gateway.php:702
+#: includes/class-wc-boleto-gateway.php:698
 #@ wcboleto
 msgid "Payment"
 msgstr "Pagamento"
@@ -1114,246 +1114,200 @@ msgid "Kind of document"
 msgstr "Espécie de documento"
 
 #: includes/class-wc-boleto-gateway.php:285
-#: includes/class-wc-boleto-gateway.php:330
-#: includes/class-wc-boleto-gateway.php:366
-#: includes/class-wc-boleto-gateway.php:406
-#: includes/class-wc-boleto-gateway.php:435
-#: includes/class-wc-boleto-gateway.php:507
-#: includes/class-wc-boleto-gateway.php:535
-#: includes/class-wc-boleto-gateway.php:579
+#: includes/class-wc-boleto-gateway.php:332
+#: includes/class-wc-boleto-gateway.php:368
+#: includes/class-wc-boleto-gateway.php:408
+#: includes/class-wc-boleto-gateway.php:437
+#: includes/class-wc-boleto-gateway.php:509
+#: includes/class-wc-boleto-gateway.php:537
+#: includes/class-wc-boleto-gateway.php:581
 #@ wcboleto
 msgid "Agency number without digit."
 msgstr "Número da agência sem o digito."
 
 #: includes/class-wc-boleto-gateway.php:290
-#: includes/class-wc-boleto-gateway.php:339
-#: includes/class-wc-boleto-gateway.php:371
-#: includes/class-wc-boleto-gateway.php:411
-#: includes/class-wc-boleto-gateway.php:440
-#: includes/class-wc-boleto-gateway.php:489
-#: includes/class-wc-boleto-gateway.php:540
-#: includes/class-wc-boleto-gateway.php:584
+#: includes/class-wc-boleto-gateway.php:341
+#: includes/class-wc-boleto-gateway.php:373
+#: includes/class-wc-boleto-gateway.php:413
+#: includes/class-wc-boleto-gateway.php:442
+#: includes/class-wc-boleto-gateway.php:491
+#: includes/class-wc-boleto-gateway.php:542
+#: includes/class-wc-boleto-gateway.php:586
 #@ wcboleto
 msgid "Account number without digit."
 msgstr "Número da conta sem o digito."
 
-#: includes/class-wc-boleto-gateway.php:293
-#@ wcboleto
-msgid "Número do convênio"
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:295
-#@ wcboleto
-msgid "Convênios de 6, 7 ou 8 digitos."
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:298
-#@ wcboleto
-msgid "Número do contrato"
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:300
-#@ wcboleto
-msgid "Número do contrato."
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:305
-#: includes/class-wc-boleto-gateway.php:545
-#: includes/class-wc-boleto-gateway.php:598
+#: includes/class-wc-boleto-gateway.php:547
+#: includes/class-wc-boleto-gateway.php:600
 #@ wcboleto
 msgid "Wallet code."
-msgstr ""
+msgstr "Código da carteira."
 
-#: includes/class-wc-boleto-gateway.php:308
-#@ wcboleto
-msgid "Variação da Carteira (opcional)"
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:310
-#@ wcboleto
-msgid "Variação da Carteira com traço."
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:315
-#@ wcboleto
-msgid "8 para Convênio com 8 dígitos, 7 para Convênio com 7 dígitos, ou 6 para Convênio com 6 dígitos."
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:318
-#@ wcboleto
-msgid "Formatação do Nosso Número"
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:320
-#@ wcboleto
-msgid "Usado apenas para Convênio com 6 dígitos (informe 1 caso o Nosso Número for de até 5 dígitos ou 2 para opção de até 17 dígitos."
-msgstr ""
-
-#: includes/class-wc-boleto-gateway.php:333
+#: includes/class-wc-boleto-gateway.php:335
 #@ wcboleto
 msgid "Agency digit"
 msgstr "Digito da agência"
 
-#: includes/class-wc-boleto-gateway.php:342
-#: includes/class-wc-boleto-gateway.php:374
-#: includes/class-wc-boleto-gateway.php:414
-#: includes/class-wc-boleto-gateway.php:443
-#: includes/class-wc-boleto-gateway.php:492
-#: includes/class-wc-boleto-gateway.php:587
+#: includes/class-wc-boleto-gateway.php:344
+#: includes/class-wc-boleto-gateway.php:376
+#: includes/class-wc-boleto-gateway.php:416
+#: includes/class-wc-boleto-gateway.php:445
+#: includes/class-wc-boleto-gateway.php:494
+#: includes/class-wc-boleto-gateway.php:589
 #@ wcboleto
 msgid "Account digit"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:346
-#: includes/class-wc-boleto-gateway.php:378
-#: includes/class-wc-boleto-gateway.php:418
-#: includes/class-wc-boleto-gateway.php:447
+#: includes/class-wc-boleto-gateway.php:348
+#: includes/class-wc-boleto-gateway.php:380
+#: includes/class-wc-boleto-gateway.php:420
+#: includes/class-wc-boleto-gateway.php:449
 #@ wcboleto
 msgid "Conta do cedente"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:348
+#: includes/class-wc-boleto-gateway.php:350
 #@ wcboleto
 msgid "Conta cedente sem digito (apenas números)."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:351
-#: includes/class-wc-boleto-gateway.php:383
-#: includes/class-wc-boleto-gateway.php:452
+#: includes/class-wc-boleto-gateway.php:353
+#: includes/class-wc-boleto-gateway.php:385
+#: includes/class-wc-boleto-gateway.php:454
 #@ wcboleto
 msgid "Conta do cedente digito"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:357
+#: includes/class-wc-boleto-gateway.php:359
 #@ wcboleto
 msgid "03 or 06."
 msgstr "03 ou 06."
 
-#: includes/class-wc-boleto-gateway.php:380
-#: includes/class-wc-boleto-gateway.php:449
+#: includes/class-wc-boleto-gateway.php:382
+#: includes/class-wc-boleto-gateway.php:451
 #@ wcboleto
 msgid "Conta cedente sem digito. Utilize apenas números."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:385
-#: includes/class-wc-boleto-gateway.php:454
+#: includes/class-wc-boleto-gateway.php:387
+#: includes/class-wc-boleto-gateway.php:456
 #@ wcboleto
 msgid "Digito da conta cedente."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:390
-#: includes/class-wc-boleto-gateway.php:425
-#: includes/class-wc-boleto-gateway.php:459
+#: includes/class-wc-boleto-gateway.php:392
+#: includes/class-wc-boleto-gateway.php:427
+#: includes/class-wc-boleto-gateway.php:461
 #@ wcboleto
 msgid "Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:394
+#: includes/class-wc-boleto-gateway.php:396
 #@ wcboleto
 msgid "Início do Nosso Número"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:396
+#: includes/class-wc-boleto-gateway.php:398
 #@ wcboleto
 msgid "Utilize <code>80, 81 ou 82</code> para <strong>Sem Registro</strong> ou <code>90</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:420
+#: includes/class-wc-boleto-gateway.php:422
 #@ wcboleto
 msgid "Conta cedente com 6 digitos. Utilize apenas números."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:467
+#: includes/class-wc-boleto-gateway.php:469
 #@ wcboleto
 msgid "Código do cedente"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:469
+#: includes/class-wc-boleto-gateway.php:471
 #@ wcboleto
 msgid "Código do cedente com apenas 7 digitos."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:474
+#: includes/class-wc-boleto-gateway.php:476
 #@ wcboleto
 msgid "Sempre CNR."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:498
+#: includes/class-wc-boleto-gateway.php:500
 #@ wcboleto
 msgid "Insert the code (175, 174, 104, 109, 178, or 157)."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:510
+#: includes/class-wc-boleto-gateway.php:512
 #@ wcboleto
 msgid "Conta Cedente"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:512
+#: includes/class-wc-boleto-gateway.php:514
 #@ wcboleto
 msgid "Conta do cedente sem digito e com apenas 6 digitos."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:515
+#: includes/class-wc-boleto-gateway.php:517
 #@ wcboleto
 msgid "Conta Cedente digito"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:521
+#: includes/class-wc-boleto-gateway.php:523
 #@ wcboleto
 msgid "Utilize 5 para Cobrança Direta ou 1 para Cobrança Simples."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:524
+#: includes/class-wc-boleto-gateway.php:526
 #@ wcboleto
 msgid "Modalidade da conta"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:526
+#: includes/class-wc-boleto-gateway.php:528
 #@ wcboleto
 msgid "02 posições."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:552
+#: includes/class-wc-boleto-gateway.php:554
 #@ wcboleto
 msgid "Código do Cliente"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:554
+#: includes/class-wc-boleto-gateway.php:556
 #@ wcboleto
 msgid "Código do Cliente (PSK) com apenas 7 digitos."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:557
+#: includes/class-wc-boleto-gateway.php:559
 #@ wcboleto
 msgid "Ponto de venda (Agência)"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:559
+#: includes/class-wc-boleto-gateway.php:561
 #@ wcboleto
 msgid "Agencia number."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:564
+#: includes/class-wc-boleto-gateway.php:566
 #@ wcboleto
 msgid "Cobrança Simples - SEM Registro."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:567
+#: includes/class-wc-boleto-gateway.php:569
 #@ wcboleto
 msgid "Descrição da Carteira"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:569
+#: includes/class-wc-boleto-gateway.php:571
 #@ wcboleto
 msgid "Descrição da Carteira."
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:591
+#: includes/class-wc-boleto-gateway.php:593
 #@ wcboleto
 msgid "Client code"
 msgstr ""
 
-#: includes/class-wc-boleto-gateway.php:593
+#: includes/class-wc-boleto-gateway.php:595
 #@ wcboleto
 msgid "Client code."
 msgstr ""
@@ -1413,11 +1367,6 @@ msgstr "Instruções"
 msgid "Line 4"
 msgstr "Linha 4"
 
-#: includes/class-wc-boleto-gateway.php:313
-#@ wcboleto
-msgid "Formatação do Convênio"
-msgstr ""
-
 #. translators: plugin header field 'Author'
 #: woocommerce-boleto.php:0
 #@ wcboleto
@@ -1445,4 +1394,59 @@ msgstr ""
 #@ wcboleto
 msgid "Settings"
 msgstr ""
+
+#: includes/class-wc-boleto-gateway.php:293
+#@ wcboleto
+msgid "Agreement number"
+msgstr "Número do convênio"
+
+#: includes/class-wc-boleto-gateway.php:295
+#@ wcboleto
+msgid "Agreements with 6, 7 or 8 digits."
+msgstr "Convênio com 6, 7 ou 8 dígitos."
+
+#: includes/class-wc-boleto-gateway.php:298
+#@ wcboleto
+msgid "Contract number"
+msgstr "Número do contrato"
+
+#: includes/class-wc-boleto-gateway.php:306
+#@ wcboleto
+msgid "Wallet variation (optional)"
+msgstr "Variação da carteira (opcional)"
+
+#: includes/class-wc-boleto-gateway.php:308
+#@ wcboleto
+msgid "Wallet variation with dash."
+msgstr "Variação da carteira com traço."
+
+#: includes/class-wc-boleto-gateway.php:311
+#@ wcboleto
+msgid "Agreement format"
+msgstr "Formato do convênio"
+
+#: includes/class-wc-boleto-gateway.php:315
+#@ wcboleto
+msgid "Agreement with 6 digits"
+msgstr "Convênio com 6 dígitos."
+
+#: includes/class-wc-boleto-gateway.php:316
+#@ wcboleto
+msgid "Agreement with 7 dígitos"
+msgstr "Convênio com 7 dígitos."
+
+#: includes/class-wc-boleto-gateway.php:317
+#@ wcboleto
+msgid "Agreement with 8 dígitos"
+msgstr "Convênio com 8 dígitos."
+
+#: includes/class-wc-boleto-gateway.php:321
+#@ wcboleto
+msgid "Our number formatting"
+msgstr "Formatação do Nosso Número"
+
+#: includes/class-wc-boleto-gateway.php:323
+#@ wcboleto
+msgid "Used only for agreement with 6 digits (enter 1 for Our Number is up to 5 digits or 2 for option up to 17 digits)."
+msgstr "Usado apenas para convênio com 6 dígitos (informe 1 caso o Nosso Número for de até 5 dígitos ou 2 para opção de até 17 dígitos)."
 
