@@ -65,7 +65,7 @@ if ( isset( $_GET['ref'] ) ) {
             $data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', $woocommerce->countries->get_formatted_address( $address ) ) );
             $data['endereco2'] = '';
 
-            $dadosboleto = apply_filters( 'wcboleto_data', $data );
+            $dadosboleto = apply_filters( 'wcboleto_data', $data, $order );
 
             // Include bank templates.
             include WC_BOLETO_PATH . 'banks/' . $bank . '/functions.php';
