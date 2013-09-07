@@ -344,27 +344,31 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
                         'type'  => 'text'
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
                         'description' => __( 'Account number without digit.', 'wcboleto' ),
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'conta_cedente' => array(
-                        'title' => __( 'Conta do cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Conta cedente sem digito (apenas números).', 'wcboleto' ),
+                        'title'       => __( 'Transferor account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor account without digit (only numbers).', 'wcboleto' ),
                     ),
                     'conta_cedente_dv' => array(
-                        'title' => __( 'Conta do cedente digito', 'wcboleto' ),
-                        'type' => 'text'
+                        'title' => __( 'Digit of the transferor account', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( '03 or 06.', 'wcboleto' )
+                        'title'   => __( 'Wallet code', 'wcboleto' ),
+                        'type'    => 'select',
+                        'default' => '03',
+                        'options' => array(
+                            '03' => '03',
+                            '06' => '06'
+                        )
                     )
                 );
                 break;
