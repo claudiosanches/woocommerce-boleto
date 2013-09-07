@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: WooCommerce Boleto v0.1\n"
+"Project-Id-Version: WooCommerce Boleto v0.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-03-07 05:17:22+0000\n"
+"PO-Revision-Date: 2013-09-07 05:38:27+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -270,7 +270,7 @@ msgstr ""
 #: banks/real/layout.php:258
 #: banks/santander/layout.php:269
 #: banks/unibanco/layout.php:258
-#: woocommerce-boleto.php:317
+#: includes/class-wc-boleto-gateway.php:232
 #@ wcboleto
 msgid "CPF/CNPJ"
 msgstr ""
@@ -825,584 +825,624 @@ msgstr ""
 msgid "WooCommerce Boleto is a brazilian payment gateway for WooCommerce"
 msgstr ""
 
-#. translators: plugin header field 'Author'
-#: woocommerce-boleto.php:0
-#@ wcboleto
-msgid "claudiosanches"
-msgstr ""
-
 #. translators: plugin header field 'AuthorURI'
 #: woocommerce-boleto.php:0
 #@ wcboleto
 msgid "https://github.com/wpbrasil/"
 msgstr ""
 
-#. translators: plugin header field 'Version'
-#: woocommerce-boleto.php:0
-#@ wcboleto
-msgid "0.1"
-msgstr ""
-
-#: woocommerce-boleto.php:23
-#@ wcboleto
-msgid "Pay Boleto"
-msgstr "Pagar Boleto"
-
-#: woocommerce-boleto.php:94
-#@ wcboleto
-msgid "WooCommerce Boleto Gateway depends on the last version of <a href=\"http://wordpress.org/extend/plugins/woocommerce/\">WooCommerce</a> to work!"
-msgstr "WooCommerce Boleto Gateway depende da última versão do <a href=\"http://wordpress.org/extend/plugins/woocommerce/\">WooCommerce</a> para funcionar!"
-
-#: woocommerce-boleto.php:150
-#: woocommerce-boleto.php:230
+#: includes/class-wc-boleto-gateway.php:20
+#: includes/class-wc-boleto-gateway.php:97
+#: woocommerce-boleto.php:68
 #@ wcboleto
 msgid "Boleto"
 msgstr "Boleto"
 
-#: woocommerce-boleto.php:195
+#: includes/class-wc-boleto-gateway.php:63
 #@ wcboleto
 msgid "Boleto standard"
 msgstr "Boleto padrão"
 
-#: woocommerce-boleto.php:196
+#: includes/class-wc-boleto-gateway.php:64
 #@ wcboleto
 msgid "Enables payments via Boleto."
 msgstr "Ativar pagamento via Boleto."
 
-#: woocommerce-boleto.php:221
+#: includes/class-wc-boleto-gateway.php:88
 #@ wcboleto
 msgid "Enable/Disable"
 msgstr "Ativar/Desativar"
 
-#: woocommerce-boleto.php:223
+#: includes/class-wc-boleto-gateway.php:90
 #@ wcboleto
 msgid "Enable Boleto standard"
 msgstr "Ativar o padrão Boleto"
 
-#: woocommerce-boleto.php:227
+#: includes/class-wc-boleto-gateway.php:94
 #@ wcboleto
 msgid "Title"
 msgstr "Título"
 
-#: woocommerce-boleto.php:229
+#: includes/class-wc-boleto-gateway.php:96
 #@ wcboleto
 msgid "This controls the title which the user sees during checkout."
 msgstr "Isto controla o título que o usuário vê durante o checkout."
 
-#: woocommerce-boleto.php:233
+#: includes/class-wc-boleto-gateway.php:100
 #@ wcboleto
 msgid "Description"
 msgstr "Descrição"
 
-#: woocommerce-boleto.php:235
+#: includes/class-wc-boleto-gateway.php:102
 #@ wcboleto
 msgid "This controls the description which the user sees during checkout."
 msgstr "Isto controla a descrição que o usuário vê durante o checkout."
 
-#: woocommerce-boleto.php:236
-#: woocommerce-boleto.php:268
+#: includes/class-wc-boleto-gateway.php:103
+#: includes/class-wc-boleto-gateway.php:129
 #@ wcboleto
 msgid "Pay with Boleto"
 msgstr "Pagar com Boleto."
 
-#: woocommerce-boleto.php:239
+#: includes/class-wc-boleto-gateway.php:106
 #@ wcboleto
 msgid "Boleto Details"
 msgstr "Detalhes do Boleto"
 
-#: woocommerce-boleto.php:243
+#: includes/class-wc-boleto-gateway.php:110
 #@ wcboleto
 msgid "Deadline to pay the Boleto"
 msgstr "Dias para pagar o Boleto"
 
-#: woocommerce-boleto.php:245
+#: includes/class-wc-boleto-gateway.php:112
 #@ wcboleto
 msgid "Number of days to pay."
 msgstr "Número de dicas para pagar."
 
-#: woocommerce-boleto.php:249
-#@ wcboleto
-msgid "Boleto rate"
-msgstr "Taxa do Boleto"
-
-#: woocommerce-boleto.php:251
-#@ wcboleto
-msgid "Number with dot, example <code>2.95</code>."
-msgstr "Número com ponto. Exemplo <code>2.95</code>."
-
-#: woocommerce-boleto.php:252
-#@ wcboleto
-msgid "2.95"
-msgstr "2.95"
-
-#: woocommerce-boleto.php:255
+#: includes/class-wc-boleto-gateway.php:116
 #@ wcboleto
 msgid "Boleto Logo"
 msgstr "Logo do Boleto"
 
-#: woocommerce-boleto.php:257
+#: includes/class-wc-boleto-gateway.php:118
 #@ wcboleto
 msgid "Logo with 147px x 46px."
 msgstr "Logo com 147px de largura e 46px de altura."
 
-#: woocommerce-boleto.php:261
+#: includes/class-wc-boleto-gateway.php:122
 #@ wcboleto
 msgid "Bank Details"
 msgstr "Detalhes do Banco"
 
-#: woocommerce-boleto.php:265
+#: includes/class-wc-boleto-gateway.php:126
 #@ wcboleto
 msgid "Bank"
 msgstr "Banco"
 
-#: woocommerce-boleto.php:267
+#: includes/class-wc-boleto-gateway.php:128
 #@ wcboleto
 msgid "Choose the bank for Boleto."
 msgstr "Escolha o banco do Boleto."
 
-#: woocommerce-boleto.php:351
-#: woocommerce-boleto.php:396
-#: woocommerce-boleto.php:432
-#: woocommerce-boleto.php:472
-#: woocommerce-boleto.php:501
-#: woocommerce-boleto.php:550
-#: woocommerce-boleto.php:573
-#: woocommerce-boleto.php:601
-#: woocommerce-boleto.php:645
+#: includes/class-wc-boleto-gateway.php:283
+#: includes/class-wc-boleto-gateway.php:328
+#: includes/class-wc-boleto-gateway.php:364
+#: includes/class-wc-boleto-gateway.php:404
+#: includes/class-wc-boleto-gateway.php:433
+#: includes/class-wc-boleto-gateway.php:482
+#: includes/class-wc-boleto-gateway.php:505
+#: includes/class-wc-boleto-gateway.php:533
+#: includes/class-wc-boleto-gateway.php:577
 #@ wcboleto
 msgid "Agency"
 msgstr "Agência"
 
-#: woocommerce-boleto.php:552
+#: includes/class-wc-boleto-gateway.php:484
 #@ wcboleto
 msgid "Agency number."
 msgstr "Número da agência."
 
-#: woocommerce-boleto.php:356
-#: woocommerce-boleto.php:405
-#: woocommerce-boleto.php:437
-#: woocommerce-boleto.php:477
-#: woocommerce-boleto.php:506
-#: woocommerce-boleto.php:555
-#: woocommerce-boleto.php:606
-#: woocommerce-boleto.php:650
+#: includes/class-wc-boleto-gateway.php:288
+#: includes/class-wc-boleto-gateway.php:337
+#: includes/class-wc-boleto-gateway.php:369
+#: includes/class-wc-boleto-gateway.php:409
+#: includes/class-wc-boleto-gateway.php:438
+#: includes/class-wc-boleto-gateway.php:487
+#: includes/class-wc-boleto-gateway.php:538
+#: includes/class-wc-boleto-gateway.php:582
 #@ wcboleto
 msgid "Account"
 msgstr "Conta"
 
-#: woocommerce-boleto.php:371
-#: woocommerce-boleto.php:423
-#: woocommerce-boleto.php:456
-#: woocommerce-boleto.php:491
-#: woocommerce-boleto.php:525
-#: woocommerce-boleto.php:540
-#: woocommerce-boleto.php:564
-#: woocommerce-boleto.php:587
-#: woocommerce-boleto.php:611
-#: woocommerce-boleto.php:630
-#: woocommerce-boleto.php:664
+#: includes/class-wc-boleto-gateway.php:303
+#: includes/class-wc-boleto-gateway.php:355
+#: includes/class-wc-boleto-gateway.php:388
+#: includes/class-wc-boleto-gateway.php:423
+#: includes/class-wc-boleto-gateway.php:457
+#: includes/class-wc-boleto-gateway.php:472
+#: includes/class-wc-boleto-gateway.php:496
+#: includes/class-wc-boleto-gateway.php:519
+#: includes/class-wc-boleto-gateway.php:543
+#: includes/class-wc-boleto-gateway.php:562
+#: includes/class-wc-boleto-gateway.php:596
 #@ wcboleto
 msgid "Wallet code"
 msgstr "Carteira"
 
-#: woocommerce-boleto.php:313
+#: includes/class-wc-boleto-gateway.php:228
 #@ wcboleto
 msgid "Shop Details"
 msgstr "Detalhes da Loja"
 
-#: woocommerce-boleto.php:319
+#: includes/class-wc-boleto-gateway.php:234
 #@ wcboleto
 msgid "Document number."
 msgstr "Número do documento."
 
-#: woocommerce-boleto.php:322
+#: includes/class-wc-boleto-gateway.php:237
 #@ wcboleto
 msgid "Address"
 msgstr "Endereço"
 
-#: woocommerce-boleto.php:324
+#: includes/class-wc-boleto-gateway.php:239
 #@ wcboleto
 msgid "Shop Address."
 msgstr "Endereço do loja"
 
-#: woocommerce-boleto.php:327
+#: includes/class-wc-boleto-gateway.php:242
 #@ wcboleto
 msgid "City/State"
 msgstr "Cidade/UF"
 
-#: woocommerce-boleto.php:329
+#: includes/class-wc-boleto-gateway.php:244
 #@ wcboleto
 msgid "Example <code>S&atilde;o Paulo/SP</code>."
 msgstr "Examplo <code>S&atilde;o Paulo/SP</code>."
 
-#: woocommerce-boleto.php:332
+#: includes/class-wc-boleto-gateway.php:247
 #@ wcboleto
 msgid "Corporate Name"
 msgstr "Razão Social"
 
-#: woocommerce-boleto.php:691
+#: includes/class-wc-boleto-gateway.php:624
 #@ wcboleto
 msgid "Awaiting boleto payment"
 msgstr "Aguardando pagamento do Boleto"
 
-#: woocommerce-boleto.php:72
-#: woocommerce-boleto.php:719
-#: woocommerce-boleto.php:782
+#: includes/class-wc-boleto-gateway.php:649
+#: includes/class-wc-boleto-gateway.php:712
+#: woocommerce-boleto.php:116
 #@ wcboleto
 msgid "Pay the Boleto &rarr;"
 msgstr "Pagar Boleto &rarr;"
 
-#: woocommerce-boleto.php:74
+#: woocommerce-boleto.php:118
 #, php-format
 #@ wcboleto
 msgid "%sAttention!%s Not registered the payment the docket for this product yet."
 msgstr "%sAtenção!%s Até o momento não esta registrado o pagamento do boleto para este produto."
 
-#: woocommerce-boleto.php:75
-#: woocommerce-boleto.php:722
-#: woocommerce-boleto.php:777
+#: includes/class-wc-boleto-gateway.php:652
+#: includes/class-wc-boleto-gateway.php:707
+#: woocommerce-boleto.php:119
 #@ wcboleto
 msgid "Please click the following button and pay the Boleto in your Internet Banking."
 msgstr "Por favor, clique no botão ao lado e pague o boleto pelo seu Internet Banking."
 
-#: woocommerce-boleto.php:76
-#: woocommerce-boleto.php:723
-#: woocommerce-boleto.php:778
+#: includes/class-wc-boleto-gateway.php:653
+#: includes/class-wc-boleto-gateway.php:708
+#: woocommerce-boleto.php:120
 #@ wcboleto
 msgid "If you prefer, print and pay at any bank branch or home lottery."
 msgstr "Se preferir, imprima e pague em qualquer agência bancária ou casa lotérica."
 
-#: woocommerce-boleto.php:77
+#: woocommerce-boleto.php:121
 #@ wcboleto
 msgid "Ignore this message if the payment has already been made​​."
 msgstr "Ignore esta mensagem caso o pagamento já tenha sido realizado."
 
-#: woocommerce-boleto.php:721
-#: woocommerce-boleto.php:776
+#: includes/class-wc-boleto-gateway.php:651
+#: includes/class-wc-boleto-gateway.php:706
 #, php-format
 #@ wcboleto
 msgid "%sAttention!%s You will not get the ticket by Correios."
 msgstr "%sAtenção!%s Você não receberá o boleto pelos Correios."
 
-#: woocommerce-boleto.php:727
-#: woocommerce-boleto.php:784
+#: includes/class-wc-boleto-gateway.php:657
+#: includes/class-wc-boleto-gateway.php:714
 #, php-format
 #@ wcboleto
 msgid "Validity of the Boleto: %s."
 msgstr "Boleto válido até: %s."
 
-#: woocommerce-boleto.php:772
+#: includes/class-wc-boleto-gateway.php:702
 #@ wcboleto
 msgid "Payment"
 msgstr "Pagamento"
 
-#: templates/boleto.php:45
+#: includes/class-wc-boleto-gateway.php:187
 #, php-format
 #@ wcboleto
 msgid "Payment for purchase in %s"
 msgstr "Pagamento de compra em %s"
 
-#: templates/boleto.php:46
-#, php-format
-#@ wcboleto
-msgid "Payment referred to the order #%s %sBank Rate - R$ %s"
-msgstr "Pagamento referente ao pedido #%s %sTaxa bancária - R$ %s"
-
-#: templates/boleto.php:48
+#: includes/class-wc-boleto-gateway.php:210
 #@ wcboleto
 msgid "- Mr. Cash, charge a fine of 2% after maturity"
 msgstr "- Sr. Caixa, cobrar multa de 2% após o vencimento"
 
-#: templates/boleto.php:49
+#: includes/class-wc-boleto-gateway.php:215
 #@ wcboleto
 msgid "- Receive up to 10 days past due"
 msgstr "- Receber até 10 dias após o vencimento"
 
-#: templates/boleto.php:50
+#: includes/class-wc-boleto-gateway.php:220
 #, php-format
 #@ wcboleto
 msgid "- For questions please contact us: %s"
 msgstr "- Em caso de dúvidas entre em contato conosco: %s"
 
-#: woocommerce-boleto.php:288
+#: includes/class-wc-boleto-gateway.php:149
 #@ wcboleto
 msgid "Optional Data"
 msgstr "Dados Opcionais"
 
-#: woocommerce-boleto.php:292
+#: includes/class-wc-boleto-gateway.php:153
 #@ wcboleto
 msgid "Quantity"
 msgstr "Quantidade"
 
-#: woocommerce-boleto.php:296
+#: includes/class-wc-boleto-gateway.php:157
 #@ wcboleto
 msgid "Unitary value"
 msgstr "Valor unitário"
 
-#: woocommerce-boleto.php:300
+#: includes/class-wc-boleto-gateway.php:161
 #@ wcboleto
 msgid "Acceptance"
 msgstr "Aceite"
 
-#: woocommerce-boleto.php:304
+#: includes/class-wc-boleto-gateway.php:165
+#: includes/class-wc-boleto-gateway.php:174
 #@ wcboleto
 msgid "Currency"
 msgstr "Espécie"
 
-#: woocommerce-boleto.php:309
+#: includes/class-wc-boleto-gateway.php:170
 #@ wcboleto
 msgid "Kind of document"
 msgstr "Espécie de documento"
 
-#: woocommerce-boleto.php:353
-#: woocommerce-boleto.php:398
-#: woocommerce-boleto.php:434
-#: woocommerce-boleto.php:474
-#: woocommerce-boleto.php:503
-#: woocommerce-boleto.php:575
-#: woocommerce-boleto.php:603
-#: woocommerce-boleto.php:647
+#: includes/class-wc-boleto-gateway.php:285
+#: includes/class-wc-boleto-gateway.php:330
+#: includes/class-wc-boleto-gateway.php:366
+#: includes/class-wc-boleto-gateway.php:406
+#: includes/class-wc-boleto-gateway.php:435
+#: includes/class-wc-boleto-gateway.php:507
+#: includes/class-wc-boleto-gateway.php:535
+#: includes/class-wc-boleto-gateway.php:579
 #@ wcboleto
 msgid "Agency number without digit."
-msgstr ""
+msgstr "Número da agência sem o digito."
 
-#: woocommerce-boleto.php:358
-#: woocommerce-boleto.php:407
-#: woocommerce-boleto.php:439
-#: woocommerce-boleto.php:479
-#: woocommerce-boleto.php:508
-#: woocommerce-boleto.php:557
-#: woocommerce-boleto.php:608
-#: woocommerce-boleto.php:652
+#: includes/class-wc-boleto-gateway.php:290
+#: includes/class-wc-boleto-gateway.php:339
+#: includes/class-wc-boleto-gateway.php:371
+#: includes/class-wc-boleto-gateway.php:411
+#: includes/class-wc-boleto-gateway.php:440
+#: includes/class-wc-boleto-gateway.php:489
+#: includes/class-wc-boleto-gateway.php:540
+#: includes/class-wc-boleto-gateway.php:584
 #@ wcboleto
 msgid "Account number without digit."
-msgstr ""
+msgstr "Número da conta sem o digito."
 
-#: woocommerce-boleto.php:361
+#: includes/class-wc-boleto-gateway.php:293
 #@ wcboleto
 msgid "Número do convênio"
 msgstr ""
 
-#: woocommerce-boleto.php:363
+#: includes/class-wc-boleto-gateway.php:295
 #@ wcboleto
 msgid "Convênios de 6, 7 ou 8 digitos."
 msgstr ""
 
-#: woocommerce-boleto.php:366
+#: includes/class-wc-boleto-gateway.php:298
 #@ wcboleto
 msgid "Número do contrato"
 msgstr ""
 
-#: woocommerce-boleto.php:368
+#: includes/class-wc-boleto-gateway.php:300
 #@ wcboleto
 msgid "Número do contrato."
 msgstr ""
 
-#: woocommerce-boleto.php:373
-#: woocommerce-boleto.php:613
-#: woocommerce-boleto.php:666
+#: includes/class-wc-boleto-gateway.php:305
+#: includes/class-wc-boleto-gateway.php:545
+#: includes/class-wc-boleto-gateway.php:598
 #@ wcboleto
 msgid "Wallet code."
 msgstr ""
 
-#: woocommerce-boleto.php:376
-#: woocommerce-boleto.php:381
+#: includes/class-wc-boleto-gateway.php:308
 #@ wcboleto
 msgid "Variação da Carteira (opcional)"
 msgstr ""
 
-#: woocommerce-boleto.php:378
+#: includes/class-wc-boleto-gateway.php:310
 #@ wcboleto
 msgid "Variação da Carteira com traço."
 msgstr ""
 
-#: woocommerce-boleto.php:383
+#: includes/class-wc-boleto-gateway.php:315
 #@ wcboleto
 msgid "8 para Convênio com 8 dígitos, 7 para Convênio com 7 dígitos, ou 6 para Convênio com 6 dígitos."
 msgstr ""
 
-#: woocommerce-boleto.php:386
+#: includes/class-wc-boleto-gateway.php:318
 #@ wcboleto
 msgid "Formatação do Nosso Número"
 msgstr ""
 
-#: woocommerce-boleto.php:388
+#: includes/class-wc-boleto-gateway.php:320
 #@ wcboleto
 msgid "Usado apenas para Convênio com 6 dígitos (informe 1 caso o Nosso Número for de até 5 dígitos ou 2 para opção de até 17 dígitos."
 msgstr ""
 
-#: woocommerce-boleto.php:401
+#: includes/class-wc-boleto-gateway.php:333
 #@ wcboleto
 msgid "Agency digit"
-msgstr ""
+msgstr "Digito da agência"
 
-#: woocommerce-boleto.php:410
-#: woocommerce-boleto.php:442
-#: woocommerce-boleto.php:482
-#: woocommerce-boleto.php:511
-#: woocommerce-boleto.php:560
-#: woocommerce-boleto.php:655
+#: includes/class-wc-boleto-gateway.php:342
+#: includes/class-wc-boleto-gateway.php:374
+#: includes/class-wc-boleto-gateway.php:414
+#: includes/class-wc-boleto-gateway.php:443
+#: includes/class-wc-boleto-gateway.php:492
+#: includes/class-wc-boleto-gateway.php:587
 #@ wcboleto
 msgid "Account digit"
 msgstr ""
 
-#: woocommerce-boleto.php:414
-#: woocommerce-boleto.php:446
-#: woocommerce-boleto.php:486
-#: woocommerce-boleto.php:515
+#: includes/class-wc-boleto-gateway.php:346
+#: includes/class-wc-boleto-gateway.php:378
+#: includes/class-wc-boleto-gateway.php:418
+#: includes/class-wc-boleto-gateway.php:447
 #@ wcboleto
 msgid "Conta do cedente"
 msgstr ""
 
-#: woocommerce-boleto.php:416
+#: includes/class-wc-boleto-gateway.php:348
 #@ wcboleto
 msgid "Conta cedente sem digito (apenas números)."
 msgstr ""
 
-#: woocommerce-boleto.php:419
-#: woocommerce-boleto.php:451
-#: woocommerce-boleto.php:520
+#: includes/class-wc-boleto-gateway.php:351
+#: includes/class-wc-boleto-gateway.php:383
+#: includes/class-wc-boleto-gateway.php:452
 #@ wcboleto
 msgid "Conta do cedente digito"
 msgstr ""
 
-#: woocommerce-boleto.php:425
+#: includes/class-wc-boleto-gateway.php:357
 #@ wcboleto
 msgid "03 or 06."
-msgstr ""
+msgstr "03 ou 06."
 
-#: woocommerce-boleto.php:448
-#: woocommerce-boleto.php:517
+#: includes/class-wc-boleto-gateway.php:380
+#: includes/class-wc-boleto-gateway.php:449
 #@ wcboleto
 msgid "Conta cedente sem digito. Utilize apenas números."
 msgstr ""
 
-#: woocommerce-boleto.php:453
-#: woocommerce-boleto.php:522
+#: includes/class-wc-boleto-gateway.php:385
+#: includes/class-wc-boleto-gateway.php:454
 #@ wcboleto
 msgid "Digito da conta cedente."
 msgstr ""
 
-#: woocommerce-boleto.php:458
-#: woocommerce-boleto.php:493
-#: woocommerce-boleto.php:527
+#: includes/class-wc-boleto-gateway.php:390
+#: includes/class-wc-boleto-gateway.php:425
+#: includes/class-wc-boleto-gateway.php:459
 #@ wcboleto
 msgid "Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente."
 msgstr ""
 
-#: woocommerce-boleto.php:462
+#: includes/class-wc-boleto-gateway.php:394
 #@ wcboleto
 msgid "Início do Nosso Número"
 msgstr ""
 
-#: woocommerce-boleto.php:464
+#: includes/class-wc-boleto-gateway.php:396
 #@ wcboleto
 msgid "Utilize <code>80, 81 ou 82</code> para <strong>Sem Registro</strong> ou <code>90</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente."
 msgstr ""
 
-#: woocommerce-boleto.php:488
+#: includes/class-wc-boleto-gateway.php:420
 #@ wcboleto
 msgid "Conta cedente com 6 digitos. Utilize apenas números."
 msgstr ""
 
-#: woocommerce-boleto.php:535
+#: includes/class-wc-boleto-gateway.php:467
 #@ wcboleto
 msgid "Código do cedente"
 msgstr ""
 
-#: woocommerce-boleto.php:537
+#: includes/class-wc-boleto-gateway.php:469
 #@ wcboleto
 msgid "Código do cedente com apenas 7 digitos."
 msgstr ""
 
-#: woocommerce-boleto.php:542
+#: includes/class-wc-boleto-gateway.php:474
 #@ wcboleto
 msgid "Sempre CNR."
 msgstr ""
 
-#: woocommerce-boleto.php:566
+#: includes/class-wc-boleto-gateway.php:498
 #@ wcboleto
 msgid "Insert the code (175, 174, 104, 109, 178, or 157)."
 msgstr ""
 
-#: woocommerce-boleto.php:578
+#: includes/class-wc-boleto-gateway.php:510
 #@ wcboleto
 msgid "Conta Cedente"
 msgstr ""
 
-#: woocommerce-boleto.php:580
+#: includes/class-wc-boleto-gateway.php:512
 #@ wcboleto
 msgid "Conta do cedente sem digito e com apenas 6 digitos."
 msgstr ""
 
-#: woocommerce-boleto.php:583
+#: includes/class-wc-boleto-gateway.php:515
 #@ wcboleto
 msgid "Conta Cedente digito"
 msgstr ""
 
-#: woocommerce-boleto.php:589
+#: includes/class-wc-boleto-gateway.php:521
 #@ wcboleto
 msgid "Utilize 5 para Cobrança Direta ou 1 para Cobrança Simples."
 msgstr ""
 
-#: woocommerce-boleto.php:592
+#: includes/class-wc-boleto-gateway.php:524
 #@ wcboleto
 msgid "Modalidade da conta"
 msgstr ""
 
-#: woocommerce-boleto.php:594
+#: includes/class-wc-boleto-gateway.php:526
 #@ wcboleto
 msgid "02 posições."
 msgstr ""
 
-#: woocommerce-boleto.php:620
+#: includes/class-wc-boleto-gateway.php:552
 #@ wcboleto
 msgid "Código do Cliente"
 msgstr ""
 
-#: woocommerce-boleto.php:622
+#: includes/class-wc-boleto-gateway.php:554
 #@ wcboleto
 msgid "Código do Cliente (PSK) com apenas 7 digitos."
 msgstr ""
 
-#: woocommerce-boleto.php:625
+#: includes/class-wc-boleto-gateway.php:557
 #@ wcboleto
 msgid "Ponto de venda (Agência)"
 msgstr ""
 
-#: woocommerce-boleto.php:627
+#: includes/class-wc-boleto-gateway.php:559
 #@ wcboleto
 msgid "Agencia number."
 msgstr ""
 
-#: woocommerce-boleto.php:632
+#: includes/class-wc-boleto-gateway.php:564
 #@ wcboleto
 msgid "Cobrança Simples - SEM Registro."
 msgstr ""
 
-#: woocommerce-boleto.php:635
+#: includes/class-wc-boleto-gateway.php:567
 #@ wcboleto
 msgid "Descrição da Carteira"
 msgstr ""
 
-#: woocommerce-boleto.php:637
+#: includes/class-wc-boleto-gateway.php:569
 #@ wcboleto
 msgid "Descrição da Carteira."
 msgstr ""
 
-#: woocommerce-boleto.php:659
+#: includes/class-wc-boleto-gateway.php:591
 #@ wcboleto
 msgid "Client code"
 msgstr ""
 
-#: woocommerce-boleto.php:661
+#: includes/class-wc-boleto-gateway.php:593
 #@ wcboleto
 msgid "Client code."
 msgstr ""
 
-#: woocommerce-boleto.php:750
+#: includes/class-wc-boleto-gateway.php:68
+#@ wcboleto
+msgid "Boleto Disabled"
+msgstr ""
+
+#: includes/class-wc-boleto-gateway.php:68
+#@ wcboleto
+msgid "Works only with Brazilian Real."
+msgstr ""
+
+#: includes/class-wc-boleto-gateway.php:179
+#@ wcboleto
+msgid "Demonstrative"
+msgstr "Demonstrativo"
+
+#: includes/class-wc-boleto-gateway.php:183
+#: includes/class-wc-boleto-gateway.php:208
+#@ wcboleto
+msgid "Line 1"
+msgstr "Linha 1"
+
+#: includes/class-wc-boleto-gateway.php:185
+#: includes/class-wc-boleto-gateway.php:192
+#: includes/class-wc-boleto-gateway.php:199
+#@ wcboleto
+msgid "Use [number] to show the Order ID."
+msgstr "Utilize [number] para mostrar o ID do pedido."
+
+#: includes/class-wc-boleto-gateway.php:190
+#: includes/class-wc-boleto-gateway.php:213
+#@ wcboleto
+msgid "Line 2"
+msgstr "Linha 2"
+
+#: includes/class-wc-boleto-gateway.php:194
+#@ wcboleto
+msgid "Payment referred to the order [number]"
+msgstr "Pagamento referente ao pedido [number]"
+
+#: includes/class-wc-boleto-gateway.php:197
+#: includes/class-wc-boleto-gateway.php:218
+#@ wcboleto
+msgid "Line 3"
+msgstr "Linha 3"
+
+#: includes/class-wc-boleto-gateway.php:204
+#@ wcboleto
+msgid "Instructions"
+msgstr "Instruções"
+
+#: includes/class-wc-boleto-gateway.php:223
+#@ wcboleto
+msgid "Line 4"
+msgstr "Linha 4"
+
+#: includes/class-wc-boleto-gateway.php:313
+#@ wcboleto
+msgid "Formatação do Convênio"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "claudiosanches, deblyn"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: woocommerce-boleto.php:0
+#@ wcboleto
+msgid "0.3"
+msgstr ""
+
+#: woocommerce-boleto.php:21
 #, php-format
 #@ wcboleto
-msgid "%s - %s - Zip Code: %s"
-msgstr "%s - %s - CEP: %s"
+msgid "WooCommerce Boleto Gateway depends on the last version of %s to work!"
+msgstr ""
+
+#: woocommerce-boleto.php:21
+#@ wcboleto
+msgid "WooCommerce"
+msgstr ""
+
+#: woocommerce-boleto.php:146
+#@ wcboleto
+msgid "Settings"
+msgstr ""
 

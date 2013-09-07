@@ -81,6 +81,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
      * @return void
      */
     public function init_form_fields() {
+        $shop_name = get_bloginfo( 'name' );
 
         $first = array(
             'enabled' => array(
@@ -168,6 +169,60 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             'especie_doc' => array(
                 'title'       => __( 'Kind of document', 'wcboleto' ),
                 'type'        => 'text'
+            ),
+            'especie' => array(
+                'title'       => __( 'Currency', 'wcboleto' ),
+                'type'        => 'text',
+                'default'     => 'R$'
+            ),
+            'demonstrative' => array(
+                'title' => __( 'Demonstrative', 'wcboleto' ),
+                'type'  => 'title'
+            ),
+            'demonstrativo1' => array(
+                'title'       => __( 'Line 1', 'wcboleto' ),
+                'type'        => 'text',
+                'description' => __( 'Use [number] to show the Order ID.', 'wcboleto' ),
+                'desc_tip'    => true,
+                'default'     => sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name )
+            ),
+            'demonstrativo2' => array(
+                'title'       => __( 'Line 2', 'wcboleto' ),
+                'type'        => 'text',
+                'description' => __( 'Use [number] to show the Order ID.', 'wcboleto' ),
+                'desc_tip'    => true,
+                'default'     => __( 'Payment referred to the order [number]', 'wcboleto' )
+            ),
+            'demonstrativo3' => array(
+                'title'       => __( 'Line 3', 'wcboleto' ),
+                'type'        => 'text',
+                'description' => __( 'Use [number] to show the Order ID.', 'wcboleto' ),
+                'desc_tip'    => true,
+                'default'     => $shop_name . ' - ' . home_url()
+            ),
+            'instructions' => array(
+                'title' => __( 'Instructions', 'wcboleto' ),
+                'type'  => 'title'
+            ),
+            'instrucoes1' => array(
+                'title'       => __( 'Line 1', 'wcboleto' ),
+                'type'        => 'text',
+                'default'     => __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' )
+            ),
+            'instrucoes2' => array(
+                'title'       => __( 'Line 2', 'wcboleto' ),
+                'type'        => 'text',
+                'default'     => __( '- Receive up to 10 days past due', 'wcboleto' )
+            ),
+            'instrucoes3' => array(
+                'title'       => __( 'Line 3', 'wcboleto' ),
+                'type'        => 'text',
+                'default'     => sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) )
+            ),
+            'instrucoes4' => array(
+                'title'       => __( 'Line 4', 'wcboleto' ),
+                'type'        => 'text',
+                'default'     => ''
             ),
             'shop_details' => array(
                 'title' => __( 'Shop Details', 'wcboleto' ),
@@ -579,8 +634,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
         // Return thankyou redirect.
         return array(
-            'result'    => 'success',
-            'redirect'  => add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) )
+            'result'   => 'success',
+            'redirect' => add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) )
         );
     }
 
@@ -621,11 +676,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
         $data['data_documento']     = date( 'd/m/Y' );
         $data['data_processamento'] = date( 'd/m/Y' );
         $data['valor_boleto']       = number_format( $order->order_total, 2, ',', '' );
-
-        // Client data.
-        $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
-        $data['endereco1'] = ! empty( $order->billing_address_2 ) ? $order->billing_address_1 . ', ' . $order->billing_address_2 : $order->billing_address_1;
-        $data['endereco2'] = sprintf( __( '%s - %s - Zip Code: %s', 'wcboleto' ), $order->billing_city, $order->billing_state, $order->billing_postcode );
 
         update_post_meta( $order->id, 'wc_boleto_data', $data );
     }

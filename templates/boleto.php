@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
 // Test if exist ref.
 if ( isset( $_GET['ref'] ) ) {
-    global $wpdb;
+    global $wpdb, $woocommerce;
 
     // Sanitize the ref.
     $ref = sanitize_title( $_GET['ref'] );
@@ -17,6 +17,7 @@ if ( isset( $_GET['ref'] ) ) {
 
     if ( $order_id ) {
         // Gets the data saved from boleto.
+        $order = new WC_Order( $order_id );
         $order_data = get_post_meta( $order_id, 'wc_boleto_data', true );
 
         // Gets current bank.
@@ -35,20 +36,34 @@ if ( isset( $_GET['ref'] ) ) {
                 $data[ $key ] = sanitize_text_field( $value );
 
             // Sets the settings data.
-            foreach ( $settings as $key => $value )
-                $data[ $key ] = sanitize_text_field( $value );
-
-            // Client info.
-            $data['demonstrativo1'] = sprintf( __( 'Payment for purchase in %s', 'wcboleto' ), $shop_name );
-            $data['demonstrativo2'] = sprintf( __( 'Payment referred to the order #%s', 'wcboleto' ), $data['nosso_numero'] );
-            $data['demonstrativo3'] = $shop_name . ' - ' . home_url();
-            $data['instrucoes1']    = __( '- Mr. Cash, charge a fine of 2% after maturity', 'wcboleto' );
-            $data['instrucoes2']    = __( '- Receive up to 10 days past due', 'wcboleto' );
-            $data['instrucoes3']    = sprintf( __( '- For questions please contact us: %s', 'wcboleto' ), get_option( 'woocommerce_email_from_address' ) );
-            $data['instrucoes4']    = '';
+            foreach ( $settings as $key => $value ) {
+                if ( in_array( $key, array( 'demonstrativo1', 'demonstrativo2', 'demonstrativo3' ) ) )
+                    $data[ $key ] = str_replace( '[number]', '#' . $data['nosso_numero'], sanitize_text_field( $value ) );
+                else
+                    $data[ $key ] = sanitize_text_field( $value );
+            }
 
             // Shop data.
             $data['identificacao']  = $shop_name;
+
+            // Client data.
+            $data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
+
+            // Formatted Addresses
+            $address = apply_filters( 'woocommerce_order_formatted_billing_address', array(
+                'first_name' => '',
+                'last_name'  => '',
+                'company'    => $order->billing_company,
+                'address_1'  => $order->billing_address_1,
+                'address_2'  => $order->billing_address_2,
+                'city'       => $order->billing_city,
+                'state'      => $order->billing_state,
+                'postcode'   => $order->billing_postcode,
+                'country'    => $order->billing_country
+            ), $order );
+
+            $data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', $woocommerce->countries->get_formatted_address( $address ) ) );
+            $data['endereco2'] = '';
 
             $dadosboleto = apply_filters( 'wcboleto_data', $data );
 
