@@ -690,13 +690,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
      */
     function email_instructions( $order, $sent_to_admin ) {
 
-        if ( $sent_to_admin )
-            return;
-
-        if ( 'on-hold' !== $order->status )
-            return;
-
-        if ( 'boleto' !== $order->payment_method )
+        if ( $sent_to_admin || 'on-hold' !== $order->status || 'boleto' !== $order->payment_method )
             return;
 
         $html = '<h2>' . __( 'Payment', 'wcboleto' ) . '</h2>';
