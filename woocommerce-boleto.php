@@ -26,16 +26,16 @@ function wcboleto_woocommerce_fallback_notice() {
  */
 function wcboleto_gateway_load() {
 
+    /**
+     * Load textdomain.
+     */
+    load_plugin_textdomain( 'wcboleto', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+
     if ( ! class_exists( 'WC_Payment_Gateway' ) ) {
         add_action( 'admin_notices', 'wcboleto_woocommerce_fallback_notice' );
 
         return;
     }
-
-    /**
-     * Load textdomain.
-     */
-    load_plugin_textdomain( 'wcboleto', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
     /**
      * Add the gateway to WooCommerce.
@@ -65,7 +65,7 @@ function wcboleto_create_page() {
     if ( ! get_page_by_path( 'boleto' ) ) {
 
         $page = array(
-            'post_title'     => __( 'Pay Boleto', 'wcboleto' ),
+            'post_title'     => __( 'Boleto', 'wcboleto' ),
             'post_name'      => 'boleto',
             'post_status'    => 'publish',
             'post_type'      => 'page',
