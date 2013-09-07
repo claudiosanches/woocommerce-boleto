@@ -1,0 +1,12 @@
+{
+  "name": "woocommerce-boleto",
+  "description": "WooCommerce Boleto is a brazilian payment gateway for WooCommerce",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-imagemin": "~0.2.1",
+    "grunt-rsync": "~0.2.0",
+    "grunt-shell": "~0.3.1"
+  }
+}
