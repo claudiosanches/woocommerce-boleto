@@ -358,7 +358,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
                         'description' => __( 'Transferor account without digit (only numbers).', 'wcboleto' ),
                     ),
                     'conta_cedente_dv' => array(
-                        'title' => __( 'Digit of the transferor account', 'wcboleto' ),
+                        'title' => __( 'Transferor account digit', 'wcboleto' ),
                         'type'  => 'text'
                     ),
                     'carteira' => array(
@@ -375,212 +375,235 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             case 'cef':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'conta_cedente' => array(
-                        'title' => __( 'Conta do cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Conta cedente sem digito. Utilize apenas números.', 'wcboleto' ),
+                        'title'       => __( 'Transferor account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor account without digit, use only numbers', 'wcboleto' )
                     ),
                     'conta_cedente_dv' => array(
-                        'title' => __( 'Conta do cedente digito', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Digito da conta cedente.', 'wcboleto' ),
+                        'title' => __( 'Transferor account digit', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente.', 'wcboleto' ),
-                        'default' => 'SR'
+                        'title'       => __( 'Wallet code', 'wcboleto' ),
+                        'type'        => 'select',
+                        'description' => __( 'Confirm this information with your manager.', 'wcboleto' ),
+                        'default'     => 'SR',
+                        'options'     => array(
+                            'SR' => __( 'Without registry', 'wcboleto' ),
+                            'CR' => __( 'With registry', 'wcboleto' )
+                        )
                     ),
                     'inicio_nosso_numero' => array(
-                        'title' => __( 'Início do Nosso Número', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Utilize <code>80, 81 ou 82</code> para <strong>Sem Registro</strong> ou <code>90</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente.', 'wcboleto' ),
-                        'default' => '80'
+                        'title'       => __( 'Beginning of the Our Number', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Use <code>80, 81 or 82</code> for <strong>Without registry</strong> or <code>90</code> for <strong>With registry</strong>. Confirm this information with your manager.', 'wcboleto' ),
+                        'default'     => '80'
                     )
                 );
                 break;
             case 'cef_sigcb':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'conta_cedente' => array(
-                        'title' => __( 'Conta do cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Conta cedente com 6 digitos. Utilize apenas números.', 'wcboleto' ),
+                        'title'       => __( 'Transferor account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor account with 6 digits, use only numbers.', 'wcboleto' )
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente.', 'wcboleto' ),
-                        'default' => 'SR'
+                        'title'       => __( 'Wallet code', 'wcboleto' ),
+                        'type'        => 'select',
+                        'description' => __( 'Confirm this information with your manager.', 'wcboleto' ),
+                        'default'     => 'SR',
+                        'options'     => array(
+                            'SR' => __( 'Without registry', 'wcboleto' ),
+                            'CR' => __( 'With registry', 'wcboleto' )
+                        )
                     )
                 );
                 break;
             case 'cef_sinco':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
                         'description' => __( 'Account number without digit.', 'wcboleto' ),
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'conta_cedente' => array(
-                        'title' => __( 'Conta do cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Conta cedente sem digito. Utilize apenas números.', 'wcboleto' ),
+                        'title'       => __( 'Transferor account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor account without digit, use only numbers', 'wcboleto' )
                     ),
                     'conta_cedente_dv' => array(
-                        'title' => __( 'Conta do cedente digito', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Digito da conta cedente.', 'wcboleto' ),
+                        'title' => __( 'Transferor account digit', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Utilize <code>SR</code> para <strong>Sem Registro</strong> ou <code>CR</code> para <strong>Com Registro</strong>. Nota: Confirme esta informação com o seu gerente.', 'wcboleto' ),
-                        'default' => 'SR'
+                        'title'       => __( 'Wallet code', 'wcboleto' ),
+                        'type'        => 'select',
+                        'description' => __( 'Confirm this information with your manager.', 'wcboleto' ),
+                        'default'     => 'SR',
+                        'options'     => array(
+                            'SR' => __( 'Without registry', 'wcboleto' ),
+                            'CR' => __( 'With registry', 'wcboleto' )
+                        )
                     ),
                 );
                 break;
             case 'hsbc':
                 $fields = array(
                     'codigo_cedente' => array(
-                        'title' => __( 'Código do cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Código do cedente com apenas 7 digitos.', 'wcboleto' ),
+                        'title'       => __( 'Transferor code', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor code with only 7 digits.', 'wcboleto' )
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Sempre CNR.', 'wcboleto' ),
-                        'default' => 'CNR'
+                        'title'       => __( 'Wallet code', 'wcboleto' ),
+                        'type'        => 'select',
+                        'description' => __( 'Accepts only CNR.', 'wcboleto' ),
+                        'default'     => 'CNR',
+                        'options'     => array(
+                            'CNR' => 'CNR'
+                        )
                     )
                 );
                 break;
             case 'itau':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
                         'description' => __( 'Agency number.', 'wcboleto' ),
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Insert the code (175, 174, 104, 109, 178, or 157).', 'wcboleto' ),
+                        'title'   => __( 'Wallet code', 'wcboleto' ),
+                        'type'    => 'select',
+                        'default' => '104',
+                        'options' => array(
+                            '104' => '104',
+                            '109' => '109',
+                            '174' => '174',
+                            '175' => '175',
+                            '178' => '178',
+                            '157' => '157'
+                        )
                     )
                 );
                 break;
             case 'nossacaixa':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta_cedente' => array(
-                        'title' => __( 'Conta Cedente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Conta do cedente sem digito e com apenas 6 digitos.', 'wcboleto' ),
+                        'title'       => __( 'Transferor account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Transferor account without digit and with only 6 numbers.', 'wcboleto' )
                     ),
                     'conta_cedente_dv' => array(
-                        'title' => __( 'Conta Cedente digito', 'wcboleto' ),
-                        'type' => 'text'
+                        'title' => __( 'Transferor account digit', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Utilize 5 para Cobrança Direta ou 1 para Cobrança Simples.', 'wcboleto' )
+                        'title'   => __( 'Wallet code', 'wcboleto' ),
+                        'type'    => 'select',
+                        'default' => '1',
+                        'options' => array(
+                            '1' => __( 'Simple Billing (1)', 'wcboleto' ),
+                            '5' => __( 'Direct Billing (5)', 'wcboleto' )
+                        )
                     ),
                     'modalidade_conta' => array(
-                        'title' => __( 'Modalidade da conta', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( '02 posições.', 'wcboleto' ),
+                        'title'       => __( 'Account modality', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account modality with two positions (example: 04).', 'wcboleto' )
                     )
                 );
                 break;
             case 'real':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'carteira' => array(
                         'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Wallet code.', 'wcboleto' )
+                        'type'  => 'text'
                     )
                 );
                 break;
             case 'santander':
                 $fields = array(
                     'codigo_cliente' => array(
-                        'title' => __( 'Código do Cliente', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Código do Cliente (PSK) com apenas 7 digitos.', 'wcboleto' ),
+                        'title'       => __( 'Customer code', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Customer code (PSK) with only 7 digits.', 'wcboleto' )
                     ),
                     'ponto_venda' => array(
-                        'title' => __( 'Ponto de venda (Agência)', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agencia number.', 'wcboleto' ),
+                        'title'       => __( 'Sale point (Agency)', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number.', 'wcboleto' )
                     ),
                     'carteira' => array(
-                        'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Cobrança Simples - SEM Registro.', 'wcboleto' )
+                        'title'       => __( 'Wallet code', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Simple collection - Without registration.', 'wcboleto' )
                     ),
                     'carteira_descricao' => array(
-                        'title' => __( 'Descrição da Carteira', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Descrição da Carteira.', 'wcboleto' ),
+                        'title'   => __( 'Wallet description', 'wcboleto' ),
+                        'type'    => 'text',
                         'default' => 'COBRANÇA SIMPLES - CSR'
                     )
                 );
@@ -588,28 +611,26 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             case 'unibanco':
                 $fields = array(
                     'agencia' => array(
-                        'title' => __( 'Agency', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Agency number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Agency', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Agency number without digit.', 'wcboleto' )
                     ),
                     'conta' => array(
-                        'title' => __( 'Account', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Account number without digit.', 'wcboleto' ),
+                        'title'       => __( 'Account', 'wcboleto' ),
+                        'type'        => 'text',
+                        'description' => __( 'Account number without digit.', 'wcboleto' )
                     ),
                     'conta_dv' => array(
                         'title' => __( 'Account digit', 'wcboleto' ),
-                        'type' => 'text'
+                        'type'  => 'text'
                     ),
                     'codigo_cliente' => array(
-                        'title' => __( 'Client code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Client code.', 'wcboleto' ),
+                        'title' => __( 'Customer code', 'wcboleto' ),
+                        'type'  => 'text'
                     ),
                     'carteira' => array(
                         'title' => __( 'Wallet code', 'wcboleto' ),
-                        'type' => 'text',
-                        'description' => __( 'Wallet code.', 'wcboleto' )
+                        'type'  => 'text'
                     )
                 );
                 break;
