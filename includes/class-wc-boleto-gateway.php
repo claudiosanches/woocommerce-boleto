@@ -94,12 +94,14 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
                 'title'       => __( 'Title', 'wcboleto' ),
                 'type'        => 'text',
                 'description' => __( 'This controls the title which the user sees during checkout.', 'wcboleto' ),
+                'desc_tip'    => true,
                 'default'     => __( 'Boleto', 'wcboleto' )
             ),
             'description' => array(
                 'title'       => __( 'Description', 'wcboleto' ),
                 'type'        => 'textarea',
                 'description' => __( 'This controls the description which the user sees during checkout.', 'wcboleto' ),
+                'desc_tip'    => true,
                 'default'     => __( 'Pay with Boleto', 'wcboleto' )
             ),
             'boleto_details' => array(
@@ -110,12 +112,14 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
                 'title'       => __( 'Deadline to pay the Boleto', 'wcboleto' ),
                 'type'        => 'text',
                 'description' => __( 'Number of days to pay.', 'wcboleto' ),
+                'desc_tip'    => true,
                 'default'     => 5
             ),
             'boleto_logo' => array(
                 'title'       => __( 'Boleto Logo', 'wcboleto' ),
                 'type'        => 'text',
                 'description' => __( 'Logo with 147px x 46px.', 'wcboleto' ),
+                'desc_tip'    => true,
                 'default'     => WC_BOLETO_URL . 'assets/images/logo_empresa.png'
             ),
             'bank_details' => array(
@@ -125,6 +129,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             'bank' => array(
                 'title'       => __( 'Bank', 'wcboleto' ),
                 'type'        => 'select',
+                'desc_tip'    => true,
                 'description' => __( 'Choose the bank for Boleto.', 'wcboleto' ),
                 'default'     => __( 'Pay with Boleto', 'wcboleto' ),
                 'options'     => array(
@@ -231,16 +236,19 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
             'cpf_cnpj' => array(
                 'title'       => __( 'CPF/CNPJ', 'wcboleto' ),
                 'type'        => 'text',
+                'desc_tip'    => true,
                 'description' => __( 'Document number.', 'wcboleto' ),
             ),
             'endereco' => array(
                 'title'       => __( 'Address', 'wcboleto' ),
                 'type'        => 'text',
+                'desc_tip'    => true,
                 'description' => __( 'Shop Address.', 'wcboleto' ),
             ),
             'cidade_uf' => array(
                 'title'       => __( 'City/State', 'wcboleto' ),
                 'type'        => 'text',
+                'desc_tip'    => true,
                 'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', 'wcboleto' ),
             ),
             'cedente' => array(
