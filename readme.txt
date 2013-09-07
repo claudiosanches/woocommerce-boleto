@@ -1,9 +1,9 @@
 === WooCommerce Boleto ===
 Contributors: claudiosanches, deblyn
-Tags: ecommerce, woocommerce, payment gateway, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
-Requires at least: 3.0
-Tested up to: 3.5.1
-Stable tag: 0.3
+Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
+Requires at least: 3.5
+Tested up to: 3.6
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,19 +124,34 @@ Assim como os arquivos do [BoletoPHP](http://boletophp.com.br/). Cada arquivo do
 
 = Posso vender usando boletos de mais de um banco? =
 
-Não!
-
+Não!  
 O plugin permite que você venda utilizando boletos de apenas um banco.
 
 = Mais dúvidas relacionadas ao funcionamento do plugin? =
 
 Crie um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocommerce-boleto/issues) (em português).
 
+= São aceitos arquivos de retorno? =
+
+Infelizmente não.
+
 = Quer colaborar? =
 
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
 
+== Screenshots ==
+
+1. Plugin settings.
+2. Shop order metabox.
+
 == Changelog ==
+
+= 1.0.0 - 07/09/2013 =
+
+* Correção das opções de todos os campos no plugin.
+* Removida a opção de taxa do boleto.
+* Adicionada opção para editar o demonstrativo e as instruções do boleto.
+* Adicionado metabox com informações do boleto e para reenviar com nova data.
 
 = 0.3 - 20/04/2013 =
 
