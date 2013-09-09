@@ -45,24 +45,25 @@ class WC_Boleto_Metabox {
         // Use nonce for verification.
         wp_nonce_field( basename( __FILE__ ), 'wcboleto_metabox_nonce' );
 
+        $html = '<p>' . __( 'This purchase was not paid with Boleto.', 'wcboleto' ) . '</p>';
+        $html .= '<style>#wcboleto.postbox {display: none;}</style>';
+
         if ( 'boleto' == $order->payment_method ) {
             $boleto_data = get_post_meta( $post->ID, 'wc_boleto_data', true );
 
-            $html = '<p><strong>' . __( 'Expiration date:', 'wcboleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
-            $html .= '<p><strong>' . __( 'URL:', 'wcboleto' ) . '</strong> <a target="_blank" href="' . add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ) . '">' . __( 'View boleto', 'wcboleto' ) . '</a></p>';
+            if ( isset( $boleto_data['data_vencimento'] ) ) {
+                $html = '<p><strong>' . __( 'Expiration date:', 'wcboleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
+                $html .= '<p><strong>' . __( 'URL:', 'wcboleto' ) . '</strong> <a target="_blank" href="' . add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ) . '">' . __( 'View boleto', 'wcboleto' ) . '</a></p>';
 
-            $html .= '<p style="border-top: 1px solid #ccc;"></p>';
+                $html .= '<p style="border-top: 1px solid #ccc;"></p>';
 
-            $html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', 'wcboleto' ) . '</label><br />';
-            $html .= '<input type="text" id="wcboleto_expiration_date" name="wcboleto_expiration_date" style="width: 100%;" />';
-            $html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'wcboleto' ) . '</span>';
-
-            echo $html;
-        } else {
-            echo '<p>' . __( 'This purchase was not paid with Boleto.', 'wcboleto' ) . '</p>';
-            // Hidden the metabox.
-            echo '<style>#wcboleto.postbox {display: none;}</style>';
+                $html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', 'wcboleto' ) . '</label><br />';
+                $html .= '<input type="text" id="wcboleto_expiration_date" name="wcboleto_expiration_date" style="width: 100%;" />';
+                $html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'wcboleto' ) . '</span>';
+            }
         }
+
+        echo $html;
     }
 
     /**
