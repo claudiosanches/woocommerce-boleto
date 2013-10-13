@@ -2,8 +2,8 @@
 Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.0.0
+Tested up to: 3.6.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -145,6 +145,12 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 2. Shop order metabox.
 
 == Changelog ==
+
+= 1.0.1 - 13/10/2013 =
+
+* Adicionada opção de carteira `09` do Bradesco.
+* Correção na ordem das opções de carteira do Itau.
+* Correção do metabox do boleto em *Pedidos*.
 
 = 1.0.0 - 07/09/2013 =
 
