@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Test if exist ref.
 if ( isset( $_GET['ref'] ) ) {
-	global $wpdb, $woocommerce;
+	global $wpdb;
 
 	// Sanitize the ref.
 	$ref = sanitize_title( $_GET['ref'] );
@@ -35,22 +35,24 @@ if ( isset( $_GET['ref'] ) ) {
 
 			// Sets the boleto data.
 			$data = array();
-			foreach ( $order_data as $key => $value )
+			foreach ( $order_data as $key => $value ) {
 				$data[ $key ] = sanitize_text_field( $value );
+			}
 
 			// Sets the settings data.
 			foreach ( $settings as $key => $value ) {
-				if ( in_array( $key, array( 'demonstrativo1', 'demonstrativo2', 'demonstrativo3' ) ) )
+				if ( in_array( $key, array( 'demonstrativo1', 'demonstrativo2', 'demonstrativo3' ) ) ) {
 					$data[ $key ] = str_replace( '[number]', '#' . $data['nosso_numero'], sanitize_text_field( $value ) );
-				else
+				} else {
 					$data[ $key ] = sanitize_text_field( $value );
+				}
 			}
 
 			// Shop data.
-			$data['identificacao']  = $shop_name;
+			$data['identificacao'] = $shop_name;
 
 			// Client data.
-			$data['sacado']    = $order->billing_first_name . ' ' . $order->billing_last_name;
+			$data['sacado'] = $order->billing_first_name . ' ' . $order->billing_last_name;
 
 			// Formatted Addresses
 			$address = apply_filters( 'woocommerce_order_formatted_billing_address', array(
@@ -65,14 +67,20 @@ if ( isset( $_GET['ref'] ) ) {
 				'country'    => $order->billing_country
 			), $order );
 
-			$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', $woocommerce->countries->get_formatted_address( $address ) ) );
+			if ( function_exists( 'WC' ) ) {
+				$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', WC()->countries->get_formatted_address( $address ) ) );
+			} else {
+				global $woocommerce;
+				$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', $woocommerce->countries->get_formatted_address( $address ) ) );
+			}
+
 			$data['endereco2'] = '';
 
 			$dadosboleto = apply_filters( 'wcboleto_data', $data, $order );
 
 			// Include bank templates.
-			include '../banks/' . $bank . '/functions.php';
-			include '../banks/' . $bank . '/layout.php';
+			include plugin_dir_path( dirname( __FILE__ ) ) . 'banks/' . $bank . '/functions.php';
+			include plugin_dir_path( dirname( __FILE__ ) ) . 'banks/' . $bank . '/layout.php';
 
 			exit;
 		}

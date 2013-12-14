@@ -9,10 +9,10 @@ class WC_Boleto_Metabox {
 	public function __construct() {
 
 		// Add metabox.
-		add_action( 'add_meta_boxes', array( &$this, 'register_metabox' ) );
+		add_action( 'add_meta_boxes', array( $this, 'register_metabox' ) );
 
 		// Save Metabox.
-		add_action( 'save_post', array( &$this, 'save' ) );
+		add_action( 'save_post', array( $this, 'save' ) );
 	}
 
 	/**
@@ -24,7 +24,7 @@ class WC_Boleto_Metabox {
 		add_meta_box(
 			'wcboleto',
 			__( 'Boleto', 'wcboleto' ),
-			array( &$this, 'metabox_content' ),
+			array( $this, 'metabox_content' ),
 			'shop_order',
 			'side',
 			'default'
@@ -53,7 +53,7 @@ class WC_Boleto_Metabox {
 
 			if ( isset( $boleto_data['data_vencimento'] ) ) {
 				$html = '<p><strong>' . __( 'Expiration date:', 'wcboleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
-				$html .= '<p><strong>' . __( 'URL:', 'wcboleto' ) . '</strong> <a target="_blank" href="' . add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ) . '">' . __( 'View boleto', 'wcboleto' ) . '</a></p>';
+				$html .= '<p><strong>' . __( 'URL:', 'wcboleto' ) . '</strong> <a target="_blank" href="' . add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ) . '">' . __( 'View boleto', 'wcboleto' ) . '</a></p>';
 
 				$html .= '<p style="border-top: 1px solid #ccc;"></p>';
 
@@ -121,11 +121,14 @@ class WC_Boleto_Metabox {
 	 * @return void
 	 */
 	protected function email_notification( $order, $expiration_date ) {
-		global $woocommerce;
+		if ( function_exists( 'WC' ) ) {
+			$mailer = WC()->mailer();
+		} else {
+			global $woocommerce;
+			$mailer = $woocommerce->mailer();
+		}
 
 		$subject = sprintf( __( 'New expiration date for the boleto your order %s', 'wcboleto' ), $order->get_order_number() );
-
-		$mailer = $woocommerce->mailer();
 
 		// Mail headers.
 		$headers = array();
@@ -133,7 +136,7 @@ class WC_Boleto_Metabox {
 
 		// Body message.
 		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', 'wcboleto' ), '<code>' . $expiration_date . '</code>' ) . '</p>';
-		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '</p>';
+		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '</p>';
 
 		// Sets message template.
 		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', 'wcboleto' ), $main_message );

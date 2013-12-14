@@ -12,43 +12,78 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return void
 	 */
 	public function __construct() {
-		global $woocommerce;
-
 		$this->id           = 'boleto';
 		$this->icon         = apply_filters( 'wcboleto_icon', plugins_url( 'assets/images/boleto.png', plugin_dir_path( __FILE__ ) ) );
 		$this->has_fields   = false;
 		$this->method_title = __( 'Boleto', 'wcboleto' );
 
-		// Load the form fields.
-		$this->init_form_fields();
-
 		// Load the settings.
+		$this->init_form_fields();
 		$this->init_settings();
 
 		// Define user settings variables.
-		$this->title       = $this->settings['title'];
-		$this->description = $this->settings['description'];
-		$this->boleto_time = $this->settings['boleto_time'];
+		$this->title       = $this->get_option( 'title' );
+		$this->description = $this->get_option( 'description' );
+		$this->boleto_time = $this->get_option( 'boleto_time' );
 
 		// Actions.
 		add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
 		add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 
-		// Valid for use.
-		$this->enabled = ( 'yes' == $this->settings['enabled'] ) && $this->is_valid_for_use();
+		// Display admin notices.
+		$this->admin_notices();
 	}
 
 	/**
-	 * Checking if this gateway is enabled and available in the user's country.
+	 * Backwards compatibility with version prior to 2.1.
+	 *
+	 * @return object Returns the main instance of WooCommerce class.
+	 */
+	protected function woocommerce_instance() {
+		if ( function_exists( 'WC' ) ) {
+			return WC();
+		} else {
+			global $woocommerce;
+			return $woocommerce;
+		}
+	}
+
+	/**
+	 * Displays notifications when the admin has something wrong with the configuration.
+	 *
+	 * @return void
+	 */
+	protected function admin_notices() {
+		if ( is_admin() ) {
+			// Checks that the currency is supported
+			if ( ! $this->using_supported_currency() ) {
+				add_action( 'admin_notices', array( $this, 'currency_not_supported_message' ) );
+			}
+		}
+	}
+
+	/**
+	 * Returns a bool that indicates if currency is amongst the supported ones.
 	 *
 	 * @return bool
 	 */
-	public function is_valid_for_use() {
-		if ( ! in_array( get_woocommerce_currency(), array( 'BRL' ) ) )
-			return false;
+	protected function using_supported_currency() {
+		return ( 'BRL' == get_woocommerce_currency() );
+	}
 
-		return true;
+	/**
+	 * Returns a value indicating the the Gateway is available or not. It's called
+	 * automatically by WooCommerce before allowing customers to use the gateway
+	 * for payment.
+	 *
+	 * @return bool
+	 */
+	public function is_available() {
+		// Test if is valid for use.
+		$available = ( 'yes' == $this->get_option( 'enabled' ) ) && $this->using_supported_currency();
+
+		return $available;
 	}
 
 	/**
@@ -60,16 +95,11 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		echo '<h3>' . __( 'Boleto standard', 'wcboleto' ) . '</h3>';
 		echo '<p>' . __( 'Enables payments via Boleto.', 'wcboleto' ) . '</p>';
 
-		// Checks if is valid for use.
-		if ( ! $this->is_valid_for_use() ) {
-			echo '<div class="inline error"><p><strong>' . __( 'Boleto Disabled', 'wcboleto' ) . '</strong>: ' . __( 'Works only with Brazilian Real.', 'wcboleto' ) . '</p></div>';
-		} else {
-			// Generate the HTML For the settings form.
-			echo '<table class="form-table">';
-			$this->generate_settings_html();
-			echo '</table>';
-			echo '<script type="text/javascript" src="' . plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ) . '"></script>';
-		}
+		// Generate the HTML For the settings form.
+		echo '<table class="form-table">';
+		$this->generate_settings_html();
+		echo '</table>';
+		echo '<script type="text/javascript" src="' . plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ) . '"></script>';
 	}
 
 	/**
@@ -117,7 +147,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				'description' => __( 'Logo with 147px x 46px.', 'wcboleto' ),
 				'desc_tip'    => true,
-				'default'     => WC_BOLETO_URL . 'assets/images/logo_empresa.png'
+				'default'     => plugins_url( 'assets/images/logo_empresa.png', plugin_dir_path( __FILE__ ) )
 			),
 			'bank_details' => array(
 				'title' => __( 'Bank Details', 'wcboleto' ),
@@ -258,30 +288,13 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Get current bank.
-	 * Method compatible with versions prior to woocommerce 2.0
-	 *
-	 * @return Current bank.
-	 */
-	protected function get_current_bank() {
-		if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0', '>=' ) ) {
-			return $this->get_option( 'bank' );
-		} else {
-			// Gets current bank.
-			$settings = get_option( 'woocommerce_boleto_settings' );
-
-			return sanitize_text_field( $settings['bank'] );
-		}
-	}
-
-	/**
 	 * Gets bank fields.
 	 *
 	 * @return array Current bank fields.
 	 */
 	protected function get_bank_fields() {
 
-		switch ( $this->get_current_bank() ) {
+		switch ( $this->get_option( 'bank' ) ) {
 			case 'bb':
 				$fields = array(
 					'agencia' => array(
@@ -649,8 +662,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return array           Redirect.
 	 */
 	public function process_payment( $order_id ) {
-		global $woocommerce;
-
 		$order = new WC_Order( $order_id );
 
 		// Mark as on-hold (we're awaiting the boleto).
@@ -663,12 +674,18 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		$order->reduce_order_stock();
 
 		// Remove cart.
-		$woocommerce->cart->empty_cart();
+		$this->woocommerce_instance()->cart->empty_cart();
+
+		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+			$url = $order->get_checkout_order_received_url();
+		} else {
+			$url = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) );
+		}
 
 		// Return thankyou redirect.
 		return array(
 			'result'   => 'success',
-			'redirect' => add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) )
+			'redirect' => $url
 		);
 	}
 
@@ -722,7 +739,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string                Billet instructions.
 	 */
 	function email_instructions( $order, $sent_to_admin ) {
-
 		if ( $sent_to_admin || 'on-hold' !== $order->status || 'boleto' !== $order->payment_method ) {
 			return;
 		}
@@ -737,13 +753,35 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		$html .= apply_filters( 'wcboleto_email_instructions', $message );
 
-		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_custom_fields['_order_key'][0], get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '<br />';
+		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '<br />';
 
 		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'wcboleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 		$html .= '</p>';
 
 		echo $html;
+	}
+
+	/**
+	 * Gets the admin url.
+	 *
+	 * @return string
+	 */
+	protected function admin_url() {
+		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+			return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=wc_boleto_gateway' );
+		}
+
+		return admin_url( 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=WC_Boleto_Gateway' );
+	}
+
+	/**
+	 * Adds error message when an unsupported currency is used.
+	 *
+	 * @return string
+	 */
+	public function currency_not_supported_message() {
+		echo '<div class="error"><p><strong>' . __( 'Boleto Disabled', 'wcboleto' ) . '</strong>: ' . sprintf( __( 'Currency <code>%s</code> is not supported. Works only with <code>BRL</code> (Brazilian Real).', 'wcboleto' ), get_woocommerce_currency() ) . '</p></div>';
 	}
 
 }
