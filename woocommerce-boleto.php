@@ -122,7 +122,7 @@ function wcboleto_pending_payment_message( $order_id ) {
 		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'wcboleto' ) . '<br />';
 		$message .= __( 'Ignore this message if the payment has already been made​​.', 'wcboleto' ) . '<br />';
 
-		$html .= apply_filters( 'wcboleto_pending_payment_message', $message );
+		$html .= apply_filters( 'wcboleto_pending_payment_message', $message, $order );
 
 		$html .= '</div>';
 
