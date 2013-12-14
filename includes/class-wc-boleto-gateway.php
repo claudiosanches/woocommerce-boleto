@@ -378,7 +378,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 						'options' => array(
 							'03' => '03',
 							'06' => '06',
-							'09' => '09'
+							'09' => '09',
+							'25' => '25'
 						)
 					)
 				);
