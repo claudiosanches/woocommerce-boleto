@@ -3,7 +3,7 @@ Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -146,7 +146,11 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 == Changelog ==
 
-= 1.1.1 - 14/12/2013 =
+= 1.1.2 - 29/12/2013 =
+
+* Correção do template do boleto da Caixa Econômica Federal - SIGCB.
+
+= 1.1.1 - 26/12/2013 =
 
 * Correção do boleto da Caixa Econômica Federal - SIGCB.
 
@@ -185,9 +189,9 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 == Upgrade Notice ==
 
-= 1.1.1 =
+= 1.1.2 =
 
-* Correção do boleto da Caixa Econômica Federal - SIGCB.
+* Correção do template do boleto da Caixa Econômica Federal - SIGCB.
 
 == License ==
 
