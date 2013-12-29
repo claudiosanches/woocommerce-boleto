@@ -1,4 +1,4 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 
-include WC_BOLETO_PATH . 'banks/cef/layout.php';
+include plugin_dir_path( dirname( __FILE__ ) ) . 'banks/cef/layout.php';
