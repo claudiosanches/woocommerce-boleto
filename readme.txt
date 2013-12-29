@@ -3,7 +3,7 @@ Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -146,6 +146,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 == Changelog ==
 
+= 1.1.1 - 14/12/2013 =
+
+* Correção do boleto da Caixa Econômica Federal - SIGCB.
+
 = 1.1.0 - 14/12/2013 =
 
 * Corrigido padrões de código.
@@ -181,12 +185,9 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/wooc
 
 == Upgrade Notice ==
 
-= 1.0 =
+= 1.1.1 =
 
-* Corrigido padrões de código.
-* Removida compatibilidade com versões 1.6.x ou inferiores do WooCommerce.
-* Adicionada compatibilidade com WooCommerce 2.1 ou superior.
-* Adicionada opção de carteira `25` do Bradesco.
+* Correção do boleto da Caixa Econômica Federal - SIGCB.
 
 == License ==
 
