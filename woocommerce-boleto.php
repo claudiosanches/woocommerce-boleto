@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: WooCommerce Boleto
- * Plugin URI: https://github.com/wpbrasil/woocommerce-boleto
+ * Plugin URI: https://github.com/claudiosmweb/woocommerce-boleto
  * Description: WooCommerce Boleto is a brazilian payment gateway for WooCommerce
  * Author: claudiosanches, deblyn
  * Author URI: https://github.com/wpbrasil/

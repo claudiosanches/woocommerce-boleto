@@ -45,11 +45,11 @@ Você pode esclarecer suas dúvidas usando:
 
 * A nossa sessão de [FAQ](http://wordpress.org/extend/plugins/woocommerce-boleto/faq/).
 * Criando um tópico no [fórum de ajuda do WordPress](http://wordpress.org/support/plugin/woocommerce-boleto) (apenas em inglês).
-* Criando um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocommerce-boleto/issues) (em português).
+* Criando um *Issue* em nosso [fórum no GitHub](https://github.com/claudiosmweb/woocommerce-boleto/issues) (em português).
 
 ### Quer colaborar? ###
 
-Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
+Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/woocommerce-boleto/).
 
 ### Créditos ###
 
@@ -129,7 +129,7 @@ O plugin permite que você venda utilizando boletos de apenas um banco.
 
 ### Mais dúvidas relacionadas ao funcionamento do plugin? ###
 
-Crie um *Issue* em nosso [fórum no GitHub](https://github.com/wpbrasil/woocommerce-boleto/issues) (em português).
+Crie um *Issue* em nosso [fórum no GitHub](https://github.com/claudiosmweb/woocommerce-boleto/issues) (em português).
 
 ### São aceitos arquivos de retorno? ###
 
@@ -137,7 +137,7 @@ Infelizmente não.
 
 ### Quer colaborar? ###
 
-Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/wpbrasil/woocommerce-boleto/).
+Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/woocommerce-boleto/).
 
 ## Screenshots ##
 
