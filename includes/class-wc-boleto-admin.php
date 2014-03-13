@@ -1,12 +1,27 @@
 <?php
 /**
- * Boleto Metabox.
+ * Boleto Admin.
  *
  * @since 1.0.0
  */
-class WC_Boleto_Metabox {
+class WC_Boleto_Admin {
 
-	public function __construct() {
+	/**
+	 * Instance of this class.
+	 *
+	 * @since  1.2.0
+	 *
+	 * @var object
+	 */
+	protected static $instance = null;
+
+	/**
+	 * Initialize the admin.
+	 *
+	 * @since 1.2.0
+	 */
+	private function __construct() {
+		$this->plugin_slug = WC_Boleto::get_plugin_slug();
 
 		// Add metabox.
 		add_action( 'add_meta_boxes', array( $this, 'register_metabox' ) );
@@ -16,14 +31,32 @@ class WC_Boleto_Metabox {
 	}
 
 	/**
+	 * Return an instance of this class.
+	 *
+	 * @since  1.2.0
+	 *
+	 * @return object A single instance of this class.
+	 */
+	public static function get_instance() {
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
+
+	/**
 	 * Register boleto metabox.
+	 *
+	 * @since  1.2.0
 	 *
 	 * @return void
 	 */
 	public function register_metabox() {
 		add_meta_box(
-			'wcboleto',
-			__( 'Boleto', 'wcboleto' ),
+			$this->plugin_slug,
+			__( 'Boleto', $this->plugin_slug ),
 			array( $this, 'metabox_content' ),
 			'shop_order',
 			'side',
@@ -33,6 +66,8 @@ class WC_Boleto_Metabox {
 
 	/**
 	 * Boleto metabox content.
+	 *
+	 * @since  1.2.0
 	 *
 	 * @param  object $post order_shop data.
 	 *
@@ -45,22 +80,22 @@ class WC_Boleto_Metabox {
 		// Use nonce for verification.
 		wp_nonce_field( basename( __FILE__ ), 'wcboleto_metabox_nonce' );
 
-		$html = '<p>' . __( 'This purchase was not paid with Boleto.', 'wcboleto' ) . '</p>';
-		$html .= '<style>#wcboleto.postbox {display: none;}</style>';
-
 		if ( 'boleto' == $order->payment_method ) {
 			$boleto_data = get_post_meta( $post->ID, 'wc_boleto_data', true );
 
 			if ( isset( $boleto_data['data_vencimento'] ) ) {
-				$html = '<p><strong>' . __( 'Expiration date:', 'wcboleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
-				$html .= '<p><strong>' . __( 'URL:', 'wcboleto' ) . '</strong> <a target="_blank" href="' . add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ) . '">' . __( 'View boleto', 'wcboleto' ) . '</a></p>';
+				$html = '<p><strong>' . __( 'Expiration date:', $this->plugin_slug ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
+				$html .= '<p><strong>' . __( 'URL:', $this->plugin_slug ) . '</strong> <a target="_blank" href="' . WC_Boleto::get_boleto_url( $order->order_key ) . '">' . __( 'View boleto', $this->plugin_slug ) . '</a></p>';
 
 				$html .= '<p style="border-top: 1px solid #ccc;"></p>';
 
-				$html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', 'wcboleto' ) . '</label><br />';
+				$html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', $this->plugin_slug ) . '</label><br />';
 				$html .= '<input type="text" id="wcboleto_expiration_date" name="wcboleto_expiration_date" style="width: 100%;" />';
-				$html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'wcboleto' ) . '</span>';
+				$html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', $this->plugin_slug ) . '</span>';
 			}
+		} else {
+			$html = '<p>' . __( 'This purchase was not paid with Boleto.', $this->plugin_slug ) . '</p>';
+			$html .= '<style>#wcboleto.postbox {display: none;}</style>';
 		}
 
 		echo $html;
@@ -68,6 +103,8 @@ class WC_Boleto_Metabox {
 
 	/**
 	 * Save metabox data.
+	 *
+	 * @since  1.2.0
 	 *
 	 * @param  int $post_id Current post type ID.
 	 *
@@ -85,11 +122,7 @@ class WC_Boleto_Metabox {
 		}
 
 		// Check permissions.
-		if ( 'shop_order' == $_POST['post_type'] ) {
-			if ( ! current_user_can( 'edit_page', $post_id ) ) {
-				return $post_id;
-			}
-		} elseif ( ! current_user_can( 'edit_post', $post_id ) ) {
+		if ( 'shop_order' == $_POST['post_type'] && ! current_user_can( 'edit_page', $post_id ) ) {
 			return $post_id;
 		}
 
@@ -105,7 +138,7 @@ class WC_Boleto_Metabox {
 			$order = new WC_Order( $post_id );
 
 			// Add order note.
-			$order->add_order_note( sprintf( __( 'Expiration date updated to: %s', 'wcboleto' ), $boleto_data['data_vencimento'] ) );
+			$order->add_order_note( sprintf( __( 'Expiration date updated to: %s', $this->plugin_slug ), $boleto_data['data_vencimento'] ) );
 
 			// Send email notification.
 			$this->email_notification( $order, $boleto_data['data_vencimento'] );
@@ -114,6 +147,8 @@ class WC_Boleto_Metabox {
 
 	/**
 	 * New expiration date email notification.
+	 *
+	 * @since  1.2.0
 	 *
 	 * @param  object $order           Order data.
 	 * @param  string $expiration_date Boleto expiration date.
@@ -128,18 +163,18 @@ class WC_Boleto_Metabox {
 			$mailer = $woocommerce->mailer();
 		}
 
-		$subject = sprintf( __( 'New expiration date for the boleto your order %s', 'wcboleto' ), $order->get_order_number() );
+		$subject = sprintf( __( 'New expiration date for the boleto your order %s', $this->plugin_slug ), $order->get_order_number() );
 
 		// Mail headers.
 		$headers = array();
 		$headers[] = "Content-Type: text/html\r\n";
 
 		// Body message.
-		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', 'wcboleto' ), '<code>' . $expiration_date . '</code>' ) . '</p>';
-		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', 'wcboleto' ) ) . '</p>';
+		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', $this->plugin_slug ), '<code>' . $expiration_date . '</code>' ) . '</p>';
+		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', $this->plugin_slug ) ) . '</p>';
 
 		// Sets message template.
-		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', 'wcboleto' ), $main_message );
+		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', $this->plugin_slug ), $main_message );
 
 		// Send email.
 		$mailer->send( $order->billing_email, $subject, $message, $headers, '' );

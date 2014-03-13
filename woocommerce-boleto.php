@@ -131,13 +131,11 @@ class WC_Boleto {
 		if ( class_exists( 'WC_Payment_Gateway' ) ) {
 			// Include the WC_Boleto_Gateway class.
 			include_once 'includes/class-wc-boleto-gateway.php';
-			include_once 'includes/class-wc-boleto-metabox.php';
 
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'add_gateway' ) );
 			add_action( 'init', array( $this, 'add_boleto_endpoint' ) );
 			add_action( 'template_redirect', array( $this, 'boleto_template' ) );
 			add_action( 'woocommerce_view_order', array( $this, 'pending_payment_message' ) );
-			new WC_Boleto_Metabox;
 		} else {
 			add_action( 'admin_notices', array( $this, 'woocommerce_missing_notice' ) );
 		}
@@ -176,7 +174,7 @@ class WC_Boleto {
 	 *
 	 * @return string
 	 */
-	function boleto_template() {
+	public function boleto_template() {
 		global $wp_query;
 
 		if ( ! isset( $wp_query->query_vars['boleto'] ) ) {
@@ -185,9 +183,26 @@ class WC_Boleto {
 
 		// Support for plugin older versions.
 		$boleto_code = isset( $_GET['ref'] ) ? $_GET['ref'] : $wp_query->query_vars['boleto'];
-		include plugin_dir_path( __FILE__ ) . 'templates/boleto.php';
+		include_once plugin_dir_path( __FILE__ ) . 'templates/boleto.php';
 
 		exit;
+	}
+
+	/**
+	 * Gets the boleto URL.
+	 *
+	 * @param  string $code Boleto code.
+	 *
+	 * @return string       Boleto URL.
+	 */
+	public static function get_boleto_url( $code ) {
+		$home = esc_url( home_url( '/' ) );
+
+		if ( get_option( 'permalink_structure' ) ) {
+			return trailingslashit( $home ) . 'boleto/' . $code;
+		} else {
+			return add_query_arg( array( 'boleto' => $code ), $home );
+		}
 	}
 
 	/**
@@ -232,6 +247,15 @@ class WC_Boleto {
 }
 
 add_action( 'plugins_loaded', array( 'WC_Boleto', 'get_instance' ), 0 );
+
+/**
+ * Plugin admin.
+ */
+if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+	require_once 'includes/class-wc-boleto-admin.php';
+
+	add_action( 'plugins_loaded', array( 'WC_Boleto_Admin', 'get_instance' ) );
+}
 
 endif;
 
