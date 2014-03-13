@@ -82,17 +82,36 @@ function wcboleto_create_page() {
 register_activation_hook( __FILE__, 'wcboleto_create_page' );
 
 /**
- * Add custom template page.
+ * Created the boleto endpoint.
+ *
+ * @return void
  */
-function wcboleto_add_page_template( $page_template ) {
-	if ( is_page( 'boleto' ) ) {
-		$page_template = plugin_dir_path( __FILE__ ) . 'templates/boleto.php';
-	}
-
-	return $page_template;
+function wcboleto_add_endpoint() {
+	add_rewrite_endpoint( 'boleto', EP_PERMALINK | EP_ROOT );
 }
 
-add_filter( 'page_template', 'wcboleto_add_page_template' );
+add_action( 'init', 'wcboleto_add_endpoint' );
+
+/**
+ * Add custom template page.
+ *
+ * @return string
+ */
+function wcboleto_add_page_template() {
+	global $wp_query;
+
+	if ( ! isset( $wp_query->query_vars['boleto'] ) ) {
+		return;
+	}
+
+	// Support for plugin older versions.
+	$boleto_code = isset( $_GET['ref'] ) ? $_GET['ref'] : $wp_query->query_vars['boleto'];
+	include plugin_dir_path( __FILE__ ) . 'templates/boleto.php';
+
+	exit;
+}
+
+add_action( 'template_redirect', 'wcboleto_add_page_template' );
 
 /**
  * Assets URL.

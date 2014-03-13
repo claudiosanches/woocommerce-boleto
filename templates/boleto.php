@@ -9,11 +9,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // Test if exist ref.
-if ( isset( $_GET['ref'] ) ) {
+if ( isset( $boleto_code ) ) {
 	global $wpdb;
 
 	// Sanitize the ref.
-	$ref = sanitize_title( $_GET['ref'] );
+	$ref = sanitize_title( $boleto_code );
 
 	// Gets Order id.
 	$order_id = woocommerce_get_order_id_by_order_key( $ref );
