@@ -214,12 +214,12 @@ class WC_Boleto {
 	 *
 	 * @return string        Message HTML.
 	 */
-	public function wcboleto_pending_payment_message( $order_id ) {
+	public function pending_payment_message( $order_id ) {
 		$order = new WC_Order( $order_id );
 
 		if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
 			$html = '<div class="woocommerce-info">';
-			$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', self::$plugin_slug ) );
+			$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', self::$plugin_slug ) );
 
 			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', self::$plugin_slug ), '<strong>', '</strong>' ) . '<br />';
 			$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', self::$plugin_slug ) . '<br />';
