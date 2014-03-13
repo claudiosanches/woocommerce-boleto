@@ -266,7 +266,7 @@ function wcboleto_create_page() {
 	if ( ! get_page_by_path( 'boleto' ) ) {
 
 		$page = array(
-			'post_title'     => __( 'Boleto', 'wcboleto' ),
+			'post_title'     => __( 'Boleto', 'woocommerce-boleto' ),
 			'post_name'      => 'boleto',
 			'post_status'    => 'publish',
 			'post_type'      => 'page',
