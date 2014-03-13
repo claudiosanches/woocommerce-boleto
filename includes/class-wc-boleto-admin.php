@@ -171,7 +171,7 @@ class WC_Boleto_Admin {
 
 		// Body message.
 		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', $this->plugin_slug ), '<code>' . $expiration_date . '</code>' ) . '</p>';
-		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', add_query_arg( 'ref', $order->order_key, get_permalink( get_page_by_path( 'boleto' ) ) ), __( 'Pay the Boleto &rarr;', $this->plugin_slug ) ) . '</p>';
+		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', $this->plugin_slug ) ) . '</p>';
 
 		// Sets message template.
 		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', $this->plugin_slug ), $main_message );
