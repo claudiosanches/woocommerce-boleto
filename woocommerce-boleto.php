@@ -168,6 +168,27 @@ class WC_Boleto {
 	}
 
 	/**
+	 * Plugin activate method.
+	 *
+	 * @return void
+	 */
+	public static function activate() {
+		// Add the boleto endpoint.
+		$this->add_boleto_endpoint();
+
+		flush_rewrite_rules();
+	}
+
+	/**
+	 * Plugin deactivate method.
+	 *
+	 * @return void
+	 */
+	public static function deactivate() {
+		flush_rewrite_rules();
+	}
+
+	/**
 	 * Add custom template page.
 	 *
 	 * @since  1.2.0
@@ -246,6 +267,15 @@ class WC_Boleto {
 	}
 }
 
+/**
+ * Plugin activation and deactivation methods.
+ */
+register_activation_hook( __FILE__, array( 'WC_Boleto', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'WC_Boleto', 'deactivate' ) );
+
+/**
+ * Initialize the plugin.
+ */
 add_action( 'plugins_loaded', array( 'WC_Boleto', 'get_instance' ), 0 );
 
 /**
