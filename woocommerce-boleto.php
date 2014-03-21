@@ -290,28 +290,6 @@ if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
 endif;
 
 /**
- * Create Payment Process page.
- */
-function wcboleto_create_page() {
-	if ( ! get_page_by_path( 'boleto' ) ) {
-
-		$page = array(
-			'post_title'     => __( 'Boleto', 'woocommerce-boleto' ),
-			'post_name'      => 'boleto',
-			'post_status'    => 'publish',
-			'post_type'      => 'page',
-			'comment_status' => 'closed',
-			'ping_status'    => 'closed',
-			'post_content'   => '',
-		);
-
-		wp_insert_post( $page );
-	}
-}
-
-register_activation_hook( __FILE__, 'wcboleto_create_page' );
-
-/**
  * Assets URL.
  *
  * @return string

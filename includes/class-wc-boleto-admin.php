@@ -28,6 +28,9 @@ class WC_Boleto_Admin {
 
 		// Save Metabox.
 		add_action( 'save_post', array( $this, 'save' ) );
+
+		// Update.
+		add_action( 'admin_init', array( $this, 'update' ), 5 );
 	}
 
 	/**
@@ -178,5 +181,29 @@ class WC_Boleto_Admin {
 
 		// Send email.
 		$mailer->send( $order->billing_email, $subject, $message, $headers, '' );
+	}
+
+	/**
+	 * Performance an update to all options.
+	 *
+	 * @return void
+	 */
+	public function update() {
+		$db_version = get_option( 'woocommerce_boleto_db_version' );
+		$version    = WC_Boleto::VERSION;
+
+		// Update to 1.2.0.
+		if ( version_compare( $db_version, '1.2.0', '<' ) ) {
+			// Delete boleto page.
+			$boleto_post = get_page_by_path( 'boleto' );
+			if ( $boleto_post ) {
+				wp_delete_post( $boleto_post->ID, true );
+			}
+		}
+
+		// Update the db version.
+		if ( $db_version != $version ) {
+			update_option( 'woocommerce_boleto_db_version', $version );
+		}
 	}
 }
