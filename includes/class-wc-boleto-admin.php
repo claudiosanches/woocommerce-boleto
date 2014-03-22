@@ -98,7 +98,7 @@ class WC_Boleto_Admin {
 			}
 		} else {
 			$html = '<p>' . __( 'This purchase was not paid with Boleto.', $this->plugin_slug ) . '</p>';
-			$html .= '<style>#wcboleto.postbox {display: none;}</style>';
+			$html .= '<style>#woocommerce-boleto.postbox {display: none;}</style>';
 		}
 
 		echo $html;
