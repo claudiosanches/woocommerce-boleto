@@ -174,7 +174,7 @@ class WC_Boleto {
 	 */
 	public static function activate() {
 		// Add the boleto endpoint.
-		$this->add_boleto_endpoint();
+		add_rewrite_endpoint( 'boleto', EP_PERMALINK | EP_ROOT );
 
 		flush_rewrite_rules();
 	}
