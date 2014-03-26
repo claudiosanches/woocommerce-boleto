@@ -5,7 +5,7 @@
  * Description: WooCommerce Boleto is a brazilian payment gateway for WooCommerce
  * Author: claudiosanches, deblyn
  * Author URI: https://github.com/wpbrasil/
- * Version: 1.2.0
+ * Version: 1.2.1
  * License: GPLv2 or later
  * Text Domain: woocommerce-boleto
  * Domain Path: /languages/
