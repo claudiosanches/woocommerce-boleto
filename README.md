@@ -3,7 +3,7 @@
 **Tags:** woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco  
 **Requires at least:** 3.8  
 **Tested up to:** 3.8.1  
-**Stable tag:** 1.2.1  
+**Stable tag:** 1.2.2  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -150,6 +150,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 ## Changelog ##
 
+### 1.2.2 - 27/03/2013 ###
+
+* Melhoria/Correção do método de atualização, agora ele da flush nas urls para validar a página de boleto.
+
 ### 1.2.1 - 26/03/2013 ###
 
 * Correção de um erro fatal na ativação do plugin.
@@ -201,10 +205,11 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 ## Upgrade Notice ##
 
-### 1.2.1 ###
+### 1.2.2 ###
 
 * Melhorada a forma de abrir os boletos, foi removida a página e adicionada em seu lugar um endpoint, desta forma evitamos conflitos com alguns temas.
 * Correção de um erro fatal na ativação do plugin.
+* Melhoria/Correção do método de atualização, agora ele da flush nas urls para validar a página de boleto.
 
 ## License ##
 
