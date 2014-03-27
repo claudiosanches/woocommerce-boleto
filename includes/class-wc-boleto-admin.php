@@ -192,13 +192,16 @@ class WC_Boleto_Admin {
 		$db_version = get_option( 'woocommerce_boleto_db_version' );
 		$version    = WC_Boleto::VERSION;
 
-		// Update to 1.2.0.
-		if ( version_compare( $db_version, '1.2.0', '<' ) ) {
+		// Update to 1.2.2.
+		if ( version_compare( $db_version, '1.2.2', '<' ) ) {
 			// Delete boleto page.
 			$boleto_post = get_page_by_path( 'boleto' );
 			if ( $boleto_post ) {
 				wp_delete_post( $boleto_post->ID, true );
 			}
+
+			// Flush urls.
+			WC_Boleto::activate();
 		}
 
 		// Update the db version.
