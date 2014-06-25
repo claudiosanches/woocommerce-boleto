@@ -12,11 +12,10 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return void
 	 */
 	public function __construct() {
-		$this->id           = WC_Boleto::get_gateway_id();
-		$this->plugin_slug  = WC_Boleto::get_plugin_slug();
+		$this->id           = 'boleto';
 		$this->icon         = apply_filters( 'wcboleto_icon', plugins_url( 'assets/images/boleto.png', plugin_dir_path( __FILE__ ) ) );
 		$this->has_fields   = false;
-		$this->method_title = __( 'Boleto', $this->plugin_slug );
+		$this->method_title = __( 'Boleto', 'woocommerce-boleto' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -93,8 +92,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string Admin form.
 	 */
 	public function admin_options() {
-		echo '<h3>' . __( 'Boleto', $this->plugin_slug ) . '</h3>';
-		echo '<p>' . __( 'Enables payments via Boleto.', $this->plugin_slug ) . '</p>';
+		echo '<h3>' . __( 'Boleto', 'woocommerce-boleto' ) . '</h3>';
+		echo '<p>' . __( 'Enables payments via Boleto.', 'woocommerce-boleto' ) . '</p>';
 
 		// Generate the HTML For the settings form.
 		echo '<table class="form-table">';
@@ -113,174 +112,174 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		$first = array(
 			'enabled' => array(
-				'title'   => __( 'Enable/Disable', $this->plugin_slug ),
+				'title'   => __( 'Enable/Disable', 'woocommerce-boleto' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable Boleto standard', $this->plugin_slug ),
+				'label'   => __( 'Enable Boleto standard', 'woocommerce-boleto' ),
 				'default' => 'yes'
 			),
 			'title' => array(
-				'title'       => __( 'Title', $this->plugin_slug ),
+				'title'       => __( 'Title', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'This controls the title which the user sees during checkout.', $this->plugin_slug ),
+				'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => __( 'Boleto', $this->plugin_slug )
+				'default'     => __( 'Boleto', 'woocommerce-boleto' )
 			),
 			'description' => array(
-				'title'       => __( 'Description', $this->plugin_slug ),
+				'title'       => __( 'Description', 'woocommerce-boleto' ),
 				'type'        => 'textarea',
-				'description' => __( 'This controls the description which the user sees during checkout.', $this->plugin_slug ),
+				'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => __( 'Pay with Boleto', $this->plugin_slug )
+				'default'     => __( 'Pay with Boleto', 'woocommerce-boleto' )
 			),
 			'boleto_details' => array(
-				'title' => __( 'Boleto Details', $this->plugin_slug ),
+				'title' => __( 'Boleto Details', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'boleto_time' => array(
-				'title'       => __( 'Deadline to pay the Boleto', $this->plugin_slug ),
+				'title'       => __( 'Deadline to pay the Boleto', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'Number of days to pay.', $this->plugin_slug ),
+				'description' => __( 'Number of days to pay.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
 				'default'     => 5
 			),
 			'boleto_logo' => array(
-				'title'       => __( 'Boleto Logo', $this->plugin_slug ),
+				'title'       => __( 'Boleto Logo', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'Logo with 147px x 46px.', $this->plugin_slug ),
+				'description' => __( 'Logo with 147px x 46px.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
 				'default'     => plugins_url( 'assets/images/logo_empresa.png', plugin_dir_path( __FILE__ ) )
 			),
 			'bank_details' => array(
-				'title' => __( 'Bank Details', $this->plugin_slug ),
+				'title' => __( 'Bank Details', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'bank' => array(
-				'title'       => __( 'Bank', $this->plugin_slug ),
+				'title'       => __( 'Bank', 'woocommerce-boleto' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
-				'description' => __( 'Choose the bank for Boleto.', $this->plugin_slug ),
-				'default'     => __( 'Pay with Boleto', $this->plugin_slug ),
+				'description' => __( 'Choose the bank for Boleto.', 'woocommerce-boleto' ),
+				'default'     => __( 'Pay with Boleto', 'woocommerce-boleto' ),
 				'options'     => array(
 					'0'          => '--',
-					'bb'         => __( 'Banco do Brasil', $this->plugin_slug ),
-					'bradesco'   => __( 'Bradesco', $this->plugin_slug ),
-					'cef'        => __( 'Caixa Economica Federal - SR (SICOB)', $this->plugin_slug ),
-					'cef_sigcb'  => __( 'Caixa Economica Federal - SIGCB', $this->plugin_slug ),
-					'cef_sinco'  => __( 'Caixa Economica Federal - SINCO', $this->plugin_slug ),
-					'hsbc'       => __( 'HSBC', $this->plugin_slug ),
-					'itau'       => __( 'Itau', $this->plugin_slug ),
-					'nossacaixa' => __( 'Nossa Caixa', $this->plugin_slug ),
-					'real'       => __( 'Real', $this->plugin_slug ),
-					'santander'  => __( 'Santander', $this->plugin_slug ),
-					'unibanco'   => __( 'Unibanco', $this->plugin_slug )
+					'bb'         => __( 'Banco do Brasil', 'woocommerce-boleto' ),
+					'bradesco'   => __( 'Bradesco', 'woocommerce-boleto' ),
+					'cef'        => __( 'Caixa Economica Federal - SR (SICOB)', 'woocommerce-boleto' ),
+					'cef_sigcb'  => __( 'Caixa Economica Federal - SIGCB', 'woocommerce-boleto' ),
+					'cef_sinco'  => __( 'Caixa Economica Federal - SINCO', 'woocommerce-boleto' ),
+					'hsbc'       => __( 'HSBC', 'woocommerce-boleto' ),
+					'itau'       => __( 'Itau', 'woocommerce-boleto' ),
+					'nossacaixa' => __( 'Nossa Caixa', 'woocommerce-boleto' ),
+					'real'       => __( 'Real', 'woocommerce-boleto' ),
+					'santander'  => __( 'Santander', 'woocommerce-boleto' ),
+					'unibanco'   => __( 'Unibanco', 'woocommerce-boleto' )
 				)
 			)
 		);
 
 		$last = array(
 			'extra_details' => array(
-				'title' => __( 'Optional Data', $this->plugin_slug ),
+				'title' => __( 'Optional Data', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'quantidade' => array(
-				'title'       => __( 'Quantity', $this->plugin_slug ),
+				'title'       => __( 'Quantity', 'woocommerce-boleto' ),
 				'type'        => 'text'
 			),
 			'valor_unitario' => array(
-				'title'       => __( 'Unitary value', $this->plugin_slug ),
+				'title'       => __( 'Unitary value', 'woocommerce-boleto' ),
 				'type'        => 'text'
 			),
 			'aceite' => array(
-				'title'       => __( 'Acceptance', $this->plugin_slug ),
+				'title'       => __( 'Acceptance', 'woocommerce-boleto' ),
 				'type'        => 'text'
 			),
 			'especie' => array(
-				'title'       => __( 'Currency', $this->plugin_slug ),
+				'title'       => __( 'Currency', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'default'     => 'R$'
 			),
 			'especie_doc' => array(
-				'title'       => __( 'Kind of document', $this->plugin_slug ),
+				'title'       => __( 'Kind of document', 'woocommerce-boleto' ),
 				'type'        => 'text'
 			),
 			'especie' => array(
-				'title'       => __( 'Currency', $this->plugin_slug ),
+				'title'       => __( 'Currency', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'default'     => 'R$'
 			),
 			'demonstrative' => array(
-				'title' => __( 'Demonstrative', $this->plugin_slug ),
+				'title' => __( 'Demonstrative', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'demonstrativo1' => array(
-				'title'       => __( 'Line 1', $this->plugin_slug ),
+				'title'       => __( 'Line 1', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'Use [number] to show the Order ID.', $this->plugin_slug ),
+				'description' => __( 'Use [number] to show the Order ID.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => sprintf( __( 'Payment for purchase in %s', $this->plugin_slug ), $shop_name )
+				'default'     => sprintf( __( 'Payment for purchase in %s', 'woocommerce-boleto' ), $shop_name )
 			),
 			'demonstrativo2' => array(
-				'title'       => __( 'Line 2', $this->plugin_slug ),
+				'title'       => __( 'Line 2', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'Use [number] to show the Order ID.', $this->plugin_slug ),
+				'description' => __( 'Use [number] to show the Order ID.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => __( 'Payment referred to the order [number]', $this->plugin_slug )
+				'default'     => __( 'Payment referred to the order [number]', 'woocommerce-boleto' )
 			),
 			'demonstrativo3' => array(
-				'title'       => __( 'Line 3', $this->plugin_slug ),
+				'title'       => __( 'Line 3', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'description' => __( 'Use [number] to show the Order ID.', $this->plugin_slug ),
+				'description' => __( 'Use [number] to show the Order ID.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
 				'default'     => $shop_name . ' - ' . home_url()
 			),
 			'instructions' => array(
-				'title' => __( 'Instructions', $this->plugin_slug ),
+				'title' => __( 'Instructions', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'instrucoes1' => array(
-				'title'       => __( 'Line 1', $this->plugin_slug ),
+				'title'       => __( 'Line 1', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'default'     => __( '- Mr. Cash, charge a fine of 2% after maturity', $this->plugin_slug )
+				'default'     => __( '- Mr. Cash, charge a fine of 2% after maturity', 'woocommerce-boleto' )
 			),
 			'instrucoes2' => array(
-				'title'       => __( 'Line 2', $this->plugin_slug ),
+				'title'       => __( 'Line 2', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'default'     => __( '- Receive up to 10 days past due', $this->plugin_slug )
+				'default'     => __( '- Receive up to 10 days past due', 'woocommerce-boleto' )
 			),
 			'instrucoes3' => array(
-				'title'       => __( 'Line 3', $this->plugin_slug ),
+				'title'       => __( 'Line 3', 'woocommerce-boleto' ),
 				'type'        => 'text',
-				'default'     => sprintf( __( '- For questions please contact us: %s', $this->plugin_slug ), get_option( 'woocommerce_email_from_address' ) )
+				'default'     => sprintf( __( '- For questions please contact us: %s', 'woocommerce-boleto' ), get_option( 'woocommerce_email_from_address' ) )
 			),
 			'instrucoes4' => array(
-				'title'       => __( 'Line 4', $this->plugin_slug ),
+				'title'       => __( 'Line 4', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'default'     => ''
 			),
 			'shop_details' => array(
-				'title' => __( 'Shop Details', $this->plugin_slug ),
+				'title' => __( 'Shop Details', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'cpf_cnpj' => array(
-				'title'       => __( 'CPF/CNPJ', $this->plugin_slug ),
+				'title'       => __( 'CPF/CNPJ', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
-				'description' => __( 'Document number.', $this->plugin_slug ),
+				'description' => __( 'Document number.', 'woocommerce-boleto' ),
 			),
 			'endereco' => array(
-				'title'       => __( 'Address', $this->plugin_slug ),
+				'title'       => __( 'Address', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
-				'description' => __( 'Shop Address.', $this->plugin_slug ),
+				'description' => __( 'Shop Address.', 'woocommerce-boleto' ),
 			),
 			'cidade_uf' => array(
-				'title'       => __( 'City/State', $this->plugin_slug ),
+				'title'       => __( 'City/State', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'desc_tip'    => true,
-				'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', $this->plugin_slug ),
+				'description' => __( 'Example <code>S&atilde;o Paulo/SP</code>.', 'woocommerce-boleto' ),
 			),
 			'cedente' => array(
-				'title' => __( 'Corporate Name', $this->plugin_slug ),
+				'title' => __( 'Corporate Name', 'woocommerce-boleto' ),
 				'type'  => 'text',
 			),
 		);
@@ -299,81 +298,81 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'bb':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'convenio' => array(
-						'title'       => __( 'Agreement number', $this->plugin_slug ),
+						'title'       => __( 'Agreement number', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agreements with 6, 7 or 8 digits.', $this->plugin_slug )
+						'description' => __( 'Agreements with 6, 7 or 8 digits.', 'woocommerce-boleto' )
 					),
 					'contrato' => array(
-						'title' => __( 'Contract number', $this->plugin_slug ),
+						'title' => __( 'Contract number', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title' => __( 'Wallet code', $this->plugin_slug ),
+						'title' => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'variacao_carteira' => array(
-						'title'       => __( 'Wallet variation (optional)', $this->plugin_slug ),
+						'title'       => __( 'Wallet variation (optional)', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Wallet variation with dash.', $this->plugin_slug )
+						'description' => __( 'Wallet variation with dash.', 'woocommerce-boleto' )
 					),
 					'formatacao_convenio' => array(
-						'title'       => __( 'Agreement format', $this->plugin_slug ),
+						'title'       => __( 'Agreement format', 'woocommerce-boleto' ),
 						'type'        => 'select',
 						'default'     => '6',
 						'options'     => array(
-							'6' => __( 'Agreement with 6 digits', $this->plugin_slug ),
-							'7' => __( 'Agreement with 7 dígitos', $this->plugin_slug ),
-							'8' => __( 'Agreement with 8 dígitos', $this->plugin_slug ),
+							'6' => __( 'Agreement with 6 digits', 'woocommerce-boleto' ),
+							'7' => __( 'Agreement with 7 dígitos', 'woocommerce-boleto' ),
+							'8' => __( 'Agreement with 8 dígitos', 'woocommerce-boleto' ),
 						)
 					),
 					'formatacao_nosso_numero' => array(
-						'title'       => __( 'Our number formatting', $this->plugin_slug ),
+						'title'       => __( 'Our number formatting', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Used only for agreement with 6 digits (enter 1 for Our Number is up to 5 digits or 2 for option up to 17 digits).', $this->plugin_slug )
+						'description' => __( 'Used only for agreement with 6 digits (enter 1 for Our Number is up to 5 digits or 2 for option up to 17 digits).', 'woocommerce-boleto' )
 					)
 				);
 				break;
 			case 'bradesco':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug ),
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' ),
 					),
 					'agencia_dv' => array(
-						'title' => __( 'Agency digit', $this->plugin_slug ),
+						'title' => __( 'Agency digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug ),
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' ),
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'conta_cedente' => array(
-						'title'       => __( 'Transferor account', $this->plugin_slug ),
+						'title'       => __( 'Transferor account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor account without digit (only numbers).', $this->plugin_slug ),
+						'description' => __( 'Transferor account without digit (only numbers).', 'woocommerce-boleto' ),
 					),
 					'conta_cedente_dv' => array(
-						'title' => __( 'Transferor account digit', $this->plugin_slug ),
+						'title' => __( 'Transferor account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title'   => __( 'Wallet code', $this->plugin_slug ),
+						'title'   => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'    => 'select',
 						'default' => '03',
 						'options' => array(
@@ -388,42 +387,42 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'cef':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'conta_cedente' => array(
-						'title'       => __( 'Transferor account', $this->plugin_slug ),
+						'title'       => __( 'Transferor account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor account without digit, use only numbers', $this->plugin_slug )
+						'description' => __( 'Transferor account without digit, use only numbers', 'woocommerce-boleto' )
 					),
 					'conta_cedente_dv' => array(
-						'title' => __( 'Transferor account digit', $this->plugin_slug ),
+						'title' => __( 'Transferor account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title'       => __( 'Wallet code', $this->plugin_slug ),
+						'title'       => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'        => 'select',
-						'description' => __( 'Confirm this information with your manager.', $this->plugin_slug ),
+						'description' => __( 'Confirm this information with your manager.', 'woocommerce-boleto' ),
 						'default'     => 'SR',
 						'options'     => array(
-							'SR' => __( 'Without registry', $this->plugin_slug ),
-							'CR' => __( 'With registry', $this->plugin_slug )
+							'SR' => __( 'Without registry', 'woocommerce-boleto' ),
+							'CR' => __( 'With registry', 'woocommerce-boleto' )
 						)
 					),
 					'inicio_nosso_numero' => array(
-						'title'       => __( 'Beginning of the Our Number', $this->plugin_slug ),
+						'title'       => __( 'Beginning of the Our Number', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Use <code>80, 81 or 82</code> for <strong>Without registry</strong> or <code>90</code> for <strong>With registry</strong>. Confirm this information with your manager.', $this->plugin_slug ),
+						'description' => __( 'Use <code>80, 81 or 82</code> for <strong>Without registry</strong> or <code>90</code> for <strong>With registry</strong>. Confirm this information with your manager.', 'woocommerce-boleto' ),
 						'default'     => '80'
 					)
 				);
@@ -431,32 +430,32 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'cef_sigcb':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'conta_cedente' => array(
-						'title'       => __( 'Transferor account', $this->plugin_slug ),
+						'title'       => __( 'Transferor account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor account with 6 digits, use only numbers.', $this->plugin_slug )
+						'description' => __( 'Transferor account with 6 digits, use only numbers.', 'woocommerce-boleto' )
 					),
 					'carteira' => array(
-						'title'       => __( 'Wallet code', $this->plugin_slug ),
+						'title'       => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'        => 'select',
-						'description' => __( 'Confirm this information with your manager.', $this->plugin_slug ),
+						'description' => __( 'Confirm this information with your manager.', 'woocommerce-boleto' ),
 						'default'     => 'SR',
 						'options'     => array(
-							'SR' => __( 'Without registry', $this->plugin_slug ),
-							'CR' => __( 'With registry', $this->plugin_slug )
+							'SR' => __( 'Without registry', 'woocommerce-boleto' ),
+							'CR' => __( 'With registry', 'woocommerce-boleto' )
 						)
 					)
 				);
@@ -464,36 +463,36 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'cef_sinco':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug ),
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' ),
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'conta_cedente' => array(
-						'title'       => __( 'Transferor account', $this->plugin_slug ),
+						'title'       => __( 'Transferor account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor account without digit, use only numbers', $this->plugin_slug )
+						'description' => __( 'Transferor account without digit, use only numbers', 'woocommerce-boleto' )
 					),
 					'conta_cedente_dv' => array(
-						'title' => __( 'Transferor account digit', $this->plugin_slug ),
+						'title' => __( 'Transferor account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title'       => __( 'Wallet code', $this->plugin_slug ),
+						'title'       => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'        => 'select',
-						'description' => __( 'Confirm this information with your manager.', $this->plugin_slug ),
+						'description' => __( 'Confirm this information with your manager.', 'woocommerce-boleto' ),
 						'default'     => 'SR',
 						'options'     => array(
-							'SR' => __( 'Without registry', $this->plugin_slug ),
-							'CR' => __( 'With registry', $this->plugin_slug )
+							'SR' => __( 'Without registry', 'woocommerce-boleto' ),
+							'CR' => __( 'With registry', 'woocommerce-boleto' )
 						)
 					),
 				);
@@ -501,14 +500,14 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'hsbc':
 				$fields = array(
 					'codigo_cedente' => array(
-						'title'       => __( 'Transferor code', $this->plugin_slug ),
+						'title'       => __( 'Transferor code', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor code with only 7 digits.', $this->plugin_slug )
+						'description' => __( 'Transferor code with only 7 digits.', 'woocommerce-boleto' )
 					),
 					'carteira' => array(
-						'title'       => __( 'Wallet code', $this->plugin_slug ),
+						'title'       => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'        => 'select',
-						'description' => __( 'Accepts only CNR.', $this->plugin_slug ),
+						'description' => __( 'Accepts only CNR.', 'woocommerce-boleto' ),
 						'default'     => 'CNR',
 						'options'     => array(
 							'CNR' => 'CNR'
@@ -519,21 +518,21 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'itau':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number.', $this->plugin_slug ),
+						'description' => __( 'Agency number.', 'woocommerce-boleto' ),
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title'   => __( 'Wallet code', $this->plugin_slug ),
+						'title'   => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'    => 'select',
 						'default' => '104',
 						'options' => array(
@@ -550,49 +549,49 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'nossacaixa':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta_cedente' => array(
-						'title'       => __( 'Transferor account', $this->plugin_slug ),
+						'title'       => __( 'Transferor account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Transferor account without digit and with only 6 numbers.', $this->plugin_slug )
+						'description' => __( 'Transferor account without digit and with only 6 numbers.', 'woocommerce-boleto' )
 					),
 					'conta_cedente_dv' => array(
-						'title' => __( 'Transferor account digit', $this->plugin_slug ),
+						'title' => __( 'Transferor account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title'   => __( 'Wallet code', $this->plugin_slug ),
+						'title'   => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'    => 'select',
 						'default' => '1',
 						'options' => array(
-							'1' => __( 'Simple Billing (1)', $this->plugin_slug ),
-							'5' => __( 'Direct Billing (5)', $this->plugin_slug )
+							'1' => __( 'Simple Billing (1)', 'woocommerce-boleto' ),
+							'5' => __( 'Direct Billing (5)', 'woocommerce-boleto' )
 						)
 					),
 					'modalidade_conta' => array(
-						'title'       => __( 'Account modality', $this->plugin_slug ),
+						'title'       => __( 'Account modality', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account modality with two positions (example: 04).', $this->plugin_slug )
+						'description' => __( 'Account modality with two positions (example: 04).', 'woocommerce-boleto' )
 					)
 				);
 				break;
 			case 'real':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'carteira' => array(
-						'title' => __( 'Wallet code', $this->plugin_slug ),
+						'title' => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					)
 				);
@@ -600,22 +599,22 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'santander':
 				$fields = array(
 					'codigo_cliente' => array(
-						'title'       => __( 'Customer code', $this->plugin_slug ),
+						'title'       => __( 'Customer code', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Customer code (PSK) with only 7 digits.', $this->plugin_slug )
+						'description' => __( 'Customer code (PSK) with only 7 digits.', 'woocommerce-boleto' )
 					),
 					'ponto_venda' => array(
-						'title'       => __( 'Sale point (Agency)', $this->plugin_slug ),
+						'title'       => __( 'Sale point (Agency)', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number.', $this->plugin_slug )
+						'description' => __( 'Agency number.', 'woocommerce-boleto' )
 					),
 					'carteira' => array(
-						'title'       => __( 'Wallet code', $this->plugin_slug ),
+						'title'       => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Simple collection - Without registration.', $this->plugin_slug )
+						'description' => __( 'Simple collection - Without registration.', 'woocommerce-boleto' )
 					),
 					'carteira_descricao' => array(
-						'title'   => __( 'Wallet description', $this->plugin_slug ),
+						'title'   => __( 'Wallet description', 'woocommerce-boleto' ),
 						'type'    => 'text',
 						'default' => 'COBRANÇA SIMPLES - CSR'
 					)
@@ -624,25 +623,25 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			case 'unibanco':
 				$fields = array(
 					'agencia' => array(
-						'title'       => __( 'Agency', $this->plugin_slug ),
+						'title'       => __( 'Agency', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Agency number without digit.', $this->plugin_slug )
+						'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
 					),
 					'conta' => array(
-						'title'       => __( 'Account', $this->plugin_slug ),
+						'title'       => __( 'Account', 'woocommerce-boleto' ),
 						'type'        => 'text',
-						'description' => __( 'Account number without digit.', $this->plugin_slug )
+						'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
 					),
 					'conta_dv' => array(
-						'title' => __( 'Account digit', $this->plugin_slug ),
+						'title' => __( 'Account digit', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'codigo_cliente' => array(
-						'title' => __( 'Customer code', $this->plugin_slug ),
+						'title' => __( 'Customer code', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					),
 					'carteira' => array(
-						'title' => __( 'Wallet code', $this->plugin_slug ),
+						'title' => __( 'Wallet code', 'woocommerce-boleto' ),
 						'type'  => 'text'
 					)
 				);
@@ -667,7 +666,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		$order = new WC_Order( $order_id );
 
 		// Mark as on-hold (we're awaiting the boleto).
-		$order->update_status( 'on-hold', __( 'Awaiting boleto payment', $this->plugin_slug ) );
+		$order->update_status( 'on-hold', __( 'Awaiting boleto payment', 'woocommerce-boleto' ) );
 
 		// Generates boleto data.
 		$this->generate_boleto_data( $order );
@@ -698,15 +697,15 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 */
 	public function thankyou_page() {
 		$html = '<div class="woocommerce-message">';
-		$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Boleto &rarr;', $this->plugin_slug ) );
+		$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) );
 
-		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', $this->plugin_slug ), '<strong>', '</strong>' ) . '<br />';
-		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', $this->plugin_slug ) . '<br />';
-		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', $this->plugin_slug ) . '<br />';
+		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
+		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
 
 		$html .= apply_filters( 'wcboleto_thankyou_page_message', $message );
 
-		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', $this->plugin_slug ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 		$html .= '</div>';
 
@@ -745,19 +744,19 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			return;
 		}
 
-		$html = '<h2>' . __( 'Payment', $this->plugin_slug ) . '</h2>';
+		$html = '<h2>' . __( 'Payment', 'woocommerce-boleto' ) . '</h2>';
 
 		$html .= '<p class="order_details">';
 
-		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', $this->plugin_slug ), '<strong>', '</strong>' ) . '<br />';
-		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', $this->plugin_slug ) . '<br />';
-		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', $this->plugin_slug ) . '<br />';
+		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
+		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
 
 		$html .= apply_filters( 'wcboleto_email_instructions', $message );
 
-		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', $this->plugin_slug ) ) . '<br />';
+		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) ) . '<br />';
 
-		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', $this->plugin_slug ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 		$html .= '</p>';
 
@@ -783,7 +782,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	public function currency_not_supported_message() {
-		echo '<div class="error"><p><strong>' . __( 'Boleto Disabled', $this->plugin_slug ) . '</strong>: ' . sprintf( __( 'Currency <code>%s</code> is not supported. Works only with <code>BRL</code> (Brazilian Real).', $this->plugin_slug ), get_woocommerce_currency() ) . '</p></div>';
+		echo '<div class="error"><p><strong>' . __( 'Boleto Disabled', 'woocommerce-boleto' ) . '</strong>: ' . sprintf( __( 'Currency <code>%s</code> is not supported. Works only with <code>BRL</code> (Brazilian Real).', 'woocommerce-boleto' ), get_woocommerce_currency() ) . '</p></div>';
 	}
 
 }

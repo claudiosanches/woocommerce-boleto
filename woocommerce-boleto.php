@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/claudiosmweb/woocommerce-boleto
  * Description: WooCommerce Boleto is a brazilian payment gateway for WooCommerce
  * Author: claudiosanches, deblyn
- * Author URI: https://github.com/wpbrasil/
+ * Author URI: http://claudiosmweb.com
  * Version: 1.2.2
  * License: GPLv2 or later
  * Text Domain: woocommerce-boleto
@@ -28,20 +28,6 @@ class WC_Boleto {
 	 * @var string
 	 */
 	const VERSION = '1.2.2';
-
-	/**
-	 * Integration id.
-	 *
-	 * @var string
-	 */
-	protected static $gateway_id = 'boleto';
-
-	/**
-	 * Plugin slug.
-	 *
-	 * @var string
-	 */
-	protected static $plugin_slug = 'woocommerce-boleto';
 
 	/**
 	 * Instance of this class.
@@ -91,34 +77,15 @@ class WC_Boleto {
 	}
 
 	/**
-	 * Return the plugin slug.
-	 *
-	 * @return string Plugin slug variable.
-	 */
-	public static function get_plugin_slug() {
-		return self::$plugin_slug;
-	}
-
-	/**
-	 * Return the gateway id/slug.
-	 *
-	 * @return string Gateway id/slug variable.
-	 */
-	public static function get_gateway_id() {
-		return self::$gateway_id;
-	}
-
-	/**
 	 * Load the plugin text domain for translation.
 	 *
 	 * @return void
 	 */
 	public function load_plugin_textdomain() {
-		$domain = self::$plugin_slug;
-		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-boleto' );
 
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_textdomain( 'woocommerce-boleto', trailingslashit( WP_LANG_DIR ) . 'woocommerce-boleto/woocommerce-boleto-' . $locale . '.mo' );
+		load_plugin_textdomain( 'woocommerce-boleto', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
@@ -230,12 +197,12 @@ class WC_Boleto {
 
 		if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
 			$html = '<div class="woocommerce-info">';
-			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', self::$plugin_slug ) );
+			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) );
 
-			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', self::$plugin_slug ), '<strong>', '</strong>' ) . '<br />';
-			$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', self::$plugin_slug ) . '<br />';
-			$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', self::$plugin_slug ) . '<br />';
-			$message .= __( 'Ignore this message if the payment has already been made​​.', self::$plugin_slug ) . '<br />';
+			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
+			$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+			$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
+			$message .= __( 'Ignore this message if the payment has already been made​​.', 'woocommerce-boleto' ) . '<br />';
 
 			$html .= apply_filters( 'wcboleto_pending_payment_message', $message, $order );
 
@@ -251,7 +218,7 @@ class WC_Boleto {
 	 * @return string
 	 */
 	public function woocommerce_missing_notice() {
-		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!', self::$plugin_slug ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', self::$plugin_slug ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!', 'woocommerce-boleto' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-boleto' ) . '</a>' ) . '</p></div>';
 	}
 }
 
