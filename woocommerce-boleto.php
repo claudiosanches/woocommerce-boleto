@@ -240,7 +240,7 @@ class WC_Boleto {
 
 		if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
 			$html = '<div class="woocommerce-info">';
-			$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', self::$plugin_slug ) );
+			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', self::$plugin_slug ) );
 
 			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', self::$plugin_slug ), '<strong>', '</strong>' ) . '<br />';
 			$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', self::$plugin_slug ) . '<br />';
