@@ -59,16 +59,31 @@ class WC_Boleto_Admin {
 		if ( 'boleto' == $order->payment_method ) {
 			$boleto_data = get_post_meta( $post->ID, 'wc_boleto_data', true );
 
-			if ( isset( $boleto_data['data_vencimento'] ) ) {
-				$html = '<p><strong>' . __( 'Expiration date:', 'woocommerce-boleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
-				$html .= '<p><strong>' . __( 'URL:', 'woocommerce-boleto' ) . '</strong> <a target="_blank" href="' . WC_Boleto::get_boleto_url( $order->order_key ) . '">' . __( 'View boleto', 'woocommerce-boleto' ) . '</a></p>';
+			// Save the ticket data if don't have.
+			if ( ! isset( $boleto_data['data_vencimento'] ) ) {
+				$settings                   = get_option( 'woocommerce_boleto_settings', array() );
+				$boleto_time                = isset( $settings['boleto_time'] ) ? absint( $settings['boleto_time'] ) : 5;
+				$data                       = array();
+				$data['nosso_numero']       = apply_filters( 'wcboleto_our_number', $order->id );
+				$data['numero_documento']   = apply_filters( 'wcboleto_document_number', $order->id );
+				$data['data_vencimento']    = date( 'd/m/Y', time() + ( $boleto_time * 86400 ) );
+				$data['data_documento']     = date( 'd/m/Y' );
+				$data['data_processamento'] = date( 'd/m/Y' );
 
-				$html .= '<p style="border-top: 1px solid #ccc;"></p>';
+				update_post_meta( $post->ID, 'wc_boleto_data', $data );
 
-				$html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', 'woocommerce-boleto' ) . '</label><br />';
-				$html .= '<input type="text" id="wcboleto_expiration_date" name="wcboleto_expiration_date" style="width: 100%;" />';
-				$html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'woocommerce-boleto' ) . '</span>';
+				$boleto_data['data_vencimento'] = $data['data_vencimento'];
 			}
+
+			$html = '<p><strong>' . __( 'Expiration date:', 'woocommerce-boleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
+			$html .= '<p><strong>' . __( 'URL:', 'woocommerce-boleto' ) . '</strong> <a target="_blank" href="' . WC_Boleto::get_boleto_url( $order->order_key ) . '">' . __( 'View boleto', 'woocommerce-boleto' ) . '</a></p>';
+
+			$html .= '<p style="border-top: 1px solid #ccc;"></p>';
+
+			$html .= '<label for="wcboleto_expiration_date">' . __( 'Set new expiration data:', 'woocommerce-boleto' ) . '</label><br />';
+			$html .= '<input type="text" id="wcboleto_expiration_date" name="wcboleto_expiration_date" style="width: 100%;" />';
+			$html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'woocommerce-boleto' ) . '</span>';
+
 		} else {
 			$html = '<p>' . __( 'This purchase was not paid with Ticket.', 'woocommerce-boleto' ) . '</p>';
 			$html .= '<style>#woocommerce-boleto.postbox {display: none;}</style>';

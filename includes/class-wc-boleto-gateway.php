@@ -705,7 +705,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		$html .= apply_filters( 'wcboleto_thankyou_page_message', $message );
 
-		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( absint( $this->boleto_time ) * 86400 ) ) ) . '</strong>';
 
 		$html .= '</div>';
 
@@ -721,9 +721,10 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 */
 	public function generate_boleto_data( $order ) {
 		// Ticket data.
+		$data                       = array();
 		$data['nosso_numero']       = apply_filters( 'wcboleto_our_number', $order->id );
 		$data['numero_documento']   = apply_filters( 'wcboleto_document_number', $order->id );
-		$data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
+		$data['data_vencimento']    = date( 'd/m/Y', time() + ( absint( $this->boleto_time ) * 86400 ) );
 		$data['data_documento']     = date( 'd/m/Y' );
 		$data['data_processamento'] = date( 'd/m/Y' );
 
@@ -755,7 +756,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '<br />';
 
-		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( absint( $this->boleto_time ) * 86400 ) ) ) . '</strong>';
 
 		$html .= '</p>';
 
