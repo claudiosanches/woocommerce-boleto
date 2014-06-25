@@ -15,7 +15,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		$this->id           = 'boleto';
 		$this->icon         = apply_filters( 'wcboleto_icon', plugins_url( 'assets/images/boleto.png', plugin_dir_path( __FILE__ ) ) );
 		$this->has_fields   = false;
-		$this->method_title = __( 'Boleto', 'woocommerce-boleto' );
+		$this->method_title = __( 'Banking Ticket', 'woocommerce-boleto' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -92,8 +92,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string Admin form.
 	 */
 	public function admin_options() {
-		echo '<h3>' . __( 'Boleto', 'woocommerce-boleto' ) . '</h3>';
-		echo '<p>' . __( 'Enables payments via Boleto.', 'woocommerce-boleto' ) . '</p>';
+		echo '<h3>' . __( 'Banking Ticket', 'woocommerce-boleto' ) . '</h3>';
+		echo '<p>' . __( 'Enables payments via Banking Ticket.', 'woocommerce-boleto' ) . '</p>';
 
 		// Generate the HTML For the settings form.
 		echo '<table class="form-table">';
@@ -114,7 +114,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 			'enabled' => array(
 				'title'   => __( 'Enable/Disable', 'woocommerce-boleto' ),
 				'type'    => 'checkbox',
-				'label'   => __( 'Enable Boleto standard', 'woocommerce-boleto' ),
+				'label'   => __( 'Enable Banking Ticket', 'woocommerce-boleto' ),
 				'default' => 'yes'
 			),
 			'title' => array(
@@ -122,28 +122,28 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 				'type'        => 'text',
 				'description' => __( 'This controls the title which the user sees during checkout.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => __( 'Boleto', 'woocommerce-boleto' )
+				'default'     => __( 'Banking Ticket', 'woocommerce-boleto' )
 			),
 			'description' => array(
 				'title'       => __( 'Description', 'woocommerce-boleto' ),
 				'type'        => 'textarea',
 				'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
-				'default'     => __( 'Pay with Boleto', 'woocommerce-boleto' )
+				'default'     => __( 'Pay with Banking Ticket', 'woocommerce-boleto' )
 			),
 			'boleto_details' => array(
-				'title' => __( 'Boleto Details', 'woocommerce-boleto' ),
+				'title' => __( 'Ticket Details', 'woocommerce-boleto' ),
 				'type'  => 'title'
 			),
 			'boleto_time' => array(
-				'title'       => __( 'Deadline to pay the Boleto', 'woocommerce-boleto' ),
+				'title'       => __( 'Deadline to pay the Ticket', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'description' => __( 'Number of days to pay.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
 				'default'     => 5
 			),
 			'boleto_logo' => array(
-				'title'       => __( 'Boleto Logo', 'woocommerce-boleto' ),
+				'title'       => __( 'Ticket Logo', 'woocommerce-boleto' ),
 				'type'        => 'text',
 				'description' => __( 'Logo with 147px x 46px.', 'woocommerce-boleto' ),
 				'desc_tip'    => true,
@@ -157,8 +157,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'Bank', 'woocommerce-boleto' ),
 				'type'        => 'select',
 				'desc_tip'    => true,
-				'description' => __( 'Choose the bank for Boleto.', 'woocommerce-boleto' ),
-				'default'     => __( 'Pay with Boleto', 'woocommerce-boleto' ),
+				'description' => __( 'Choose the bank for Ticket.', 'woocommerce-boleto' ),
+				'default'     => '0',
 				'options'     => array(
 					'0'          => '--',
 					'bb'         => __( 'Banco do Brasil', 'woocommerce-boleto' ),
@@ -665,10 +665,10 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	public function process_payment( $order_id ) {
 		$order = new WC_Order( $order_id );
 
-		// Mark as on-hold (we're awaiting the boleto).
+		// Mark as on-hold (we're awaiting the ticket).
 		$order->update_status( 'on-hold', __( 'Awaiting boleto payment', 'woocommerce-boleto' ) );
 
-		// Generates boleto data.
+		// Generates ticket data.
 		$this->generate_boleto_data( $order );
 
 		// Reduce stock levels.
@@ -697,15 +697,15 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 */
 	public function thankyou_page() {
 		$html = '<div class="woocommerce-message">';
-		$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) );
+		$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
 
 		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
-		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
-		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'If you prefer, print and pay at any bank branch or lottery retailer.', 'woocommerce-boleto' ) . '<br />';
 
 		$html .= apply_filters( 'wcboleto_thankyou_page_message', $message );
 
-		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="display: block; margin-top: 15px; font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 		$html .= '</div>';
 
@@ -713,20 +713,19 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Generate boleto data.
+	 * Generate ticket data.
 	 *
 	 * @param  object $order Order object.
 	 *
 	 * @return void
 	 */
 	public function generate_boleto_data( $order ) {
-		// Boleto data.
+		// Ticket data.
 		$data['nosso_numero']       = apply_filters( 'wcboleto_our_number', $order->id );
 		$data['numero_documento']   = apply_filters( 'wcboleto_document_number', $order->id );
 		$data['data_vencimento']    = date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) );
 		$data['data_documento']     = date( 'd/m/Y' );
 		$data['data_processamento'] = date( 'd/m/Y' );
-		$data['valor_boleto']       = number_format( $order->order_total, 2, ',', '' );
 
 		update_post_meta( $order->id, 'wc_boleto_data', $data );
 	}
@@ -749,14 +748,14 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		$html .= '<p class="order_details">';
 
 		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
-		$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
-		$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+		$message .= __( 'If you prefer, print and pay at any bank branch or lottery retailer.', 'woocommerce-boleto' ) . '<br />';
 
 		$html .= apply_filters( 'wcboleto_email_instructions', $message );
 
-		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) ) . '<br />';
+		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '<br />';
 
-		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Boleto: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
+		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( $this->boleto_time * 86400 ) ) ) . '</strong>';
 
 		$html .= '</p>';
 

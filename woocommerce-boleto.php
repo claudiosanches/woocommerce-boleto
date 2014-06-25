@@ -5,7 +5,7 @@
  * Description: WooCommerce Boleto is a brazilian payment gateway for WooCommerce
  * Author: claudiosanches, deblyn
  * Author URI: http://claudiosmweb.com
- * Version: 1.2.2
+ * Version: 1.3.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-boleto
  * Domain Path: /languages/
@@ -27,7 +27,7 @@ class WC_Boleto {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.2.2';
+	const VERSION = '1.3.0';
 
 	/**
 	 * Instance of this class.
@@ -197,11 +197,11 @@ class WC_Boleto {
 
 		if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
 			$html = '<div class="woocommerce-info">';
-			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) );
+			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', self::get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
 
 			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
-			$message .= __( 'Please click the following button and pay the Boleto in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
-			$message .= __( 'If you prefer, print and pay at any bank branch or home lottery.', 'woocommerce-boleto' ) . '<br />';
+			$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
+			$message .= __( 'If you prefer, print and pay at any bank branch or lottery retailer.', 'woocommerce-boleto' ) . '<br />';
 			$message .= __( 'Ignore this message if the payment has already been made​​.', 'woocommerce-boleto' ) . '<br />';
 
 			$html .= apply_filters( 'wcboleto_pending_payment_message', $message, $order );

@@ -34,7 +34,7 @@ class WC_Boleto_Admin {
 	public function register_metabox() {
 		add_meta_box(
 			'woocommerce-boleto',
-			__( 'Boleto', 'woocommerce-boleto' ),
+			__( 'Banking Ticket', 'woocommerce-boleto' ),
 			array( $this, 'metabox_content' ),
 			'shop_order',
 			'side',
@@ -43,7 +43,7 @@ class WC_Boleto_Admin {
 	}
 
 	/**
-	 * Boleto metabox content.
+	 * Banking Ticket metabox content.
 	 *
 	 * @param  object $post order_shop data.
 	 *
@@ -70,7 +70,7 @@ class WC_Boleto_Admin {
 				$html .= '<span class="description">' . __( 'Configuring a new expiration date the boleto is resent to the client.', 'woocommerce-boleto' ) . '</span>';
 			}
 		} else {
-			$html = '<p>' . __( 'This purchase was not paid with Boleto.', 'woocommerce-boleto' ) . '</p>';
+			$html = '<p>' . __( 'This purchase was not paid with Ticket.', 'woocommerce-boleto' ) . '</p>';
 			$html .= '<style>#woocommerce-boleto.postbox {display: none;}</style>';
 		}
 
@@ -101,11 +101,11 @@ class WC_Boleto_Admin {
 		}
 
 		if ( isset( $_POST['wcboleto_expiration_date'] ) && ! empty( $_POST['wcboleto_expiration_date'] ) ) {
-			// Gets boleto data.
+			// Gets ticket data.
 			$boleto_data = get_post_meta( $post_id, 'wc_boleto_data', true );
 			$boleto_data['data_vencimento'] = sanitize_text_field( $_POST['wcboleto_expiration_date'] );
 
-			// Update boleto data.
+			// Update ticket data.
 			update_post_meta( $post_id, 'wc_boleto_data', $boleto_data );
 
 			// Gets order data.
@@ -123,7 +123,7 @@ class WC_Boleto_Admin {
 	 * New expiration date email notification.
 	 *
 	 * @param  object $order           Order data.
-	 * @param  string $expiration_date Boleto expiration date.
+	 * @param  string $expiration_date Ticket expiration date.
 	 *
 	 * @return void
 	 */
@@ -143,7 +143,7 @@ class WC_Boleto_Admin {
 
 		// Body message.
 		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', 'woocommerce-boleto' ), '<code>' . $expiration_date . '</code>' ) . '</p>';
-		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Boleto &rarr;', 'woocommerce-boleto' ) ) . '</p>';
+		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '</p>';
 
 		// Sets message template.
 		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', 'woocommerce-boleto' ), $main_message );
