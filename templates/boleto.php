@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Test if exist ref.
 if ( isset( $boleto_code ) ) {
-	global $wpdb;
+	global $wpdb, $woocommerce;
 
 	// Sanitize the ref.
 	$ref = sanitize_title( $boleto_code );
@@ -55,7 +55,7 @@ if ( isset( $boleto_code ) ) {
 			$data['sacado'] = $order->billing_first_name . ' ' . $order->billing_last_name;
 
 			// Formatted Addresses
-			$address = apply_filters( 'woocommerce_order_formatted_billing_address', array(
+			$address_fields = apply_filters( 'woocommerce_order_formatted_billing_address', array(
 				'first_name' => '',
 				'last_name'  => '',
 				'company'    => $order->billing_company,
@@ -68,12 +68,12 @@ if ( isset( $boleto_code ) ) {
 			), $order );
 
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
-				$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', WC()->countries->get_formatted_address( $address ) ) );
+				$address = WC()->countries->get_formatted_address( $address_fields );
 			} else {
-				global $woocommerce;
-				$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', $woocommerce->countries->get_formatted_address( $address ) ) );
+				$address = $woocommerce->countries->get_formatted_address( $address_fields );
 			}
 
+			$data['endereco1'] = sanitize_text_field( str_replace( array( '<br />', '<br/>' ), ', ', $address ) );
 			$data['endereco2'] = '';
 
 			$dadosboleto = apply_filters( 'wcboleto_data', $data, $order );
