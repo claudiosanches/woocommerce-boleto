@@ -146,6 +146,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Changelog ==
 
+= 1.4.0 - 25/06/2014 =
+
+* Permitido criar pedidos pelo adminstrador e usar a opção de boleto.
+
 = 1.3.0 - 24/06/2014 =
 
 * Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
@@ -207,8 +211,9 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Upgrade Notice ==
 
-= 1.3.0 =
+= 1.4.0 =
 
+* Permitido criar pedidos pelo adminstrador e usar a opção de boleto.
 * Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
 * Melhoria na exibição do endereço no boleto.
 * Melhorias gerais no código do plugin.
