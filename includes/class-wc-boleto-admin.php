@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
+
 /**
  * Boleto Admin.
  *
@@ -7,20 +11,11 @@
 class WC_Boleto_Admin {
 
 	/**
-	 * Instance of this class.
-	 *
-	 * @since  1.2.0
-	 *
-	 * @var object
-	 */
-	protected static $instance = null;
-
-	/**
 	 * Initialize the admin.
 	 *
 	 * @since 1.2.0
 	 */
-	private function __construct() {
+	public function __construct() {
 		$this->plugin_slug = WC_Boleto::get_plugin_slug();
 
 		// Add metabox.
@@ -34,25 +29,7 @@ class WC_Boleto_Admin {
 	}
 
 	/**
-	 * Return an instance of this class.
-	 *
-	 * @since  1.2.0
-	 *
-	 * @return object A single instance of this class.
-	 */
-	public static function get_instance() {
-		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
-			self::$instance = new self;
-		}
-
-		return self::$instance;
-	}
-
-	/**
 	 * Register boleto metabox.
-	 *
-	 * @since  1.2.0
 	 *
 	 * @return void
 	 */
@@ -69,8 +46,6 @@ class WC_Boleto_Admin {
 
 	/**
 	 * Boleto metabox content.
-	 *
-	 * @since  1.2.0
 	 *
 	 * @param  object $post order_shop data.
 	 *
@@ -106,8 +81,6 @@ class WC_Boleto_Admin {
 
 	/**
 	 * Save metabox data.
-	 *
-	 * @since  1.2.0
 	 *
 	 * @param  int $post_id Current post type ID.
 	 *
@@ -150,8 +123,6 @@ class WC_Boleto_Admin {
 
 	/**
 	 * New expiration date email notification.
-	 *
-	 * @since  1.2.0
 	 *
 	 * @param  object $order           Order data.
 	 * @param  string $expiration_date Boleto expiration date.
@@ -210,3 +181,5 @@ class WC_Boleto_Admin {
 		}
 	}
 }
+
+new WC_Boleto_Admin();
