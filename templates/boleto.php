@@ -67,7 +67,7 @@ if ( isset( $boleto_code ) ) {
 				'country'    => $order->billing_country
 			), $order );
 
-			if ( function_exists( 'WC' ) ) {
+			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 				$data['endereco1'] = sanitize_text_field( str_replace( '<br />', ',', WC()->countries->get_formatted_address( $address ) ) );
 			} else {
 				global $woocommerce;

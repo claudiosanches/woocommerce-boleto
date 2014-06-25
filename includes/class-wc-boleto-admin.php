@@ -128,7 +128,7 @@ class WC_Boleto_Admin {
 	 * @return void
 	 */
 	protected function email_notification( $order, $expiration_date ) {
-		if ( function_exists( 'WC' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 			$mailer = WC()->mailer();
 		} else {
 			global $woocommerce;

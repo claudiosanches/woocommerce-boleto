@@ -41,7 +41,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return object Returns the main instance of WooCommerce class.
 	 */
 	protected function woocommerce_instance() {
-		if ( function_exists( 'WC' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 			return WC();
 		} else {
 			global $woocommerce;
@@ -677,7 +677,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		// Remove cart.
 		$this->woocommerce_instance()->cart->empty_cart();
 
-		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 			$url = $order->get_checkout_order_received_url();
 		} else {
 			$url = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) );
@@ -769,7 +769,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string
 	 */
 	protected function admin_url() {
-		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 			return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=wc_boleto_gateway' );
 		}
 
