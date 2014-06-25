@@ -2,8 +2,8 @@
 Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
 Requires at least: 3.8
-Tested up to: 3.9
-Stable tag: 1.2.2
+Tested up to: 3.9.1
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -146,15 +146,21 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Changelog ==
 
-= 1.2.2 - 27/03/2013 =
+= 1.3.0 - 24/06/2014 =
+
+* Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
+* Melhoria na exibição do endereço no boleto.
+* Melhorias gerais no código do plugin.
+
+= 1.2.2 - 27/03/2014 =
 
 * Melhoria/Correção do método de atualização, agora ele da flush nas urls para validar a página de boleto.
 
-= 1.2.1 - 26/03/2013 =
+= 1.2.1 - 26/03/2014 =
 
 * Correção de um erro fatal na ativação do plugin.
 
-= 1.2.0 - 23/03/2013 =
+= 1.2.0 - 23/03/2014 =
 
 * Melhorada a forma de abrir os boletos, foi removida a página e adicionada em seu lugar um endpoint, desta forma evitamos conflitos com alguns temas.
 
@@ -201,11 +207,11 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Upgrade Notice ==
 
-= 1.2.2 =
+= 1.3.0 =
 
-* Melhorada a forma de abrir os boletos, foi removida a página e adicionada em seu lugar um endpoint, desta forma evitamos conflitos com alguns temas.
-* Correção de um erro fatal na ativação do plugin.
-* Melhoria/Correção do método de atualização, agora ele da flush nas urls para validar a página de boleto.
+* Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
+* Melhoria na exibição do endereço no boleto.
+* Melhorias gerais no código do plugin.
 
 == License ==
 
