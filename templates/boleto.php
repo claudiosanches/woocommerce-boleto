@@ -8,9 +8,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+global $wp_query, $woocommerce;
+
+// Support for plugin older versions.
+$boleto_code = isset( $_GET['ref'] ) ? $_GET['ref'] : $wp_query->query_vars['boleto'];
+
 // Test if exist ref.
 if ( isset( $boleto_code ) ) {
-	global $wpdb, $woocommerce;
 
 	// Sanitize the ref.
 	$ref = sanitize_title( $boleto_code );
