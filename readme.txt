@@ -3,7 +3,7 @@ Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco
 Requires at least: 3.8
 Tested up to: 3.9.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -146,6 +146,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Changelog ==
 
+= 1.4.1 - 27/07/2014 =
+
+* Melhoria na função que gera a página do boleto.
+
 = 1.4.0 - 25/06/2014 =
 
 * Permitido criar pedidos pelo adminstrador e usar a opção de boleto.
@@ -211,12 +215,13 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Upgrade Notice ==
 
-= 1.4.0 =
+= 1.4.1 =
 
 * Permitido criar pedidos pelo adminstrador e usar a opção de boleto.
 * Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
 * Melhoria na exibição do endereço no boleto.
 * Melhorias gerais no código do plugin.
+* Melhoria na função que gera a página do boleto.
 
 == License ==
 
