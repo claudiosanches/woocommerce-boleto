@@ -2,7 +2,7 @@
 **Contributors:** claudiosanches, deblyn  
 **Tags:** woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco  
 **Requires at least:** 3.8  
-**Tested up to:** 3.9.1  
+**Tested up to:** 4.0  
 **Stable tag:** 1.4.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -142,10 +142,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 ## Screenshots ##
 
 ### 1. Plugin settings. ###
-![1. Plugin settings.](http://s.wordpress.org/extend/plugins/woocommerce-boleto/screenshot-1.png)
+![1. Plugin settings.](http://ps.w.org/woocommerce-boleto/assets/screenshot-1.png)
 
 ### 2. Shop order metabox. ###
-![2. Shop order metabox.](http://s.wordpress.org/extend/plugins/woocommerce-boleto/screenshot-2.png)
+![2. Shop order metabox.](http://ps.w.org/woocommerce-boleto/assets/screenshot-2.png)
 
 
 ## Changelog ##
