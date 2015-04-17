@@ -70,7 +70,7 @@ class WC_Boleto_Admin {
 			}
 
 			$html = '<p><strong>' . __( 'Expiration date:', 'woocommerce-boleto' ) . '</strong> ' . $boleto_data['data_vencimento'] . '</p>';
-			$html .= '<p><strong>' . __( 'URL:', 'woocommerce-boleto' ) . '</strong> <a target="_blank" href="' . WC_Boleto::get_boleto_url( $order->order_key ) . '">' . __( 'View boleto', 'woocommerce-boleto' ) . '</a></p>';
+			$html .= '<p><strong>' . __( 'URL:', 'woocommerce-boleto' ) . '</strong> <a target="_blank" href="' . wc_boleto_get_boleto_url( $order->order_key ) . '">' . __( 'View boleto', 'woocommerce-boleto' ) . '</a></p>';
 
 			$html .= '<p style="border-top: 1px solid #ccc;"></p>';
 
@@ -148,7 +148,7 @@ class WC_Boleto_Admin {
 
 		// Body message.
 		$main_message = '<p>' . sprintf( __( 'The expiration date of your boleto was updated to: %s', 'woocommerce-boleto' ), '<code>' . $expiration_date . '</code>' ) . '</p>';
-		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '</p>';
+		$main_message .= '<p>' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', wc_boleto_get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '</p>';
 
 		// Sets message template.
 		$message = $mailer->wrap_message( __( 'New expiration date for your boleto', 'woocommerce-boleto' ), $main_message );
