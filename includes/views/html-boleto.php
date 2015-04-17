@@ -112,8 +112,8 @@ if ( isset( $boleto_code ) ) {
 			$dadosboleto = apply_filters( 'wcboleto_data', $data, $order );
 
 			// Include bank templates.
-			include plugin_dir_path( dirname( __FILE__ ) ) . 'includes/banks/' . $bank . '/functions.php';
-			include plugin_dir_path( dirname( __FILE__ ) ) . 'includes/banks/' . $bank . '/layout.php';
+			include WC_Boleto::get_plugin_path() . 'includes/banks/' . $bank . '/functions.php';
+			include WC_Boleto::get_plugin_path() . 'includes/banks/' . $bank . '/layout.php';
 
 			exit;
 		}

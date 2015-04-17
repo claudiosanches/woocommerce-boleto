@@ -78,6 +78,15 @@ class WC_Boleto {
 	}
 
 	/**
+	 * Get plugin path.
+	 *
+	 * @return string
+	 */
+	public static function get_plugin_path() {
+		return plugin_dir_path( __FILE__ );
+	}
+
+	/**
 	 * Load the plugin text domain for translation.
 	 */
 	public function load_plugin_textdomain() {
@@ -149,7 +158,7 @@ class WC_Boleto {
 		global $wp_query;
 
 		if ( isset( $wp_query->query_vars['boleto'] ) ) {
-			return plugin_dir_path( __FILE__ ) . 'templates/boleto.php';
+			return plugin_dir_path( __FILE__ ) . 'includes/views/html-boleto.php';
 		}
 
 		return $template;
