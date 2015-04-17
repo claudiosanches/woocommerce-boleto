@@ -216,13 +216,17 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 ## Upgrade Notice ##
 
-### 1.4.1 ###
+### 1.5.0 ###
 
-* Permitido criar pedidos pelo adminstrador e usar a opção de boleto.
-* Melhoria no valor do boleto, agora ele não é mais salvo na hora do pedido e permite que seja alterado o valor junto com o pedido (caso o pedido seja alterado pelo administrador).
-* Melhoria na exibição do endereço no boleto.
-* Melhorias gerais no código do plugin.
-* Melhoria na função que gera a página do boleto.
+* Adicionado suporte para boletos do banco Bancoob (obrigado [douglastycho](https://github.com/douglastycho)).
+* Alterado as nomenclaturas de CEDENTE para BENEFICIÁRIO e de SACADO para PAGADOR para tornar o plugin complacente com as mudanças da lei 3.656 do Banco Central.
+* Adicionado CPF ou CNPJ nas informações do beneficiário para tornar o plugin complacente com as mudanças da lei 3.656 do Banco Central.
+* Forçada a exibição do botão do boleto após o pagamento (alguns temas oultam o botão).
+* Criado filtro woocommerce_boleto_url.
+* Adicionada função wc_boleto_get_boleto_url() que recupera a URL do boleto com base na chave do pedido.
+* Adicionada função wc_boleto_get_boleto_url_by_order_id() que recupera a URL do boleto com base no ID do pedido.
+* Adicionada compatibilidade com o plugin WooCommerce Extra Checkout Fields para que seja possível pegar CPF e CNPJ dos clientes.
+* Corrigido problemas de exibição dos boletos que era causado em alguns temas.
 
 ## License ##
 
