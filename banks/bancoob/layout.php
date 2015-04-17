@@ -420,21 +420,21 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <div id="instructions">
             -->
             <div id="instr_content">
-                <h2>Instruções</h2>
+                <h2>Instru&ccedil;&otilde;es</h2>
                 <ol>
                     <li>
                     Imprima em impressora jato de tinta (ink jet) ou laser, em
-                    qualidade normal ou alta. Não use modo econômico.
+                    qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico.
                     <p class="notice">Por favor, configure margens esquerda e direita para 17mm.</p>
                     </li>
                     <li>
                     Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens
-                    mínimas à esquerda e à direita do
-                    formulário.
+                    m&iacute;nimas &agrave; esquerda e &agrave; direita do
+                    formul&aacute;rio.
                     </li>
                     <li>
-                    Corte na linha indicada. Não rasure, risque, fure ou dobre
-                    a região onde se encontra o código de barras
+                    Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre
+                    a regi&atilde;o onde se encontra o c&oacute;digo de barras
                     </li>
                 </ol>
             </div><!-- id="instr_content" -->
@@ -466,10 +466,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tbody>
                     <tr class="titulos">
                         <td class="cedente">Cedente</td>
-                        <td class="ag_cod_cedente">Agência / Código do Cedente</td>
-                        <td class="especie">Espécie</td>
+                        <td class="ag_cod_cedente">Ag&ecirc;ncia / C&oacute;digo do Cedente</td>
+                        <td class="especie">Esp&eacute;cie</td>
                         <td class="qtd">Quantidade</td>
-                        <td class="nosso_numero">Nosso Número</td>
+                        <td class="nosso_numero">Nosso N&uacute;mero</td>
                     </tr>
 
                     <tr class="campos">
@@ -495,7 +495,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellPadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="num_doc">Número do Documento</td>
+                        <td class="num_doc">N&uacute;mero do Documento</td>
                         <td class="contrato">Contrato</td>
                         <td class="cpf_cei_cnpj">CPF/CEI/CNPJ</td>
                         <td class="vencmento">Vencimento</td>
@@ -523,9 +523,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tbody>
                     <tr class="titulos">
                         <td class="desconto">(-) Desconto / Abatimento</td>
-                        <td class="outras_deducoes">(-) Outras deduções</td>
+                        <td class="outras_deducoes">(-) Outras dedu&ccedil;&otilde;es</td>
                         <td class="mora_multa">(+) Mora / Multa</td>
-                        <td class="outros_acrescimos">(+) Outros acréscimos</td>
+                        <td class="outros_acrescimos">(+) Outros acr&eacute;scimos</td>
                         <td class="valor_cobrado">(=) Valor cobrado</td>
                     </tr>
                     <tr class="campos">
@@ -551,7 +551,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             </table>
 
             <div class="footer">
-                <p>Autenticação mecânica</p>
+                <p>Autentica&ccedil;&atilde;o mec&acirc;nica</p>
             </div>
 
             <div class="cut">
@@ -584,7 +584,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                         <td class="vencimento2">Vencimento</td>
                     </tr>
                     <tr class="campos">
-                        <td class="local_pagto">QUALQUER BANCO ATÉ O VENCIMENTO</td>
+                        <td class="local_pagto">QUALQUER BANCO AT&Eacute; O VENCIMENTO</td>
                         <td class="vencimento2"><?php echo $dadosboleto["data_vencimento"]?></td>
                     </tr>
                 </tbody>
@@ -594,7 +594,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                 <tbody>
                     <tr class="titulos">
                         <td class="cedente2">Cedente</td>
-                        <td class="ag_cod_cedente2">Agência/Código cedente</td>
+                        <td class="ag_cod_cedente2">Ag&ecirc;ncia/Código cedente</td>
                     </tr>
                     <tr class="campos">
                         <td class="cedente2">
@@ -612,10 +612,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tr class="titulos">
                         <td class="data_doc">Data do documento</td>
                         <td class="num_doc2">No. documento</td>
-                        <td class="especie_doc">Espécie doc.</td>
+                        <td class="especie_doc">Esp&eacute;cie doc.</td>
                         <td class="aceite">Aceite</td>
                         <td class="data_process">Data process.</td>
-                        <td class="nosso_numero2">Nosso Número</td>
+                        <td class="nosso_numero2">Nosso N&uacute;mero</td>
                     </tr>
                     <tr class="campos">
                         <td class="data_doc"><?php echo $dadosboleto["data_documento"]?></td>
@@ -633,7 +633,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     <tr class="titulos">
                         <td class="reservado">Uso do  banco</td>
                         <td class="carteira">Carteira</td>
-                        <td class="especie2">Espécie</td>
+                        <td class="especie2">Esp&eacute;cie</td>
                         <td class="qtd2">Quantidade</td>
                         <td class="xvalor">x Valor</td>
                         <td class="valor_doc2">(=) Valor documento</td>
@@ -696,7 +696,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                             <table class="line" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr class="titulos">
-                                        <td class="outras_deducoes2">(-) Outras deduções</td>
+                                        <td class="outras_deducoes2">(-) Outras dedu&ccedil;&otilde;es</td>
                                     </tr>
                                     <tr class="campos">
                                         <td class="outras_deducoes2">&nbsp;</td>
@@ -724,7 +724,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                             <table class="line" cellspacing="0" cellpadding="0">
                                 <tbody>
                                     <tr class="titulos">
-                                        <td class="outros_acrescimos2">(+) Outros Acréscimos</td>
+                                        <td class="outros_acrescimos2">(+) Outros Acr&eacute;scimos</td>
                                     </tr>
                                     <tr class="campos">
                                         <td class="outros_acrescimos2">&nbsp;</td>
@@ -772,13 +772,13 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                     </tr>
                     <tr class="campos">
                         <td class="sacador_avalista">&nbsp;</td>
-                        <td class="cod_baixa">Cód. baixa</td>
+                        <td class="cod_baixa">C&oacute;d. baixa</td>
                     </tr>
                 </tbody>
             </table>
 
             <div class="footer">
-                <p>Autenticação Mecânica</p>
+                <p>Autentica&ccedil;&atilde;o Mec&acirc;nica</p>
             </div>
 
             <div class="barcode">
