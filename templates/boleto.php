@@ -55,7 +55,7 @@ if ( isset( $boleto_code ) ) {
 			}
 
 			// Set the ticket total.
-			$data['valor_boleto'] = number_format( $order->order_total, 2, ',', '' );
+			$data['valor_boleto'] = number_format( (float) $order->get_total(), 2, ',', '' );
 
 			// Shop data.
 			$data['identificacao'] = $shop_name;
