@@ -52,11 +52,10 @@ $codigobanco = "756";
 $codigo_banco_com_dv = geraCodigoBanco($codigobanco);
 $nummoeda = "9";
 $fator_vencimento = fator_vencimento($dadosboleto["data_vencimento"]);
-$taxa_boleto = $dadosboleto["taxa_boleto"];
 
 // Valor Passando por uma adaptação
 $valor = str_replace(",", ".",$dadosboleto["valor_boleto"]);
-$valorFormatado = number_format( $valor + $taxa_boleto, 2, ',', '' );
+$valorFormatado = number_format( $valor, 2, ',', '' );
 
 // Valor tem 10 digitos, sem virgula
 $valor = formata_numero($dadosboleto["valor_boleto"],10,0,"valor");
@@ -71,8 +70,8 @@ $carteira = $dadosboleto["carteira"];
 
 // Zeros: usado quando convenio de 7 digitos
 $livre_zeros='000000';
-$modalidadecobranca = $dadosboleto["modalidade_cobranca"];
-$numeroparcela      = $dadosboleto["numero_parcela"];
+$modalidadecobranca = '02';
+$numeroparcela      = '001';
 $convenio = formata_numero($dadosboleto["convenio"],7,0);
 
 // Gera o ID do Produto

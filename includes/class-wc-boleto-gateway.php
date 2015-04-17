@@ -307,41 +307,26 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 				break;
 			case 'bancoob' :
 				$fields = array(
-	                    'agencia' => array(
-	                        'title'       => __( 'Agency', 'woocommerce-boleto' ),
-	                        'type'        => 'text',
-	                        'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
-	                    ),
-	                    'conta' => array(
-	                        'title'       => __( 'Account', 'woocommerce-boleto' ),
-	                        'type'        => 'text',
-	                        'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
-	                    ),
-	                    'convenio' => array(
-	                        'title'       => __( 'Agreement number', 'woocommerce-boleto' ),
-	                        'type'        => 'text',
-	                        'description' => __( 'Agreements with 6, 7 or 8 digits.', 'woocommerce-boleto' )
-	                    ),
-	                    'carteira' => array(
-	                        'title' => __( 'Wallet code', 'woocommerce-boleto' ),
-	                        'type'  => 'text'
-	                    ),
-	                    'numero_parcela' => array(
-	                        'title' => __( 'Monthly Payment', 'woocommerce-boleto' ),
-	                        'type'  => 'text',
-	                        'description' => __( 'Monthly Payment requires 3 digits, Default is 001', 'woocommerce-boleto' )
-	                    ),
-	                    'modalidade_cobranca' => array(
-	                        'title' => __( 'Billing Mode', 'woocommerce-boleto' ),
-	                        'type'  => 'text',
-	                        'description' => __( 'Billing Mode requires 2 digits, default is 02', 'woocommerce-boleto' )
-	                    ),
-	                    'taxa_boleto' => array(
-	                        'title' => __( 'Tax Rate', 'woocommerce-boleto' ),
-	                        'type' => 'text',
-	                        'description' => __( 'Insert tax rate of each payment. Default is 0', 'woocommerce-boleto' )
-	                    )
-	                );
+						'agencia' => array(
+							'title'       => __( 'Agency', 'woocommerce-boleto' ),
+							'type'        => 'text',
+							'description' => __( 'Agency number without digit.', 'woocommerce-boleto' )
+						),
+						'conta' => array(
+							'title'       => __( 'Account', 'woocommerce-boleto' ),
+							'type'        => 'text',
+							'description' => __( 'Account number without digit.', 'woocommerce-boleto' )
+						),
+						'convenio' => array(
+							'title'       => __( 'Agreement number', 'woocommerce-boleto' ),
+							'type'        => 'text',
+							'description' => __( 'Agreements with 6, 7 or 8 digits.', 'woocommerce-boleto' )
+						),
+						'carteira' => array(
+							'title' => __( 'Wallet code', 'woocommerce-boleto' ),
+							'type'  => 'text'
+						),
+					);
 				break;
 			case 'bradesco' :
 				$fields = array(
