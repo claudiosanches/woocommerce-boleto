@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * WC Boleto Gateway Class.
  *
@@ -7,9 +11,7 @@
 class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 	/**
-	 * Gateway's Constructor.
-	 *
-	 * @return void
+	 * Initialize the gateway actions.
 	 */
 	public function __construct() {
 		$this->id           = 'boleto';
@@ -36,23 +38,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Backwards compatibility with version prior to 2.1.
-	 *
-	 * @return object Returns the main instance of WooCommerce class.
-	 */
-	protected function woocommerce_instance() {
-		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
-			return WC();
-		} else {
-			global $woocommerce;
-			return $woocommerce;
-		}
-	}
-
-	/**
 	 * Displays notifications when the admin has something wrong with the configuration.
-	 *
-	 * @return void
 	 */
 	protected function admin_notices() {
 		if ( is_admin() ) {
@@ -103,9 +89,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Start Gateway Settings Form Fields.
-	 *
-	 * @return void
+	 * Gateway options.
 	 */
 	public function init_form_fields() {
 		$shop_name = get_bloginfo( 'name' );
@@ -294,9 +278,8 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return array Current bank fields.
 	 */
 	protected function get_bank_fields() {
-
 		switch ( $this->get_option( 'bank' ) ) {
-			case 'bb':
+			case 'bb' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -343,7 +326,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'bancoob':
+			case 'bancoob' :
 				$fields = array(
 	                    'agencia' => array(
 	                        'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -381,7 +364,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	                    )
 	                );
 				break;
-			case 'bradesco':
+			case 'bradesco' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -423,7 +406,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'cef':
+			case 'cef' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -466,7 +449,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'cef_sigcb':
+			case 'cef_sigcb' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -499,7 +482,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'cef_sinco':
+			case 'cef_sinco' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -536,7 +519,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					),
 				);
 				break;
-			case 'hsbc':
+			case 'hsbc' :
 				$fields = array(
 					'codigo_cedente' => array(
 						'title'       => __( 'Transferor code', 'woocommerce-boleto' ),
@@ -554,7 +537,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'itau':
+			case 'itau' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -585,7 +568,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'nossacaixa':
+			case 'nossacaixa' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -617,7 +600,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'real':
+			case 'real' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -635,7 +618,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'santander':
+			case 'santander' :
 				$fields = array(
 					'codigo_cliente' => array(
 						'title'       => __( 'Customer code', 'woocommerce-boleto' ),
@@ -659,7 +642,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 					)
 				);
 				break;
-			case 'unibanco':
+			case 'unibanco' :
 				$fields = array(
 					'agencia' => array(
 						'title'       => __( 'Agency', 'woocommerce-boleto' ),
@@ -686,7 +669,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 				);
 				break;
 
-			default:
+			default :
 				$fields = array();
 				break;
 		}
@@ -713,12 +696,15 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		// Reduce stock levels.
 		$order->reduce_order_stock();
 
-		// Remove cart.
-		$this->woocommerce_instance()->cart->empty_cart();
-
 		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
+			WC()->cart->empty_cart();
+
 			$url = $order->get_checkout_order_received_url();
 		} else {
+			global $woocommerce;
+
+			$woocommerce->cart->empty_cart();
+
 			$url = add_query_arg( 'key', $order->order_key, add_query_arg( 'order', $order_id, get_permalink( woocommerce_get_page_id( 'thanks' ) ) ) );
 		}
 
@@ -755,8 +741,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * Generate ticket data.
 	 *
 	 * @param  object $order Order object.
-	 *
-	 * @return void
 	 */
 	public function generate_boleto_data( $order ) {
 		// Ticket data.

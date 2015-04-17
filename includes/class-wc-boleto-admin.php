@@ -1,19 +1,15 @@
 <?php
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+	exit;
 }
 
 /**
  * Boleto Admin.
- *
- * @since 1.0.0
  */
 class WC_Boleto_Admin {
 
 	/**
 	 * Initialize the admin.
-	 *
-	 * @since 1.2.0
 	 */
 	public function __construct() {
 		// Add metabox.
@@ -28,8 +24,6 @@ class WC_Boleto_Admin {
 
 	/**
 	 * Register boleto metabox.
-	 *
-	 * @return void
 	 */
 	public function register_metabox() {
 		add_meta_box(
@@ -95,9 +89,7 @@ class WC_Boleto_Admin {
 	/**
 	 * Save metabox data.
 	 *
-	 * @param  int $post_id Current post type ID.
-	 *
-	 * @return void
+	 * @param int $post_id Current post type ID.
 	 */
 	public function save( $post_id ) {
 		// Verify nonce.
@@ -137,10 +129,8 @@ class WC_Boleto_Admin {
 	/**
 	 * New expiration date email notification.
 	 *
-	 * @param  object $order           Order data.
-	 * @param  string $expiration_date Ticket expiration date.
-	 *
-	 * @return void
+	 * @param object $order           Order data.
+	 * @param string $expiration_date Ticket expiration date.
 	 */
 	protected function email_notification( $order, $expiration_date ) {
 		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
@@ -169,8 +159,6 @@ class WC_Boleto_Admin {
 
 	/**
 	 * Performance an update to all options.
-	 *
-	 * @return void
 	 */
 	public function update() {
 		$db_version = get_option( 'woocommerce_boleto_db_version' );
