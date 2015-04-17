@@ -14,10 +14,11 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * Initialize the gateway actions.
 	 */
 	public function __construct() {
-		$this->id           = 'boleto';
-		$this->icon         = apply_filters( 'wcboleto_icon', plugins_url( 'assets/images/boleto.png', plugin_dir_path( __FILE__ ) ) );
-		$this->has_fields   = false;
-		$this->method_title = __( 'Banking Ticket', 'woocommerce-boleto' );
+		$this->id                 = 'boleto';
+		$this->icon               = apply_filters( 'wcboleto_icon', plugins_url( 'assets/images/boleto.png', plugin_dir_path( __FILE__ ) ) );
+		$this->has_fields         = false;
+		$this->method_title       = __( 'Banking Ticket', 'woocommerce-boleto' );
+		$this->method_description = __( 'Enables payments via Banking Ticket.', 'woocommerce-boleto' );
 
 		// Load the settings.
 		$this->init_form_fields();
@@ -32,21 +33,6 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 		add_action( 'woocommerce_thankyou_boleto', array( $this, 'thankyou_page' ) );
 		add_action( 'woocommerce_email_after_order_table', array( $this, 'email_instructions' ), 10, 2 );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-
-		// Display admin notices.
-		$this->admin_notices();
-	}
-
-	/**
-	 * Displays notifications when the admin has something wrong with the configuration.
-	 */
-	protected function admin_notices() {
-		if ( is_admin() ) {
-			// Checks that the currency is supported
-			if ( ! $this->using_supported_currency() ) {
-				add_action( 'admin_notices', array( $this, 'currency_not_supported_message' ) );
-			}
-		}
 	}
 
 	/**
@@ -78,14 +64,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 * @return string Admin form.
 	 */
 	public function admin_options() {
-		echo '<h3>' . __( 'Banking Ticket', 'woocommerce-boleto' ) . '</h3>';
-		echo '<p>' . __( 'Enables payments via Banking Ticket.', 'woocommerce-boleto' ) . '</p>';
-
-		// Generate the HTML For the settings form.
-		echo '<table class="form-table">';
-		$this->generate_settings_html();
-		echo '</table>';
-		echo '<script type="text/javascript" src="' . plugins_url( 'assets/js/admin.js', plugin_dir_path( __FILE__ ) ) . '"></script>';
+		include 'views/html-admin-page.php';
 	}
 
 	/**
@@ -785,27 +764,4 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		echo $html;
 	}
-
-	/**
-	 * Gets the admin url.
-	 *
-	 * @return string
-	 */
-	protected function admin_url() {
-		if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
-			return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=wc_boleto_gateway' );
-		}
-
-		return admin_url( 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=WC_Boleto_Gateway' );
-	}
-
-	/**
-	 * Adds error message when an unsupported currency is used.
-	 *
-	 * @return string
-	 */
-	public function currency_not_supported_message() {
-		echo '<div class="error"><p><strong>' . __( 'Boleto Disabled', 'woocommerce-boleto' ) . '</strong>: ' . sprintf( __( 'Currency <code>%s</code> is not supported. Works only with <code>BRL</code> (Brazilian Real).', 'woocommerce-boleto' ), get_woocommerce_currency() ) . '</p></div>';
-	}
-
 }

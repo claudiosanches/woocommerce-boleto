@@ -20,6 +20,9 @@ class WC_Boleto_Admin {
 
 		// Update.
 		add_action( 'admin_init', array( $this, 'update' ), 5 );
+
+		// Load scripts in gateway settings page.
+		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );
 	}
 
 	/**
@@ -155,6 +158,19 @@ class WC_Boleto_Admin {
 
 		// Send email.
 		$mailer->send( $order->billing_email, $subject, $message, $headers, '' );
+	}
+
+	/**
+	 * Admin scripts.
+	 *
+	 * @param string $hook Page slug.
+	 */
+	public function scripts( $hook ) {
+		if ( in_array( $hook, array( 'woocommerce_page_wc-settings', 'woocommerce_page_woocommerce_settings' ) ) && ( isset( $_GET['section'] ) && 'wc_boleto_gateway' == strtolower( $_GET['section'] ) ) ) {
+			$suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
+			wp_enqueue_script( 'wc-boleto-admin', plugins_url( 'assets/js/admin' . $suffix . '.js', plugin_dir_path( __FILE__ ) ), array( 'jquery' ), WC_Boleto::VERSION, true );
+		}
 	}
 
 	/**
