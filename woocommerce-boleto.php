@@ -90,6 +90,7 @@ class WC_Boleto {
 	 * Includes.
 	 */
 	private function includes() {
+		include_once 'includes/wc-boleto-functions.php';
 		include_once 'includes/class-wc-boleto-gateway.php';
 	}
 
@@ -219,12 +220,3 @@ register_deactivation_hook( __FILE__, array( 'WC_Boleto', 'deactivate' ) );
 add_action( 'plugins_loaded', array( 'WC_Boleto', 'get_instance' ) );
 
 endif;
-
-/**
- * Assets URL.
- *
- * @return string
- */
-function wcboleto_assets_url() {
-	return plugin_dir_url( __FILE__ ) . 'assets/';
-}
