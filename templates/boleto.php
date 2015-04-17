@@ -92,11 +92,11 @@ if ( isset( $boleto_code ) ) {
 			$customer_document = '';
 			if ( 0 != $wcbcf_settings['person_type'] ) {
 				if ( ( 1 == $wcbcf_settings['person_type'] && 1 == $order->billing_persontype ) || 2 == $wcbcf_settings['person_type'] ) {
-					$customer_document = $order->billing_cpf;
+					$customer_document = __( 'CPF:', 'woocommerce-boleto' ) .  ' ' . $order->billing_cpf;
 				}
 
 				if ( ( 1 == $wcbcf_settings['person_type'] && 2 == $order->billing_persontype ) || 3 == $wcbcf_settings['person_type'] ) {
-					$customer_document = $order->billing_cnpj;
+					$customer_document = __( 'CNPJ:', 'woocommerce-boleto' ) .  ' ' . $order->billing_cnpj;
 				}
 			}
 
