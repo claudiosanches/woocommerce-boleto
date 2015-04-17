@@ -158,7 +158,7 @@ class WC_Boleto {
 		global $wp_query;
 
 		if ( isset( $wp_query->query_vars['boleto'] ) ) {
-			return plugin_dir_path( __FILE__ ) . 'includes/views/html-boleto.php';
+			return self::get_plugin_path() . 'includes/views/html-boleto.php';
 		}
 
 		return $template;
