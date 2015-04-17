@@ -61,13 +61,17 @@ if ( isset( $boleto_code ) ) {
 			$data['identificacao'] = $shop_name;
 
 			// Client data.
-			$data['sacado'] = $order->billing_first_name . ' ' . $order->billing_last_name;
+			if ( ! empty( $order->billing_cnpj ) ) {
+				$data['sacado'] = $order->billing_company;
+			} else {
+				$data['sacado'] = $order->billing_first_name . ' ' . $order->billing_last_name;
+			}
 
 			// Formatted Addresses
 			$address_fields = apply_filters( 'woocommerce_order_formatted_billing_address', array(
 				'first_name' => '',
 				'last_name'  => '',
-				'company'    => $order->billing_company,
+				'company'    => '',
 				'address_1'  => $order->billing_address_1,
 				'address_2'  => $order->billing_address_2,
 				'city'       => $order->billing_city,
@@ -83,8 +87,27 @@ if ( isset( $boleto_code ) ) {
 				$address = $woocommerce->countries->get_formatted_address( $address_fields );
 			}
 
-			$data['endereco1'] = sanitize_text_field( str_replace( array( '<br />', '<br/>' ), ', ', $address ) );
-			$data['endereco2'] = '';
+			// Get Extra Checkout Fields for Brazil options.
+			$wcbcf_settings = get_option( 'wcbcf_settings' );
+			$customer_document = '';
+			if ( 0 != $wcbcf_settings['person_type'] ) {
+				if ( ( 1 == $wcbcf_settings['person_type'] && 1 == $order->billing_persontype ) || 2 == $wcbcf_settings['person_type'] ) {
+					$customer_document = $order->billing_cpf;
+				}
+
+				if ( ( 1 == $wcbcf_settings['person_type'] && 2 == $order->billing_persontype ) || 3 == $wcbcf_settings['person_type'] ) {
+					$customer_document = $order->billing_cnpj;
+				}
+			}
+
+			// Set the customer data.
+			if ( '' != $customer_document ) {
+				$data['endereco1'] = $customer_document;
+				$data['endereco2'] = sanitize_text_field( str_replace( array( '<br />', '<br/>' ), ', ', $address ) );
+			} else {
+				$data['endereco1'] = sanitize_text_field( str_replace( array( '<br />', '<br/>' ), ', ', $address ) );
+				$data['endereco2'] = '';
+			}
 
 			$dadosboleto = apply_filters( 'wcboleto_data', $data, $order );
 
