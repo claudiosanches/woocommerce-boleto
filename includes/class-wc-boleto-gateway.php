@@ -736,7 +736,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 */
 	public function thankyou_page() {
 		$html = '<div class="woocommerce-message">';
-		$html .= sprintf( '<a class="button" href="%s" target="_blank">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
+		$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', WC_Boleto::get_boleto_url( $_GET['key'] ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
 
 		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
 		$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
