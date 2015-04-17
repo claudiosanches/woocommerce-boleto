@@ -203,7 +203,7 @@ class WC_Boleto {
 	 * @return string
 	 */
 	public function woocommerce_missing_notice() {
-		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Boleto Gateway depends on the last version of %s to work!', 'woocommerce-boleto' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-boleto' ) . '</a>' ) . '</p></div>';
+		include_once 'includes/views/notices/html-notice-woocommerce-missing.php';
 	}
 }
 
