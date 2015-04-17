@@ -509,20 +509,20 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
  -->
 				<div id="instr_content">
 					<p>
-						<?php _e( 'O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado nos terminais de Auto-Atendimento BB.', 'woocommerce-boleto' ); ?>
+						O pagamento deste boleto tamb&eacute;m poder&aacute; ser efetuado nos terminais de Auto-Atendimento BB.
 					</p>
 					<h2>
-						<?php _e( 'Instru&ccedil;&otilde;es', 'woocommerce-boleto' ); ?>
+						Instru&ccedil;&otilde;es
 					</h2>
 					<ol>
-						<li><?php _e( 'Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico.', 'woocommerce-boleto' ); ?>
+						<li>Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal ou alta. N&atilde;o use modo econ&ocirc;mico.
 							<p class="notice">
-								<?php _e( 'Por favor, configure margens esquerda e direita para 17mm.', 'woocommerce-boleto' ); ?>
+								Por favor, configure margens esquerda e direita para 17mm.
 							</p>
 						</li>
-						<li><?php _e( 'Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.', 'woocommerce-boleto' ); ?>
+						<li>Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas &agrave; esquerda e &agrave; direita do formul&aacute;rio.
 						</li>
-						<li><?php _e( 'Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras', 'woocommerce-boleto' ); ?>
+						<li>Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o onde se encontra o c&oacute;digo de barras
 						</li>
 					</ol>
 				</div><!-- id="instr_content2" -->
@@ -530,7 +530,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 			<div id="boleto">
 				<div class="cut">
 					<p>
-						<?php _e( 'Corte na linha pontilhada', 'woocommerce-boleto' ); ?>
+						Corte na linha pontilhada
 					</p>
 				</div>
 				<table cellspacing="0" cellpadding="0" width="666" border="0">
@@ -538,7 +538,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 						<tr>
 							<td class="ct" width="666">
 								<div align="right">
-									<b class="cp"><?php _e( 'Recibo do Sacado', 'woocommerce-boleto' ); ?></b>
+									<b class="cp">Recibo do Pagador</b>
 								</div>
 							</td>
 						</tr>
@@ -565,19 +565,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="cedente">
-								<?php _e( 'Cedente', 'woocommerce-boleto' ); ?>
+								Benefici&aacute;rio
 							</td>
 							<td class="ag_cod_cedente">
-								<?php _e( 'Ag&ecirc;ncia / C&oacute;digo do Cedente', 'woocommerce-boleto' ); ?>
+								Ag&ecirc;ncia / C&oacute;digo do Benefici&aacute;rio
 							</td>
 							<td class="especie">
-								<?php _e( 'Esp&eacute;cie', 'woocommerce-boleto' ); ?>
+								Esp&eacute;cie
 							</td>
 							<td class="qtd">
-								<?php _e( 'Quantidade', 'woocommerce-boleto' ); ?>
+								Quantidade
 							</td>
 							<td class="nosso_numero">
-								<?php _e( 'Nosso n&uacute;mero', 'woocommerce-boleto' ); ?>
+								Nosso n&uacute;mero
 							</td>
 						</tr>
 						<tr class="campos">
@@ -603,19 +603,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="num_doc">
-								<?php _e( 'N&uacute;mero do documento', 'woocommerce-boleto' ); ?>
+								N&uacute;mero do documento
 							</td>
 							<td class="contrato">
-								<?php _e( 'Contrato', 'woocommerce-boleto' ); ?>
+								Contrato
 							</td>
 							<td class="cpf_cei_cnpj">
-								<?php _e( 'CPF/CEI/CNPJ', 'woocommerce-boleto' ); ?>
+								CPF/CEI/CNPJ
 							</td>
 							<td class="vencmento">
-								<?php _e( 'Vencimento', 'woocommerce-boleto' ); ?>
+								Vencimento
 							</td>
 							<td class="valor_doc">
-								<?php _e( 'Valor documento', 'woocommerce-boleto' ); ?>
+								Valor documento
 							</td>
 						</tr>
 						<tr class="campos">
@@ -641,19 +641,19 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="desconto">
-								<?php _e( '(-) Desconto / Abatimento', 'woocommerce-boleto' ); ?>
+								(-) Desconto / Abatimento
 							</td>
 							<td class="outras_deducoes">
-								<?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'woocommerce-boleto' ); ?>
+								(-) Outras dedu&ccedil;&otilde;es
 							</td>
 							<td class="mora_multa">
-								<?php _e( '(+) Mora / Multa', 'woocommerce-boleto' ); ?>
+								(+) Mora / Multa
 							</td>
 							<td class="outros_acrescimos">
-								<?php _e( '(+) Outros acr&eacute;scimos', 'woocommerce-boleto' ); ?>
+								(+) Outros acr&eacute;scimos
 							</td>
 							<td class="valor_cobrado">
-								<?php _e( '(=) Valor cobrado', 'woocommerce-boleto' ); ?>
+								(=) Valor cobrado
 							</td>
 						</tr>
 						<tr class="campos">
@@ -679,7 +679,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="sacado">
-								<?php _e( 'Sacado', 'woocommerce-boleto' ); ?>
+								Pagador
 							</td>
 						</tr>
 						<tr class="campos">
@@ -691,12 +691,12 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 				</table>
 				<div class="footer">
 					<p>
-						<?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica', 'woocommerce-boleto' ); ?>
+						Autentica&ccedil;&atilde;o mec&acirc;nica
 					</p>
 				</div>
 				<div class="cut">
 					<p>
-						<?php _e( 'Corte na linha pontilhada', 'woocommerce-boleto' ); ?>
+						Corte na linha pontilhada
 					</p>
 				</div>
 				<table class="header" border="0" cellspacing="0" cellpadding="0">
@@ -720,15 +720,15 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="local_pagto">
-								<?php _e( 'Local de pagamento', 'woocommerce-boleto' ); ?>
+								Local de pagamento
 							</td>
 							<td class="vencimento2">
-								<?php _e( 'Vencimento', 'woocommerce-boleto' ); ?>
+								Vencimento
 							</td>
 						</tr>
 						<tr class="campos">
 							<td class="local_pagto">
-								<?php _e( 'QUALQUER BANCO AT&Eacute; O VENCIMENTO', 'woocommerce-boleto' ); ?>
+								QUALQUER BANCO AT&Eacute; O VENCIMENTO
 							</td>
 							<td class="vencimento2">
 								<?php echo $dadosboleto["data_vencimento"]?>
@@ -740,10 +740,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="cedente2">
-								<?php _e( 'Cedente', 'woocommerce-boleto' ); ?>
+								Benefici&aacute;rio
 							</td>
 							<td class="ag_cod_cedente2">
-								<?php _e( 'Ag&ecirc;ncia/C&oacute;digo cedente', 'woocommerce-boleto' ); ?>
+								Ag&ecirc;ncia/C&oacute;digo benefici&aacute;rio
 							</td>
 						</tr>
 						<tr class="campos">
@@ -760,22 +760,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="data_doc">
-								<?php _e( 'Data do documento', 'woocommerce-boleto' ); ?>
+								Data do documento
 							</td>
 							<td class="num_doc2">
-								<?php _e( 'No. documento', 'woocommerce-boleto' ); ?>
+								No. documento
 							</td>
 							<td class="especie_doc">
-								<?php _e( 'Esp&eacute;cie doc.', 'woocommerce-boleto' ); ?>
+								Esp&eacute;cie doc.
 							</td>
 							<td class="aceite">
-								<?php _e( 'Aceite', 'woocommerce-boleto' ); ?>
+								Aceite
 							</td>
 							<td class="data_process">
-								<?php _e( 'Data process.', 'woocommerce-boleto' ); ?>
+								Data process.
 							</td>
 							<td class="nosso_numero2">
-								<?php _e( 'Nosso n&uacute;mero', 'woocommerce-boleto' ); ?>
+								Nosso n&uacute;mero
 							</td>
 						</tr>
 						<tr class="campos">
@@ -804,22 +804,22 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="reservado">
-								<?php _e( 'Uso do banco', 'woocommerce-boleto' ); ?>
+								Uso do banco
 							</td>
 							<td class="carteira">
-								<?php _e( 'Carteira', 'woocommerce-boleto' ); ?>
+								Carteira
 							</td>
 							<td class="especie2">
-								<?php _e( 'Esp&eacute;cie', 'woocommerce-boleto' ); ?>
+								Esp&eacute;cie
 							</td>
 							<td class="qtd2">
-								<?php _e( 'Quantidade', 'woocommerce-boleto' ); ?>
+								Quantidade
 							</td>
 							<td class="xvalor">
-								<?php _e( 'x Valor', 'woocommerce-boleto' ); ?>
+								x Valor
 							</td>
 							<td class="valor_doc2">
-								<?php _e( '(=) Valor documento', 'woocommerce-boleto' ); ?>
+								(=) Valor documento
 							</td>
 						</tr>
 						<tr class="campos">
@@ -852,7 +852,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="instrucoes">
-												<?php _e( 'Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)', 'woocommerce-boleto' ); ?>
+												Instru&ccedil;&otilde;es (Texto de responsabilidade do benefici&aacute;rio)
 											</td>
 										</tr>
 										<tr class="campos">
@@ -890,7 +890,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="desconto2">
-												<?php _e( '(-) Desconto / Abatimento', 'woocommerce-boleto' ); ?>
+												(-) Desconto / Abatimento
 											</td>
 										</tr>
 										<tr class="campos">
@@ -908,7 +908,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="outras_deducoes2">
-												<?php _e( '(-) Outras dedu&ccedil;&otilde;es', 'woocommerce-boleto' ); ?>
+												(-) Outras dedu&ccedil;&otilde;es
 											</td>
 										</tr>
 										<tr class="campos">
@@ -926,7 +926,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="mora_multa2">
-												<?php _e( '(+) Mora / Multa', 'woocommerce-boleto' ); ?>
+												(+) Mora / Multa
 											</td>
 										</tr>
 										<tr class="campos">
@@ -944,7 +944,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="outros_acrescimos2">
-												<?php _e( '(+) Outros Acr&eacute;scimos', 'woocommerce-boleto' ); ?>
+												(+) Outros Acr&eacute;scimos
 											</td>
 										</tr>
 										<tr class="campos">
@@ -962,7 +962,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 									<tbody>
 										<tr class="titulos">
 											<td class="valor_cobrado2">
-												<?php _e( '(=) Valor cobrado', 'woocommerce-boleto' ); ?>
+												(=) Valor cobrado
 											</td>
 										</tr>
 										<tr class="campos">
@@ -980,7 +980,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="sacado2">
-								<?php _e( 'Sacado', 'woocommerce-boleto' ); ?>
+								Pagador
 							</td>
 						</tr>
 						<tr class="campos">
@@ -1002,7 +1002,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr class="titulos">
 							<td class="sacador_avalista" colspan="2">
-								<?php _e( 'Sacador/Avalista', 'woocommerce-boleto' ); ?>
+								Pagador/Avalista
 							</td>
 						</tr>
 						<tr class="campos">
@@ -1010,7 +1010,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 								&nbsp;
 							</td>
 							<td class="cod_baixa">
-								<?php _e( 'C&oacute;d. baixa', 'woocommerce-boleto' ); ?>
+								C&oacute;d. baixa
 							</td>
 						</tr>
 					</tbody>
@@ -1019,7 +1019,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 					<tbody>
 						<tr>
 							<td width="666" align="right">
-								<font style="font-size: 10px;"><?php _e( 'Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa&ccedil;&atilde;o', 'woocommerce-boleto' ); ?></font>
+								<font style="font-size: 10px;">Autentica&ccedil;&atilde;o mec&acirc;nica - Ficha de Compensa&ccedil;&atilde;o</font>
 							</td>
 						</tr>
 					</tbody>
@@ -1031,7 +1031,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
 				</div>
 				<div class="cut">
 					<p>
-						<?php _e( 'Corte na linha pontilhada', 'woocommerce-boleto' ); ?>
+						Corte na linha pontilhada
 					</p>
 				</div>
 			</div>

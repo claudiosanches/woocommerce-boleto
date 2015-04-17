@@ -360,7 +360,7 @@ function monta_linha_digitavel( $codigo ) {
     // 6 a 9    Fator de Vencimento
     // 10 a 19  Valor (8 inteiros e 2 decimais)
     //          Campo Livre definido por cada banco (25 caracteres)
-    // 20 a 26  Código do Cedente
+    // 20 a 26  Código do Benefici&aacute;rio
     // 27 a 39  Código do Documento
     // 40 a 43  Data de Vencimento em Juliano (mmmy)
     // 44       Código do aplicativo CNR = 2

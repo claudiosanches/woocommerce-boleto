@@ -339,7 +339,7 @@ function monta_linha_digitavel( $codigo ) {
     // 20-23    -> Código da Agencia (sem dígito)
     // 24-05    -> Número da Carteira
     // 26-36    -> Nosso Número (sem dígito)
-    // 37-43    -> Conta do Cedente (sem dígito)
+    // 37-43    -> Conta do Benefici&aacute;rio (sem dígito)
     // 44-44    -> Zero (Fixo)
 
 

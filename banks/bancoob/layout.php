@@ -465,8 +465,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="cedente">Cedente</td>
-                        <td class="ag_cod_cedente">Ag&ecirc;ncia / C&oacute;digo do Cedente</td>
+                        <td class="cedente">Benefici&aacute;rio</td>
+                        <td class="ag_cod_cedente">Ag&ecirc;ncia / C&oacute;digo do Benefici&aacute;rio</td>
                         <td class="especie">Esp&eacute;cie</td>
                         <td class="qtd">Quantidade</td>
                         <td class="nosso_numero">Nosso N&uacute;mero</td>
@@ -542,7 +542,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="sacado">Sacado</td>
+                        <td class="sacado">Pagador</td>
                     </tr>
                     <tr class="campos">
                         <td class="sacado"><?php echo $dadosboleto["sacado"]?></td>
@@ -593,8 +593,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="cedente2">Cedente</td>
-                        <td class="ag_cod_cedente2">Ag&ecirc;ncia/Código cedente</td>
+                        <td class="cedente2">Benefici&aacute;rio</td>
+                        <td class="ag_cod_cedente2">Ag&ecirc;ncia/Código benefici&aacute;rio</td>
                     </tr>
                     <tr class="campos">
                         <td class="cedente2">
@@ -659,7 +659,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
                                 <tbody>
                                     <tr class="titulos">
                                         <td class="instrucoes">
-                                            Instruções (Texto de responsabilidade do cedente)
+                                            Instruções (Texto de responsabilidade do benefici&aacute;rio)
                                         </td>
                                     </tr>
                                     <tr class="campos">
@@ -753,7 +753,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellPadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="sacado2">Sacado</td>
+                        <td class="sacado2">Pagador</td>
                     </tr>
                     <tr class="campos">
                         <td class="sacado2">
@@ -768,7 +768,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly.
             <table class="line" cellspacing="0" cellpadding="0">
                 <tbody>
                     <tr class="titulos">
-                        <td class="sacador_avalista" colspan="2">Sacador/Avalista</td>
+                        <td class="sacador_avalista" colspan="2">Pagador/Avalista</td>
                     </tr>
                     <tr class="campos">
                         <td class="sacador_avalista">&nbsp;</td>

@@ -44,7 +44,7 @@ $conta_dv = formata_numero( $dadosboleto["conta_dv"], 1, 0 );
 //carteira é 2 caracteres
 $carteira = $dadosboleto["carteira"];
 
-//conta cedente (sem dv) com 11 digitos   (Operacao de 3 digitos + Cedente de 8 digitos)
+//conta cedente (sem dv) com 11 digitos   (Operacao de 3 digitos + Benefici&aacute;rio de 8 digitos)
 $conta_cedente = formata_numero( $dadosboleto["conta_cedente"], 11, 0 );
 //dv da conta cedente
 $conta_cedente_dv = formata_numero( $dadosboleto["conta_cedente_dv"], 1, 0 );
