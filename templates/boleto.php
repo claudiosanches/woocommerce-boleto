@@ -8,7 +8,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-global $wp_query, $woocommerce;
+@ob_start();
+
+global $wp_query;
 
 // Support for plugin older versions.
 $boleto_code = isset( $_GET['ref'] ) ? $_GET['ref'] : $wp_query->query_vars['boleto'];
@@ -77,6 +79,7 @@ if ( isset( $boleto_code ) ) {
 			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '2.1', '>=' ) ) {
 				$address = WC()->countries->get_formatted_address( $address_fields );
 			} else {
+				global $woocommerce;
 				$address = $woocommerce->countries->get_formatted_address( $address_fields );
 			}
 

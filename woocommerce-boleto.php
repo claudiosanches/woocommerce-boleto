@@ -54,7 +54,7 @@ class WC_Boleto {
 			}
 
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'add_gateway' ) );
-			add_action( 'init', array( $this, 'add_boleto_endpoint' ) );
+			add_action( 'init', array( __CLASS__, 'add_boleto_endpoint' ) );
 			add_action( 'template_include', array( $this, 'boleto_template' ) );
 			add_action( 'woocommerce_view_order', array( $this, 'pending_payment_message' ) );
 		} else {
@@ -78,8 +78,6 @@ class WC_Boleto {
 
 	/**
 	 * Load the plugin text domain for translation.
-	 *
-	 * @return void
 	 */
 	public function load_plugin_textdomain() {
 		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-boleto' );
@@ -90,8 +88,6 @@ class WC_Boleto {
 
 	/**
 	 * Includes.
-	 *
-	 * @return void
 	 */
 	private function includes() {
 		include_once 'includes/class-wc-boleto-gateway.php';
@@ -99,8 +95,6 @@ class WC_Boleto {
 
 	/**
 	 * Includes.
-	 *
-	 * @return void
 	 */
 	private function admin_includes() {
 		require_once 'includes/class-wc-boleto-admin.php';
@@ -121,29 +115,22 @@ class WC_Boleto {
 
 	/**
 	 * Created the boleto endpoint.
-	 *
-	 * @return void
 	 */
-	public function add_boleto_endpoint() {
+	public static function add_boleto_endpoint() {
 		add_rewrite_endpoint( 'boleto', EP_PERMALINK | EP_ROOT );
 	}
 
 	/**
 	 * Plugin activate method.
-	 *
-	 * @return void
 	 */
 	public static function activate() {
-		// Add the boleto endpoint.
-		add_rewrite_endpoint( 'boleto', EP_PERMALINK | EP_ROOT );
+		self::add_boleto_endpoint();
 
 		flush_rewrite_rules();
 	}
 
 	/**
 	 * Plugin deactivate method.
-	 *
-	 * @return void
 	 */
 	public static function deactivate() {
 		flush_rewrite_rules();
@@ -152,7 +139,7 @@ class WC_Boleto {
 	/**
 	 * Add custom template page.
 	 *
-	 * @param   [varname] [description]
+	 * @param  string $template
 	 *
 	 * @return string
 	 */
@@ -229,7 +216,7 @@ register_deactivation_hook( __FILE__, array( 'WC_Boleto', 'deactivate' ) );
 /**
  * Initialize the plugin.
  */
-add_action( 'plugins_loaded', array( 'WC_Boleto', 'get_instance' ), 0 );
+add_action( 'plugins_loaded', array( 'WC_Boleto', 'get_instance' ) );
 
 endif;
 
