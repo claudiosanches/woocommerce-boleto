@@ -172,7 +172,7 @@ class WC_Boleto {
 	 * @return string       Boleto URL.
 	 */
 	public static function get_boleto_url( $code ) {
-		$home = esc_url( home_url( '/' ) );
+		$home = home_url( '/' );
 
 		if ( get_option( 'permalink_structure' ) ) {
 			$url = trailingslashit( $home ) . 'boleto/' . $code;
@@ -195,7 +195,7 @@ class WC_Boleto {
 
 		if ( 'on-hold' === $order->status && 'boleto' == $order->payment_method ) {
 			$html = '<div class="woocommerce-info">';
-			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', wc_boleto_get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
+			$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', esc_url( wc_boleto_get_boleto_url( $order->order_key ) ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
 
 			$message = sprintf( __( '%sAttention!%s Not registered the payment the docket for this product yet.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
 			$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';

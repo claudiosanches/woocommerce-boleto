@@ -686,7 +686,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 	 */
 	public function thankyou_page() {
 		$html = '<div class="woocommerce-message">';
-		$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', wc_boleto_get_boleto_url( $_GET['key'] ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
+		$html .= sprintf( '<a class="button" href="%s" target="_blank" style="display: block !important; visibility: visible !important;">%s</a>', esc_url( wc_boleto_get_boleto_url( $_GET['key'] ) ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) );
 
 		$message = sprintf( __( '%sAttention!%s You will not get the ticket by Correios.', 'woocommerce-boleto' ), '<strong>', '</strong>' ) . '<br />';
 		$message .= __( 'Please click the following button and pay the Ticket in your Internet Banking.', 'woocommerce-boleto' ) . '<br />';
@@ -741,7 +741,7 @@ class WC_Boleto_Gateway extends WC_Payment_Gateway {
 
 		$html .= apply_filters( 'wcboleto_email_instructions', $message );
 
-		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', wc_boleto_get_boleto_url( $order->order_key ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '<br />';
+		$html .= '<br />' . sprintf( '<a class="button" href="%s" target="_blank">%s</a>', esc_url( wc_boleto_get_boleto_url( $order->order_key ) ), __( 'Pay the Ticket &rarr;', 'woocommerce-boleto' ) ) . '<br />';
 
 		$html .= '<strong style="font-size: 0.8em">' . sprintf( __( 'Validity of the Ticket: %s.', 'woocommerce-boleto' ), date( 'd/m/Y', time() + ( absint( $this->boleto_time ) * 86400 ) ) ) . '</strong>';
 
