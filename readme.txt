@@ -3,7 +3,7 @@ Contributors: claudiosanches, deblyn
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco, bancoob
 Requires at least: 3.9
 Tested up to: 4.2
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -130,6 +130,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 2. Metabox onde é possível pegar o link do boleto e também alterar a data de vencimento.
 
 == Changelog ==
+
+= 1.5.1 - 2015/04/21 =
+
+* Correção na exibição das URLs dos boletos.
 
 = 1.5.0 - 2015/04/17 =
 
