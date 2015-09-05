@@ -1,9 +1,9 @@
 === WooCommerce Boleto ===
-Contributors: claudiosanches, deblyn
+Contributors: claudiosanches, deblynprado
 Tags: woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco, bancoob
 Requires at least: 3.9
-Tested up to: 4.2
-Stable tag: 1.5.1
+Tested up to: 4.3
+Stable tag: 1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,7 +32,7 @@ Este plugin foi desenvolvido usando o [BoletoPHP](http://boletophp.com.br/).
 
 = Compatibilidade =
 
-* [WooCommerce](https://wordpress.org/plugins/woocommerce) - Para as versões 2.2.x ou 2.3.x.
+* [WooCommerce](https://wordpress.org/plugins/woocommerce) - Para as versões 2.2.x, 2.3.x ou 2.4.x.
 * [WooCommerce Extra Checkout Fields for Brazil](http://wordpress.org/plugins/woocommerce-extra-checkout-fields-for-brazil/) - Para preenchimento do endereço e CPF/CNPJ no boleto.
 * [WPML/WooCommerce Multilingual](https://wordpress.org/plugins/woocommerce-multilingual/).
 
@@ -131,6 +131,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Changelog ==
 
+= 1.5.2 - 2015/09/05 =
+
+* Corrigida a prioridade do método que exibe os templates dos boletos (isso corrige problemas de boletos não abrindo em alguns temas).
+
 = 1.5.1 - 2015/04/21 =
 
 * Correção na exibição das URLs dos boletos.
@@ -216,17 +220,9 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 == Upgrade Notice ==
 
-= 1.5.0 =
+= 1.5.2 =
 
-* Adicionado suporte para boletos do banco Bancoob (obrigado [douglastycho](https://github.com/douglastycho)).
-* Alterado as nomenclaturas de CEDENTE para BENEFICIÁRIO e de SACADO para PAGADOR para tornar o plugin complacente com as mudanças da lei 3.656 do Banco Central.
-* Adicionado CPF ou CNPJ nas informações do beneficiário para tornar o plugin complacente com as mudanças da lei 3.656 do Banco Central.
-* Forçada a exibição do botão do boleto após o pagamento (alguns temas oultam o botão).
-* Criado filtro woocommerce_boleto_url.
-* Adicionada função wc_boleto_get_boleto_url() que recupera a URL do boleto com base na chave do pedido.
-* Adicionada função wc_boleto_get_boleto_url_by_order_id() que recupera a URL do boleto com base no ID do pedido.
-* Adicionada compatibilidade com o plugin WooCommerce Extra Checkout Fields para que seja possível pegar CPF e CNPJ dos clientes.
-* Corrigido problemas de exibição dos boletos que era causado em alguns temas.
+* Corrigida a prioridade do método que exibe os templates dos boletos (isso corrige problemas de boletos não abrindo em alguns temas).
 
 == License ==
 
