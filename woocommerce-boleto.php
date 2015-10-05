@@ -55,7 +55,7 @@ class WC_Boleto {
 
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'add_gateway' ) );
 			add_action( 'init', array( __CLASS__, 'add_boleto_endpoint' ) );
-			add_action( 'template_include', array( $this, 'boleto_template' ), 9999 );
+			add_filter( 'template_include', array( $this, 'boleto_template' ), 9999 );
 			add_action( 'woocommerce_view_order', array( $this, 'pending_payment_message' ) );
 			add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), array( $this, 'plugin_action_links' ) );
 		} else {
