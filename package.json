@@ -1,7 +1,7 @@
 {
   "name": "woocommerce-boleto",
   "description": "WooCommerce Boleto is a brazilian payment gateway for WooCommerce",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/claudiosmweb/woocommerce-boleto.git"

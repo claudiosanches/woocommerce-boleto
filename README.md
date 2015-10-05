@@ -3,7 +3,7 @@
 **Tags:** woocommerce, boleto, banco do brasil, bradesco, caixa, hsbc, itau, nossa caixa, real, santander, unibanco, bancoob  
 **Requires at least:** 3.9  
 **Tested up to:** 4.3  
-**Stable tag:** 1.5.2  
+**Stable tag:** 1.5.3  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -20,7 +20,7 @@ São aceitos boletos dos bancos:
 * Bradesco
 * Caixa Economica Federal
 * HSBC
-* Itau
+* Itaú (recomendado utilizar o plugin [WooCommerce Itau Shopline](https://wordpress.org/plugins/wc-itau-shopline/) no lugar)
 * Nossa Caixa
 * Real
 * Santander
@@ -39,6 +39,10 @@ Este plugin foi desenvolvido usando o [BoletoPHP](http://boletophp.com.br/).
 ### Instalação: ###
 
 Confira o nosso guia de instalação e configuração do Boleto na aba [Installation](http://wordpress.org/extend/plugins/woocommerce-boleto/installation/).
+
+### Add-ons ###
+
+* [Gerar boletos em PDF](https://wordpress.org/plugins/wc-boleto-pdf/).
 
 ### Dúvidas? ###
 
@@ -101,7 +105,7 @@ Assim como os arquivos do [BoletoPHP](http://boletophp.com.br/). Cada arquivo do
 * Bradesco
 * Caixa Economica Federal
 * HSBC
-* Itau
+* Itaú (recomendado utilizar o plugin [WooCommerce Itau Shopline](https://wordpress.org/plugins/wc-itau-shopline/) no lugar)
 * Nossa Caixa
 * Real
 * Santander
@@ -120,6 +124,10 @@ Crie um *Issue* em nosso [fórum no GitHub](https://github.com/claudiosmweb/wooc
 
 Infelizmente não.
 
+### Como posso exibir os boletos no formato PDF? ###
+
+É possível gerar os boletos no formato PDF utilizando o plugin [WooCommerce Boleto - PDF Add-on](https://wordpress.org/plugins/wc-boleto-pdf/).
+
 ### Quer colaborar? ###
 
 Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/woocommerce-boleto/).
@@ -134,6 +142,11 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 
 ## Changelog ##
+
+### 1.5.3 - 2015/10/04 ###
+
+* Adicionado action para ajudar a utilização do plugin "WooCommerce Boleto - PDF Add-on".
+* Corrigido filtro `add_filter`.
 
 ### 1.5.2 - 2015/09/05 ###
 
@@ -224,9 +237,10 @@ Envie sugestões ou *Pull Requests* em [GitHub](https://github.com/claudiosmweb/
 
 ## Upgrade Notice ##
 
-### 1.5.2 ###
+### 1.5.3 ###
 
-* Corrigida a prioridade do método que exibe os templates dos boletos (isso corrige problemas de boletos não abrindo em alguns temas).
+* Adicionado action para ajudar a utilização do plugin "WooCommerce Boleto - PDF Add-on".
+* Corrigido filtro `add_filter`.
 
 ## License ##
 
