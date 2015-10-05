@@ -31,3 +31,5 @@ $reviews_url = 'https://wordpress.org/support/view/plugin-reviews/woocommerce-bo
 <table class="form-table">
 	<?php $this->generate_settings_html(); ?>
 </table>
+
+<?php do_action( 'woocommerce_boleto_admin_settings' ); ?>
