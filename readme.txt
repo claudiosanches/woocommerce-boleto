@@ -30,6 +30,8 @@ O plugin WooCommerce Boleto foi desenvolvido sem nenhum incentivo de nenhum dos 
 
 Este plugin foi desenvolvido usando o [BoletoPHP](http://boletophp.com.br/).
 
+Este plugin não dá suporte a [boletos registrados](https://portal.febraban.org.br/pagina/3150/1094/pt-br/publicacoes-novo-plataforma-boletos).
+
 = Compatibilidade =
 
 * [WooCommerce](https://wordpress.org/plugins/woocommerce) - Para as versões 2.2.x, 2.3.x ou 2.4.x.
@@ -115,6 +117,11 @@ Assim como os arquivos do [BoletoPHP](http://boletophp.com.br/). Cada arquivo do
 
 Não!  
 O plugin permite que você venda utilizando boletos de apenas um banco.
+
+= Posso vender usando boletos registrados? =
+
+Não!  
+O plugin não dá suporte a boletos registrados.
 
 = Mais dúvidas relacionadas ao funcionamento do plugin? =
 
