@@ -1,6 +1,6 @@
 ## WooCommerce Boleto
 
-Este plugin é obsoleto, uma vez que agora todos os boletos devem ser registrados.
+Este plugin é obsoleto e não deve ser utilizado por ninguém, uma vez que agora todos os boletos devem ser registrados.
 
 No momento tem algumas opções disponiveis:
 
